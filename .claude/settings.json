@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -v -L -A \"Mozilla/5.0\" --max-time 10 \"https://www.autoskolanecas.cz/contact-us\")",
+      "Bash(curl -L -A Mozilla/5.0 --max-time 15 -o /dev/null -s -w '%{http_code}' https://web.archive.org/web/2025/https://www.autoskolanecas.cz/__TRACKED_VAR__)",
+      "Bash(curl -s \"https://web.archive.org/web/2025/https://www.autoskolanecas.cz/our-instructors\" -L --max-time 20 -o /tmp/wb_fleet.html)",
+      "Bash(curl -s \"https://web.archive.org/web/2025/https://www.autoskolanecas.cz/about\" -L --max-time 25 -o /tmp/wb_about2.html)",
+      "WebFetch(domain:web.archive.org)",
+      "WebFetch(domain:www.autoskolanecas.cz)",
+      "Bash(python3 -c ' *)",
+      "Bash(curl -s \"https://web.archive.org/web/20251011191424/https://www.autoskolanecas.cz/kopie-skupina-a\" -o /tmp/wb_skupina_b.html)",
+      "Read(//home/radunan/**)",
+      "Bash(npx create-next-app@latest necas-next --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\")",
+      "Bash(npm install *)",
+      "Bash(curl -s http://localhost:3000/)",
+      "Bash(pkill -f \"next dev\")",
+      "Bash(npm uninstall *)",
+      "Bash(curl -s http://localhost:3000/cenik)",
+      "Bash(curl -s http://localhost:3000/vozovy-park)",
+      "Bash(curl -s http://localhost:3000/instruktori)",
+      "Bash(curl -s -o /dev/null -w '%{http_code}' http://localhost:3000__TRACKED_VAR__)",
+      "Bash(npx tsc *)"
+    ],
+    "additionalDirectories": [
+      "/home/radunan/necas-next",
+      "/tmp"
+    ]
+  }
+}

@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Vozový park — Autoškola Nečas Ústí nad Labem</title>
+<meta name="description" content="Vozový park Autoškoly Nečas — motocykly skupin A, AM, A1, A2 a osobní automobily skupiny B. Ústí nad Labem, tel: 606 222 935." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#E63329; --red-2:#FF4A3F; --red-soft:rgba(230,51,41,.12);
+  --ink:#0F1117; --ink-2:#1A1F2E; --ink-3:#262B38;
+  --paper:#F5F4F2; --paper-2:#ECEAE5;
+  --line:rgba(15,17,23,.10); --line-dark:rgba(255,255,255,.10);
+  --muted:rgba(15,17,23,.62); --muted-dark:rgba(255,255,255,.62);
+  --r-sm:8px; --r-md:14px; --r-lg:20px;
+  --max:1240px; --pad:clamp(20px, 4vw, 56px);
+  --f-display:'Barlow Condensed', system-ui, sans-serif;
+  --f-text:'DM Sans', system-ui, sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-behavior:smooth; -webkit-text-size-adjust:100%}
+body{font-family:var(--f-text); color:var(--ink); background:var(--paper); font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility}
+img{max-width:100%; display:block}
+a{color:inherit}
+button{font-family:inherit; cursor:pointer; border:none; background:none; color:inherit}
+.container{max-width:var(--max); margin:0 auto; padding:0 var(--pad)}
+
+h1,h2,h3,h4{font-family:var(--f-display); font-weight:800; letter-spacing:-0.01em; line-height:0.96; margin:0; text-transform:uppercase}
+h1{font-size:clamp(56px, 9vw, 128px); letter-spacing:-0.02em}
+h2{font-size:clamp(40px, 5.5vw, 76px); letter-spacing:-0.015em}
+h3{font-size:24px; line-height:1.1; letter-spacing:0; text-transform:none; font-weight:700}
+p{margin:0 0 1em 0}
+.accent{color:var(--red)}
+.eyebrow{display:inline-flex; align-items:center; gap:10px; font-family:var(--f-text); font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--red); padding:8px 14px; border:1px solid var(--red-soft); background:var(--red-soft); border-radius:999px}
+
+.btn{display:inline-flex; align-items:center; gap:10px; padding:14px 22px; border-radius:999px; font-family:var(--f-text); font-weight:600; font-size:15px; text-decoration:none; transition:transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease, border-color .18s ease; white-space:nowrap; border:1.5px solid transparent; cursor:pointer}
+.btn svg{width:16px; height:16px}
+.btn--sm{padding:10px 16px; font-size:13px}
+.btn--primary{background:var(--red); color:#fff; box-shadow:0 8px 22px -8px rgba(230,51,41,.55)}
+.btn--primary:hover{background:#d2271e; transform:translateY(-1px); box-shadow:0 14px 32px -10px rgba(230,51,41,.7)}
+.btn--ghost-dark{background:transparent; color:#fff; border-color:rgba(255,255,255,.30)}
+.btn--ghost-dark:hover{background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.5)}
+
+/* NAV */
+.nav{position:sticky; top:0; z-index:50; background:rgba(245,244,242,.85); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid transparent; transition:box-shadow .25s ease, border-color .25s ease, background .25s ease}
+.nav.is-scrolled{box-shadow:0 8px 28px -16px rgba(15,17,23,.18); border-bottom-color:var(--line); background:rgba(245,244,242,.95)}
+.nav__inner{display:flex; align-items:center; justify-content:space-between; height:74px; max-width:var(--max); margin:0 auto; padding:0 var(--pad)}
+.logo{display:inline-flex; align-items:baseline; gap:2px; font-family:var(--f-display); font-weight:900; font-size:24px; letter-spacing:-.01em; text-transform:uppercase; color:var(--ink); text-decoration:none}
+.logo .dot{color:var(--red)}
+.logo .small{font-family:var(--f-text); font-weight:500; font-size:11px; letter-spacing:.18em; color:var(--muted); text-transform:uppercase; margin-left:8px}
+.nav__links{display:flex; align-items:center; gap:6px}
+.nav__links a{text-decoration:none; color:var(--ink); padding:10px 14px; font-size:14.5px; font-weight:500; border-radius:999px; transition:background .15s ease, color .15s ease}
+.nav__links a:hover{background:rgba(15,17,23,.06)}
+.nav__links a.active{background:rgba(15,17,23,.06); font-weight:600}
+.nav__cta{display:flex; align-items:center; gap:10px}
+.nav__phone{display:inline-flex; align-items:center; gap:8px; font-size:14px; font-weight:600; text-decoration:none; color:var(--ink); padding:8px 12px; border-radius:999px}
+.nav__phone svg{width:14px; height:14px; color:var(--red)}
+.nav__phone:hover{background:rgba(15,17,23,.06)}
+.nav__burger{display:none; width:42px; height:42px; border-radius:50%; align-items:center; justify-content:center; border:1px solid var(--line)}
+.nav__burger svg{width:20px; height:20px}
+.nav__drawer{position:fixed; inset:0; background:rgba(15,17,23,.5); backdrop-filter:blur(6px); z-index:60; display:none; padding:24px}
+.nav__drawer.is-open{display:flex; flex-direction:column}
+.nav__drawer-card{margin-top:auto; background:#fff; border-radius:24px; padding:24px; display:flex; flex-direction:column; gap:6px}
+.nav__drawer-card a{text-decoration:none; color:var(--ink); padding:14px 16px; border-radius:14px; font-size:18px; font-weight:600; display:flex; justify-content:space-between; align-items:center}
+.nav__drawer-card a:hover{background:var(--paper)}
+.nav__drawer-close{align-self:flex-end; width:42px; height:42px; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center}
+@media (max-width:920px){.nav__links, .nav__phone{display:none} .nav__burger{display:inline-flex}}
+
+/* PAGE HERO */
+.page-hero{background:var(--ink); color:#fff; padding:clamp(80px,11vw,130px) 0 clamp(64px,9vw,104px); position:relative; overflow:hidden}
+.page-hero::before{content:""; position:absolute; inset:0; background:radial-gradient(900px 500px at 80% 0%, rgba(230,51,41,.25), transparent 60%); pointer-events:none}
+.page-hero::after{content:""; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px); background-size:60px 60px; -webkit-mask-image:radial-gradient(ellipse at center, black 40%, transparent 85%); mask-image:radial-gradient(ellipse at center, black 40%, transparent 85%); pointer-events:none}
+.page-hero__inner{position:relative; z-index:1}
+.page-hero .eyebrow{color:#FF8A82; border-color:rgba(255,138,130,.25); background:rgba(255,138,130,.08)}
+.page-hero h1{color:#fff; margin:20px 0 22px; max-width:16ch}
+.page-hero__lead{font-size:clamp(16px, 1.4vw, 19px); color:rgba(255,255,255,.72); max-width:56ch; line-height:1.55; margin:0 0 36px}
+.back-link{display:inline-flex; align-items:center; gap:8px; color:rgba(255,255,255,.45); font-size:13px; font-weight:500; text-decoration:none; margin-bottom:36px; transition:color .15s ease}
+.back-link svg{width:14px; height:14px}
+.back-link:hover{color:rgba(255,255,255,.9)}
+
+/* SECTION */
+.section{padding:clamp(72px, 10vw, 120px) 0}
+.section__head{display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:end; margin-bottom:56px}
+.section__head p{color:var(--muted); font-size:17px; max-width:48ch; margin:0}
+@media (max-width:780px){.section__head{grid-template-columns:1fr; gap:20px; margin-bottom:36px}}
+
+/* FLEET GROUPS */
+.fleet-groups{display:grid; grid-template-columns:repeat(auto-fill, minmax(210px, 1fr)); gap:16px; margin-bottom:48px}
+.fleet-group{background:#fff; border:1.5px solid var(--line); border-radius:var(--r-md); padding:20px 22px}
+.fleet-group__label{font-family:var(--f-display); font-weight:800; font-size:13px; letter-spacing:.1em; text-transform:uppercase; color:var(--red); margin-bottom:8px}
+.fleet-group__list{font-size:13.5px; color:var(--muted); line-height:1.7}
+
+/* GALLERY */
+.gallery{display:grid; grid-template-columns:repeat(4, 1fr); gap:10px}
+.gallery__item{aspect-ratio:3/2; overflow:hidden; border-radius:var(--r-sm); display:block; background:var(--paper-2); cursor:zoom-in}
+.gallery__item img{width:100%; height:100%; object-fit:cover; transition:transform .4s ease}
+.gallery__item:hover img{transform:scale(1.08)}
+@media(max-width:1080px){.gallery{grid-template-columns:repeat(3, 1fr)}}
+@media(max-width:640px){.gallery{grid-template-columns:repeat(2, 1fr)}}
+
+/* LIGHTBOX */
+.lightbox{display:none; position:fixed; inset:0; background:rgba(5,6,10,.94); z-index:200; align-items:center; justify-content:center; padding:20px}
+.lightbox.is-open{display:flex}
+.lightbox__img{max-width:min(92vw, 1200px); max-height:88vh; object-fit:contain; border-radius:6px; display:block; user-select:none}
+.lb-btn{width:48px; height:48px; border-radius:50%; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.18); color:#fff; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:background .15s ease; flex:0 0 auto}
+.lb-btn:hover{background:rgba(255,255,255,.22)}
+.lb-btn svg{width:20px; height:20px}
+.lightbox__close{position:absolute; top:20px; right:20px}
+.lightbox__prev{position:absolute; left:20px; top:50%; transform:translateY(-50%)}
+.lightbox__next{position:absolute; right:20px; top:50%; transform:translateY(-50%)}
+.lightbox__counter{position:absolute; bottom:20px; left:50%; transform:translateX(-50%); color:rgba(255,255,255,.5); font-size:13px; font-weight:500; letter-spacing:.06em}
+@media(max-width:640px){.lightbox__prev, .lightbox__next{display:none}}
+
+/* FOOTER */
+.footer{background:#080A0F; color:#fff; padding:72px 0 32px; position:relative}
+.footer__inner{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:48px; margin-bottom:56px}
+.footer__brand .logo{color:#fff}
+.footer__brand p{color:rgba(255,255,255,.55); font-size:14px; margin:18px 0 0; max-width:34ch}
+.footer h5{font-family:var(--f-display); font-size:14px; text-transform:uppercase; letter-spacing:.08em; color:rgba(255,255,255,.5); font-weight:600; margin-bottom:18px}
+.footer ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px}
+.footer ul a{color:rgba(255,255,255,.85); text-decoration:none; font-size:15px; transition:color .15s ease}
+.footer ul a:hover{color:var(--red-2)}
+.footer__bottom{border-top:1px solid rgba(255,255,255,.08); padding-top:24px; display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; font-size:13px; color:rgba(255,255,255,.4)}
+@media (max-width:880px){.footer__inner{grid-template-columns:1fr 1fr; gap:32px} .footer__brand{grid-column:span 2}}
+@media (max-width:560px){.footer__inner{grid-template-columns:1fr} .footer__brand{grid-column:span 1}}
+
+/* ANIM */
+[data-anim]{opacity:0; transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1)}
+[data-anim="up"]{transform:translateY(24px)}
+[data-anim="fade"]{transform:none}
+[data-anim].in{opacity:1; transform:none}
+[data-delay="1"]{transition-delay:.08s}
+[data-delay="2"]{transition-delay:.16s}
+[data-delay="3"]{transition-delay:.24s}
+@media (prefers-reduced-motion: reduce){*{transition:none !important; animation:none !important} [data-anim]{opacity:1 !important; transform:none !important}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="siteNav" aria-label="Hlavní navigace">
+  <div class="nav__inner">
+    <a href="index.html" class="logo">NEČAS<span class="dot">.</span><span class="small">Autoškola Ústí nad Labem</span></a>
+    <div class="nav__links">
+      <a href="index.html#kurzy">Kurzy</a>
+      <a href="index.html#proc-my">O nás</a>
+      <a href="vozovy-park.html" class="active">Vozový park</a>
+      <a href="index.html#cenik">Ceník</a>
+      <a href="index.html#kontakt">Kontakt</a>
+    </div>
+    <div class="nav__cta">
+      <a href="tel:+420606222935" class="nav__phone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+        606 222 935
+      </a>
+      <a href="index.html#kontakt" class="btn btn--primary btn--sm">Přihlásit se</a>
+      <button class="nav__burger" id="burgerBtn" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="nav__drawer" id="navDrawer">
+    <button class="nav__drawer-close" id="drawerClose"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div class="nav__drawer-card">
+      <a href="index.html#kurzy">Kurzy <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="index.html#proc-my">O nás <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="vozovy-park.html" style="background:var(--paper)">Vozový park <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="index.html#cenik">Ceník <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="index.html#kontakt">Kontakt <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="tel:+420606222935" style="margin-top:8px; background:var(--red); color:#fff;">Zavolat: 606 222 935 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg></a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero__inner">
+      <a href="index.html" class="back-link" data-anim="fade">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Zpět na hlavní stránku
+      </a>
+      <span class="eyebrow" data-anim="fade" data-delay="1">Vozový park · Ústí nad Labem</span>
+      <h1 data-anim="up" data-delay="2">Naše<br/><span class="accent">vozidla</span></h1>
+      <p class="page-hero__lead" data-anim="up" data-delay="3">Průběžně obměňovaný park aut i&nbsp;motocyklů — od skútrů po velká endura. Školy skupin A, AM, A1, A2 i&nbsp;B. Všechna vozidla jsou udržovaná v&nbsp;top stavu.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FLEET -->
+<section class="section" style="background:var(--paper-2)">
+  <div class="container">
+    <div class="fleet-groups" data-anim="up">
+      <div class="fleet-group">
+        <div class="fleet-group__label">Skupina B</div>
+        <div class="fleet-group__list">Seat Arona · Citroën C3 · Škoda Citigo<br/><small>Automat: Toyota Corolla</small></div>
+      </div>
+      <div class="fleet-group">
+        <div class="fleet-group__label">Skupina A</div>
+        <div class="fleet-group__list">Yamaha MT-07 · Yamaha XJ6</div>
+      </div>
+      <div class="fleet-group">
+        <div class="fleet-group__label">Skupina A2</div>
+        <div class="fleet-group__list">Yamaha Tracer&nbsp;7 · Honda Rebel<br/>Automat: Honda ADV&nbsp;350</div>
+      </div>
+      <div class="fleet-group">
+        <div class="fleet-group__label">Skupina A1 / AM</div>
+        <div class="fleet-group__list">Yamaha YBR · Honda CG · Daytona Hobby<br/>Automat: Yamaha N-Max · Aprilia Motard</div>
+      </div>
+      <div class="fleet-group">
+        <div class="fleet-group__label">Doprovodná vozidla</div>
+        <div class="fleet-group__list">Honda Africa Twin · Yamaha Ténéré · Suzuki Hayabusa · Benelli BN&nbsp;125 · Toyota Proace Verso · Toyota Supra</div>
+      </div>
+    </div>
+
+    <div class="gallery" data-anim="up" data-delay="1">
+      <div class="gallery__item"><img src="https://static.wixstatic.com/media/311ddf_df600319b7d3491fb1eeeeebb5ebb361~mv2.jpg/v1/fill/w_800,h_533,al_c,q_85,enc_avif,quality_auto/img.jpg" loading="lazy" alt="Vozidla Autoškola Nečas"/></div>
+      <div class="gallery__item"><img src="https://static.wixstatic.com/media/311ddf_e20c94aca40945698d13d5906f9fe89e~mv2.jpg/v1/fill/w_800,h_533,al_c,q_85,enc_avif,quality_auto/img.jpg" loading="lazy" alt="Vozidla Autoškola Nečas"/></div>
+      <div class="gallery__item"><img src="https://static.wixstatic.com/media/311ddf_66cb9d03b3c4424cb6ff0046a725068b~mv2.jpg/v1/fill/w_800,h_533,al_c,q_85,enc_avif,quality_auto/img.jpg" loading="lazy" alt="Vozidla Autoškola Nečas"/></div>
+      <div class="gallery__item"><img src="https://static.wixstatic.com/media/311ddf_2b813d33c8f04fb08473a28d66c09941~mv2.jpg/v1/fill/w_800,h_533,al_c,q_85,enc_avif,quality_auto/img.jpg" loading="lazy" alt="Vozidla Autoškola Nečas"/></div>
+      <div class="gallery__item"><img src="https://static.wixstatic.com/media/311ddf_e6b82d316fda4284865f1a2b046ac7ce~mv2.jpg/v1/fill/w_800,h_533,al_c,q_85,enc_avif,quality_auto/img.jpg" loading="lazy" alt="Vozidla Autoškola Nečas"/></div>
+      <div class="gallery__item"><img src="https://static.wixstatic.com/media/311ddf_44fbba3970554fa6bead8eee4fa814f4~mv2.jpg/v1/fill/w_800,h_533,al_c,q_85,enc_avif,quality_auto/img.jpg" loading="lazy" alt="Vozidla Autoškola Nečas"/></div>
+      <div class="gallery__item"><img src="https://static.wixstatic.com/media/311ddf_df06936913ce44b9ae812d0e3b3d0f27~mv2.jpg/v1/fill/w_800,h_533,al_c,q_85,enc_avif,quality_auto/img.jpg" loading="lazy" alt="Vozidla Autoškola Nečas"/></div>
+      <div class="gallery__item"><img src="https://static.wixstatic.com/media/311ddf_b3625fd4bf0b42a8b1c46256c40bdb52~mv2.jpg/v1/fill/w_800,h_533,al_c,q_85,enc_avif,quality_auto/img.jpg" loading="lazy" alt="Vozidla Autoškola Nečas"/></div>
+      <div class="gallery__item"><img src="https://static.wixstatic.com/media/311ddf_ac05b970b6104d8eb8de5c3600133068~mv2.jpg/v1/fill/w_800,h_533,al_c,q_85,enc_avif,quality_auto/img.jpg" loading="lazy" alt="Vozidla Autoškola Nečas"/></div>
+      <div class="gallery__item"><img src="https://static.wixstatic.com/media/311ddf_75f270f8656345f69343ec12ed8c3314~mv2.jpg/v1/fill/w_800,h_533,al_c,q_85,enc_avif,quality_auto/img.jpg" loading="lazy" alt="Vozidla Autoškola Nečas"/></div>
+      <div class="gallery__item"><img src="https://static.wixstatic.com/media/311ddf_e68f2bea6e2e43d68c12ca7f46a776c2~mv2.jpg/v1/fill/w_800,h_533,al_c,q_85,enc_avif,quality_auto/img.jpg" loading="lazy" alt="Vozidla Autoškola Nečas"/></div>
+      <div class="gallery__item"><img src="https://static.wixstatic.com/media/311ddf_cc4f815ec11b43e48ab3bc720388a7bf~mv2.jpg/v1/fill/w_800,h_533,al_c,q_85,enc_avif,quality_auto/img.jpg" loading="lazy" alt="Vozidla Autoškola Nečas"/></div>
+      <div class="gallery__item"><img src="https://static.wixstatic.com/media/311ddf_86b57cf536884951bfd30faf989e6814~mv2.jpg/v1/fill/w_800,h_533,al_c,q_85,enc_avif,quality_auto/img.jpg" loading="lazy" alt="Vozidla Autoškola Nečas"/></div>
+      <div class="gallery__item"><img src="https://static.wixstatic.com/media/311ddf_54c16da815744badb70c6211c5540318~mv2.jpg/v1/fill/w_800,h_533,al_c,q_85,enc_avif,quality_auto/img.jpg" loading="lazy" alt="Vozidla Autoškola Nečas"/></div>
+      <div class="gallery__item"><img src="https://static.wixstatic.com/media/311ddf_a073bfc8b1d94ca191f76badfca71814~mv2.jpg/v1/fill/w_800,h_533,al_c,q_85,enc_avif,quality_auto/img.jpg" loading="lazy" alt="Vozidla Autoškola Nečas"/></div>
+      <div class="gallery__item"><img src="https://static.wixstatic.com/media/311ddf_9b35107c2d1d40068d9241c547abe23f~mv2.jpg/v1/fill/w_800,h_533,al_c,q_85,enc_avif,quality_auto/img.jpg" loading="lazy" alt="Vozidla Autoškola Nečas"/></div>
+      <div class="gallery__item"><img src="https://static.wixstatic.com/media/311ddf_1982ad22b6d94030b3b7878d0cb57740~mv2.jpg/v1/fill/w_800,h_533,al_c,q_85,enc_avif,quality_auto/img.jpg" loading="lazy" alt="Vozidla Autoškola Nečas"/></div>
+      <div class="gallery__item"><img src="https://static.wixstatic.com/media/311ddf_2f1e9ea8d4fc4b609d66072a6835bcc6~mv2.jpg/v1/fill/w_800,h_533,al_c,q_85,enc_avif,quality_auto/img.jpg" loading="lazy" alt="Vozidla Autoškola Nečas"/></div>
+      <div class="gallery__item"><img src="https://static.wixstatic.com/media/311ddf_98389604d1b140319525267a1f37bc0d~mv2.jpg/v1/fill/w_800,h_533,al_c,q_85,enc_avif,quality_auto/img.jpg" loading="lazy" alt="Vozidla Autoškola Nečas"/></div>
+      <div class="gallery__item"><img src="https://static.wixstatic.com/media/311ddf_e4e237b92ef246898af84cab21c3a324~mv2.jpg/v1/fill/w_800,h_533,al_c,q_85,enc_avif,quality_auto/img.jpg" loading="lazy" alt="Vozidla Autoškola Nečas"/></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Fotogalerie">
+  <button class="lb-btn lightbox__close" id="lbClose" aria-label="Zavřít">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <button class="lb-btn lightbox__prev" id="lbPrev" aria-label="Předchozí">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  <img class="lightbox__img" id="lbImg" src="" alt="Vozidla Autoškola Nečas"/>
+  <button class="lb-btn lightbox__next" id="lbNext" aria-label="Další">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+  <div class="lightbox__counter" id="lbCounter"></div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <a href="index.html" class="logo">NEČAS<span class="dot">.</span></a>
+        <p>Rodinná autoškola s 33letou tradicí v Ústí nad Labem. Specializace na skupiny A (moto) a B. Vlastní motocvičiště v Chlumci.</p>
+      </div>
+      <div><h5>Stránky</h5><ul><li><a href="index.html#kurzy">Kurzy</a></li><li><a href="index.html#proc-my">O nás</a></li><li><a href="vozovy-park.html">Vozový park</a></li><li><a href="index.html#cenik">Ceník</a></li><li><a href="index.html#kontakt">Kontakt</a></li></ul></div>
+      <div><h5>Kurzy</h5><ul><li><a href="index.html#cenik">Skupiny A — motorky</a></li><li><a href="index.html#cenik">Sdružený A+B</a></li><li><a href="index.html#cenik">AM / A1 / A2</a></li><li><a href="index.html#cenik">Kondiční &amp; doplňkový</a></li></ul></div>
+      <div><h5>Kontakt</h5><ul><li>Žukovova 546/15</li><li>400 03 Ústí nad Labem-Střekov</li><li><a href="tel:+420606222935">+420 606 222 935</a></li><li><a href="mailto:autoskola.necas@seznam.cz">autoskola.necas@seznam.cz</a></li></ul></div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 Autoškola Marek Nečas, Ústí nad Labem · IČ 650 910 86</span>
+      <span>Po–Pá 8:00–17:00</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // nav scroll
+  const navEl = document.getElementById('siteNav');
+  const onScroll = () => navEl.classList.toggle('is-scrolled', window.scrollY > 8);
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  // drawer
+  const burger = document.getElementById('burgerBtn');
+  const drawer = document.getElementById('navDrawer');
+  const drawerClose = document.getElementById('drawerClose');
+  const closeDrawer = () => drawer.classList.remove('is-open');
+  burger.addEventListener('click', () => drawer.classList.add('is-open'));
+  drawerClose.addEventListener('click', closeDrawer);
+  drawer.addEventListener('click', (e) => { if (e.target === drawer) closeDrawer(); });
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
+
+  // intersection animations
+  const animEls = document.querySelectorAll('[data-anim]');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
+    animEls.forEach(el => io.observe(el));
+  } else {
+    animEls.forEach(el => el.classList.add('in'));
+  }
+
+  // lightbox
+  const items = Array.from(document.querySelectorAll('.gallery__item img'));
+  const box = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  const lbCounter = document.getElementById('lbCounter');
+  let cur = 0;
+
+  function openLb(i) {
+    cur = (i + items.length) % items.length;
+    lbImg.src = items[cur].src.replace('/v1/fill/w_800,h_533,al_c,q_85,enc_avif,quality_auto/img.jpg', '');
+    lbCounter.textContent = (cur + 1) + ' / ' + items.length;
+    box.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLb() {
+    box.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.gallery__item').forEach((el, i) => {
+    el.addEventListener('click', () => openLb(i));
+  });
+  document.getElementById('lbClose').addEventListener('click', closeLb);
+  document.getElementById('lbPrev').addEventListener('click', () => openLb(cur - 1));
+  document.getElementById('lbNext').addEventListener('click', () => openLb(cur + 1));
+  box.addEventListener('click', (e) => { if (e.target === box) closeLb(); });
+  document.addEventListener('keydown', (e) => {
+    if (!box.classList.contains('is-open')) return;
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowLeft') openLb(cur - 1);
+    if (e.key === 'ArrowRight') openLb(cur + 1);
+  });
+})();
+</script>
+</body>
+</html>

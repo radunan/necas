@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Instruktoři — Autoškola Nečas Ústí nad Labem</title>
+<meta name="description" content="Poznejte tým Autoškoly Nečas — 5 zkušených instruktorů v čele s Markem Nečasem. 33 let tradice, specializace na skupiny A a B, Ústí nad Labem." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#E63329; --red-2:#FF4A3F; --red-soft:rgba(230,51,41,.12);
+  --ink:#0F1117; --ink-2:#1A1F2E; --ink-3:#262B38;
+  --paper:#F5F4F2; --paper-2:#ECEAE5;
+  --line:rgba(15,17,23,.10); --line-dark:rgba(255,255,255,.10);
+  --muted:rgba(15,17,23,.62); --muted-dark:rgba(255,255,255,.62);
+  --r-sm:8px; --r-md:14px; --r-lg:20px;
+  --max:1240px; --pad:clamp(20px, 4vw, 56px);
+  --f-display:'Barlow Condensed', system-ui, sans-serif;
+  --f-text:'DM Sans', system-ui, sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-behavior:smooth; -webkit-text-size-adjust:100%}
+body{font-family:var(--f-text); color:var(--ink); background:var(--paper); font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility}
+img{max-width:100%; display:block}
+a{color:inherit}
+button{font-family:inherit; cursor:pointer; border:none; background:none; color:inherit}
+.container{max-width:var(--max); margin:0 auto; padding:0 var(--pad)}
+
+h1,h2,h3,h4{font-family:var(--f-display); font-weight:800; letter-spacing:-0.01em; line-height:0.96; margin:0; text-transform:uppercase}
+h1{font-size:clamp(56px, 9vw, 128px); letter-spacing:-0.02em}
+h2{font-size:clamp(40px, 5.5vw, 76px); letter-spacing:-0.015em}
+h3{font-size:24px; line-height:1.1; letter-spacing:0; text-transform:none; font-weight:700}
+p{margin:0 0 1em 0}
+.accent{color:var(--red)}
+.eyebrow{display:inline-flex; align-items:center; gap:10px; font-family:var(--f-text); font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--red); padding:8px 14px; border:1px solid var(--red-soft); background:var(--red-soft); border-radius:999px}
+
+.btn{display:inline-flex; align-items:center; gap:10px; padding:14px 22px; border-radius:999px; font-family:var(--f-text); font-weight:600; font-size:15px; text-decoration:none; transition:transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease, border-color .18s ease; white-space:nowrap; border:1.5px solid transparent; cursor:pointer}
+.btn svg{width:16px; height:16px}
+.btn--sm{padding:10px 16px; font-size:13px}
+.btn--primary{background:var(--red); color:#fff; box-shadow:0 8px 22px -8px rgba(230,51,41,.55)}
+.btn--primary:hover{background:#d2271e; transform:translateY(-1px); box-shadow:0 14px 32px -10px rgba(230,51,41,.7)}
+.btn--ghost-light{background:transparent; color:var(--ink); border-color:rgba(15,17,23,.20)}
+.btn--ghost-light:hover{background:rgba(15,17,23,.05); border-color:var(--ink)}
+
+/* NAV */
+.nav{position:sticky; top:0; z-index:50; background:rgba(245,244,242,.85); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid transparent; transition:box-shadow .25s ease, border-color .25s ease, background .25s ease}
+.nav.is-scrolled{box-shadow:0 8px 28px -16px rgba(15,17,23,.18); border-bottom-color:var(--line); background:rgba(245,244,242,.95)}
+.nav__inner{display:flex; align-items:center; justify-content:space-between; height:74px; max-width:var(--max); margin:0 auto; padding:0 var(--pad)}
+.logo{display:inline-flex; align-items:baseline; gap:2px; font-family:var(--f-display); font-weight:900; font-size:24px; letter-spacing:-.01em; text-transform:uppercase; color:var(--ink); text-decoration:none}
+.logo .dot{color:var(--red)}
+.logo .small{font-family:var(--f-text); font-weight:500; font-size:11px; letter-spacing:.18em; color:var(--muted); text-transform:uppercase; margin-left:8px}
+.nav__links{display:flex; align-items:center; gap:6px}
+.nav__links a{text-decoration:none; color:var(--ink); padding:10px 14px; font-size:14.5px; font-weight:500; border-radius:999px; transition:background .15s ease, color .15s ease}
+.nav__links a:hover{background:rgba(15,17,23,.06)}
+.nav__links a.active{background:rgba(15,17,23,.06); font-weight:600}
+.nav__cta{display:flex; align-items:center; gap:10px}
+.nav__phone{display:inline-flex; align-items:center; gap:8px; font-size:14px; font-weight:600; text-decoration:none; color:var(--ink); padding:8px 12px; border-radius:999px}
+.nav__phone svg{width:14px; height:14px; color:var(--red)}
+.nav__phone:hover{background:rgba(15,17,23,.06)}
+.nav__burger{display:none; width:42px; height:42px; border-radius:50%; align-items:center; justify-content:center; border:1px solid var(--line)}
+.nav__burger svg{width:20px; height:20px}
+.nav__drawer{position:fixed; inset:0; background:rgba(15,17,23,.5); backdrop-filter:blur(6px); z-index:60; display:none; padding:24px}
+.nav__drawer.is-open{display:flex; flex-direction:column}
+.nav__drawer-card{margin-top:auto; background:#fff; border-radius:24px; padding:24px; display:flex; flex-direction:column; gap:6px}
+.nav__drawer-card a{text-decoration:none; color:var(--ink); padding:14px 16px; border-radius:14px; font-size:18px; font-weight:600; display:flex; justify-content:space-between; align-items:center}
+.nav__drawer-card a:hover{background:var(--paper)}
+.nav__drawer-close{align-self:flex-end; width:42px; height:42px; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center}
+@media (max-width:920px){.nav__links, .nav__phone{display:none} .nav__burger{display:inline-flex}}
+
+/* PAGE HERO */
+.page-hero{background:var(--ink); color:#fff; padding:clamp(80px,11vw,130px) 0 clamp(64px,9vw,104px); position:relative; overflow:hidden}
+.page-hero::before{content:""; position:absolute; inset:0; background:radial-gradient(900px 500px at 80% 0%, rgba(230,51,41,.25), transparent 60%); pointer-events:none}
+.page-hero::after{content:""; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px); background-size:60px 60px; -webkit-mask-image:radial-gradient(ellipse at center, black 40%, transparent 85%); mask-image:radial-gradient(ellipse at center, black 40%, transparent 85%); pointer-events:none}
+.page-hero__inner{position:relative; z-index:1}
+.page-hero .eyebrow{color:#FF8A82; border-color:rgba(255,138,130,.25); background:rgba(255,138,130,.08)}
+.page-hero h1{color:#fff; margin:20px 0 22px}
+.page-hero__lead{font-size:clamp(16px, 1.4vw, 19px); color:rgba(255,255,255,.72); max-width:56ch; line-height:1.55; margin:0}
+.back-link{display:inline-flex; align-items:center; gap:8px; color:rgba(255,255,255,.45); font-size:13px; font-weight:500; text-decoration:none; margin-bottom:36px; transition:color .15s ease}
+.back-link svg{width:14px; height:14px}
+.back-link:hover{color:rgba(255,255,255,.9)}
+
+/* SECTION */
+.section{padding:clamp(72px, 10vw, 120px) 0}
+
+/* STATS BAR */
+.team-stats{background:var(--ink-2); color:#fff; padding:36px 0}
+.team-stats__grid{display:grid; grid-template-columns:repeat(4, 1fr); gap:32px}
+.tstat__num{font-family:var(--f-display); font-weight:900; font-size:clamp(40px,4.5vw,60px); line-height:1; color:var(--red); letter-spacing:-.02em}
+.tstat__lbl{margin-top:8px; font-size:13px; color:rgba(255,255,255,.6)}
+@media(max-width:780px){.team-stats__grid{grid-template-columns:repeat(2,1fr); gap:24px}}
+
+/* FOUNDER CARD */
+.founder{background:var(--ink); color:#fff; border-radius:var(--r-lg); padding:clamp(32px,4vw,52px); display:grid; grid-template-columns:auto 1fr; gap:clamp(28px,4vw,52px); align-items:start; position:relative; overflow:hidden; margin-bottom:24px}
+.founder::before{content:""; position:absolute; inset:0; background:radial-gradient(closest-side, rgba(230,51,41,.28), transparent 70%); top:-40%; right:-20%; width:70%; height:90%; filter:blur(40px); pointer-events:none}
+.founder > *{position:relative; z-index:1}
+.founder__avatar{width:100px; height:100px; border-radius:50%; background:linear-gradient(135deg, var(--red), #8b0e08); color:#fff; font-family:var(--f-display); font-weight:900; font-size:36px; display:flex; align-items:center; justify-content:center; flex-shrink:0; border:3px solid rgba(255,255,255,.12)}
+.founder__badge{display:inline-flex; align-items:center; gap:8px; background:rgba(230,51,41,.18); border:1px solid rgba(230,51,41,.35); color:#FF8A82; font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:5px 12px; border-radius:999px; margin-bottom:14px}
+.founder__name{font-family:var(--f-display); font-weight:900; font-size:clamp(32px,4vw,56px); text-transform:uppercase; color:#fff; line-height:1; margin-bottom:6px}
+.founder__role{font-size:13px; font-weight:600; color:rgba(255,255,255,.5); letter-spacing:.08em; text-transform:uppercase; margin-bottom:20px}
+.founder__bio{font-size:16px; line-height:1.7; color:rgba(255,255,255,.75); max-width:68ch}
+@media(max-width:640px){.founder{grid-template-columns:1fr} .founder__avatar{width:72px; height:72px; font-size:26px}}
+
+/* INSTRUCTOR GRID */
+.instructors{display:grid; grid-template-columns:repeat(2, 1fr); gap:20px}
+.instructor{background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); padding:32px 28px; display:flex; flex-direction:column; transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease; position:relative}
+.instructor:hover{transform:translateY(-4px); box-shadow:0 24px 50px -24px rgba(15,17,23,.18); border-color:rgba(230,51,41,.30)}
+.instructor__head{display:flex; align-items:center; gap:18px; margin-bottom:20px}
+.instructor__avatar{width:64px; height:64px; border-radius:50%; background:linear-gradient(135deg, var(--ink-2), var(--ink-3)); color:#fff; font-family:var(--f-display); font-weight:900; font-size:22px; display:flex; align-items:center; justify-content:center; flex-shrink:0}
+.instructor__name{font-family:var(--f-display); font-weight:900; font-size:26px; text-transform:uppercase; line-height:1; color:var(--ink)}
+.instructor__role{font-size:12px; font-weight:600; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; margin-top:4px}
+.instructor__years{position:absolute; top:24px; right:24px; font-family:var(--f-display); font-weight:900; font-size:13px; letter-spacing:.06em; color:var(--red); background:var(--red-soft); padding:5px 11px; border-radius:999px}
+.instructor__bio{font-size:14.5px; line-height:1.65; color:var(--muted); flex:1}
+@media(max-width:780px){.instructors{grid-template-columns:1fr}}
+
+/* FOOTER */
+.footer{background:#080A0F; color:#fff; padding:72px 0 32px; position:relative}
+.footer__inner{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:48px; margin-bottom:56px}
+.footer__brand .logo{color:#fff}
+.footer__brand p{color:rgba(255,255,255,.55); font-size:14px; margin:18px 0 0; max-width:34ch}
+.footer h5{font-family:var(--f-display); font-size:14px; text-transform:uppercase; letter-spacing:.08em; color:rgba(255,255,255,.5); font-weight:600; margin-bottom:18px}
+.footer ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px}
+.footer ul a{color:rgba(255,255,255,.85); text-decoration:none; font-size:15px; transition:color .15s ease}
+.footer ul a:hover{color:var(--red-2)}
+.footer__bottom{border-top:1px solid rgba(255,255,255,.08); padding-top:24px; display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; font-size:13px; color:rgba(255,255,255,.4)}
+@media (max-width:880px){.footer__inner{grid-template-columns:1fr 1fr; gap:32px} .footer__brand{grid-column:span 2}}
+@media (max-width:560px){.footer__inner{grid-template-columns:1fr} .footer__brand{grid-column:span 1}}
+
+/* ANIM */
+[data-anim]{opacity:0; transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1)}
+[data-anim="up"]{transform:translateY(24px)}
+[data-anim="fade"]{transform:none}
+[data-anim].in{opacity:1; transform:none}
+[data-delay="1"]{transition-delay:.08s}
+[data-delay="2"]{transition-delay:.16s}
+[data-delay="3"]{transition-delay:.24s}
+[data-delay="4"]{transition-delay:.32s}
+@media (prefers-reduced-motion: reduce){*{transition:none !important; animation:none !important} [data-anim]{opacity:1 !important; transform:none !important}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="siteNav" aria-label="Hlavní navigace">
+  <div class="nav__inner">
+    <a href="index.html" class="logo">NEČAS<span class="dot">.</span><span class="small">Autoškola Ústí nad Labem</span></a>
+    <div class="nav__links">
+      <a href="index.html#kurzy">Kurzy</a>
+      <a href="instruktori.html" class="active">Instruktoři</a>
+      <a href="vozovy-park.html">Vozový park</a>
+      <a href="cenik.html">Ceník</a>
+      <a href="index.html#kontakt">Kontakt</a>
+    </div>
+    <div class="nav__cta">
+      <a href="tel:+420606222935" class="nav__phone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+        606 222 935
+      </a>
+      <a href="index.html#kontakt" class="btn btn--primary btn--sm">Přihlásit se</a>
+      <button class="nav__burger" id="burgerBtn" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="nav__drawer" id="navDrawer">
+    <button class="nav__drawer-close" id="drawerClose"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div class="nav__drawer-card">
+      <a href="index.html#kurzy">Kurzy <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="instruktori.html" style="background:var(--paper)">Instruktoři <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="vozovy-park.html">Vozový park <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="cenik.html">Ceník <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="index.html#kontakt">Kontakt <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="tel:+420606222935" style="margin-top:8px; background:var(--red); color:#fff;">Zavolat: 606 222 935 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg></a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero__inner">
+      <a href="index.html" class="back-link" data-anim="fade">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Zpět na hlavní stránku
+      </a>
+      <span class="eyebrow" data-anim="fade" data-delay="1">O nás · Tým</span>
+      <h1 data-anim="up" data-delay="2">Naši<br/><span class="accent">instruktoři</span></h1>
+      <p class="page-hero__lead" data-anim="up" data-delay="3">Pět zkušených instruktorů se společnou vášní pro motorky a bezpečnou jízdu. Průměrně přes 14 let praxe na jednoho instruktora.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM STATS -->
+<div class="team-stats">
+  <div class="container">
+    <div class="team-stats__grid">
+      <div data-anim="up">
+        <div class="tstat__num">5</div>
+        <div class="tstat__lbl">instruktorů v týmu</div>
+      </div>
+      <div data-anim="up" data-delay="1">
+        <div class="tstat__num">33</div>
+        <div class="tstat__lbl">let praxe — zakladatel Marek</div>
+      </div>
+      <div data-anim="up" data-delay="2">
+        <div class="tstat__num">14+</div>
+        <div class="tstat__lbl">průměrný věk praxe v týmu</div>
+      </div>
+      <div data-anim="up" data-delay="3">
+        <div class="tstat__num">1992</div>
+        <div class="tstat__lbl">rok založení autoškoly</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TEAM -->
+<section class="section" style="background:var(--paper)">
+  <div class="container">
+
+    <!-- Founder -->
+    <div class="founder" data-anim="up">
+      <div class="founder__avatar">MN</div>
+      <div>
+        <div class="founder__badge">Zakladatel · 33 let praxe</div>
+        <div class="founder__name">Marek Nečas</div>
+        <div class="founder__role">Instruktor výuky a výcviku · skupiny A, B</div>
+        <p class="founder__bio">Začínal jsem jako učitel teorie a praktického výcviku v jedné Ústecké autoškole v roce 1992 pro skupiny A, B, C. V této autoškole jsem působil 10 let, poté jsme se rozhodli založit vlastní autoškolu. V počátku jsme dělali výcvik pro všechny skupiny řidičského oprávnění, později jsme se začali specializovat zejména na skupiny A a B — jelikož jízda na motorce je má celoživotní vášeň.</p>
+      </div>
+    </div>
+
+    <!-- Rest of the team -->
+    <div class="instructors">
+
+      <div class="instructor" data-anim="up">
+        <span class="instructor__years">3 roky praxe</span>
+        <div class="instructor__head">
+          <div class="instructor__avatar">J</div>
+          <div>
+            <div class="instructor__name">Jarda</div>
+            <div class="instructor__role">Instruktor · skupiny A, B</div>
+          </div>
+        </div>
+        <p class="instructor__bio">V této autoškole mě Marek připravil ke zkouškám pro instruktora výuky a výcviku, jelikož jsem tuto práci chtěl už dlouho dělat. Moc mě baví učit nové uchazeče na motorce i autem.</p>
+      </div>
+
+      <div class="instructor" data-anim="up" data-delay="1">
+        <span class="instructor__years">14 let praxe</span>
+        <div class="instructor__head">
+          <div class="instructor__avatar">L</div>
+          <div>
+            <div class="instructor__name">Leona</div>
+            <div class="instructor__role">Instruktorka · teorie</div>
+          </div>
+        </div>
+        <p class="instructor__bio">Profesní průkaz jsem si před mnoha lety udělala v Praze. Jelikož bydlím na Ústecku, chtěla jsem své zkušenosti předávat zdejším začínajícím řidičům. Na doporučení známých jsem se rozhodla pro autoškolu Nečas. Dříve jsem kromě výuky teorie jezdila i mnoho praktických jízd, dnes se z časových důvodů specializuji pouze na teorii.</p>
+      </div>
+
+      <div class="instructor" data-anim="up" data-delay="2">
+        <span class="instructor__years">11 let praxe</span>
+        <div class="instructor__head">
+          <div class="instructor__avatar">J</div>
+          <div>
+            <div class="instructor__name">Jirka</div>
+            <div class="instructor__role">Instruktor · skupina B</div>
+          </div>
+        </div>
+        <p class="instructor__bio">Díky autoškole Nečas jsem si před lety udělal profesní průkaz a výcvik. Od té doby Soně a Markovi pomáhám zejména s výcvikem praxe řidičům skupiny B.</p>
+      </div>
+
+      <div class="instructor" data-anim="up" data-delay="3">
+        <span class="instructor__years">12 let praxe</span>
+        <div class="instructor__head">
+          <div class="instructor__avatar">A</div>
+          <div>
+            <div class="instructor__name">Aleš</div>
+            <div class="instructor__role">Instruktor · skupiny A, B</div>
+          </div>
+        </div>
+        <p class="instructor__bio">Marka a Soňu jsem znal už léta, tak jsem se rozhodl udělat si v roce 2012 profesní průkaz učitele autoškoly a od té doby jim pomáhám s výcvikem skupin A i B.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <a href="index.html" class="logo">NEČAS<span class="dot">.</span></a>
+        <p>Rodinná autoškola s 33letou tradicí v Ústí nad Labem. Specializace na skupiny A (moto) a B. Vlastní motocvičiště v Chlumci.</p>
+      </div>
+      <div><h5>Stránky</h5><ul>
+        <li><a href="index.html#kurzy">Kurzy</a></li>
+        <li><a href="instruktori.html">Instruktoři</a></li>
+        <li><a href="vozovy-park.html">Vozový park</a></li>
+        <li><a href="cenik.html">Ceník</a></li>
+        <li><a href="index.html#kontakt">Kontakt</a></li>
+      </ul></div>
+      <div><h5>Kurzy</h5><ul>
+        <li><a href="cenik.html">Skupiny A — motorky</a></li>
+        <li><a href="cenik.html">Sdružený A+B</a></li>
+        <li><a href="cenik.html">AM / A1 / A2</a></li>
+        <li><a href="cenik.html">Kondiční &amp; doplňkový</a></li>
+      </ul></div>
+      <div><h5>Kontakt</h5><ul>
+        <li>Žukovova 546/15</li>
+        <li>400 03 Ústí nad Labem-Střekov</li>
+        <li><a href="tel:+420606222935">+420 606 222 935</a></li>
+        <li><a href="mailto:autoskola.necas@seznam.cz">autoskola.necas@seznam.cz</a></li>
+      </ul></div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 Autoškola Marek Nečas, Ústí nad Labem · IČ 650 910 86</span>
+      <span>Po–Pá 8:00–17:00</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const navEl = document.getElementById('siteNav');
+  const onScroll = () => navEl.classList.toggle('is-scrolled', window.scrollY > 8);
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  const burger = document.getElementById('burgerBtn');
+  const drawer = document.getElementById('navDrawer');
+  const drawerClose = document.getElementById('drawerClose');
+  const closeDrawer = () => drawer.classList.remove('is-open');
+  burger.addEventListener('click', () => drawer.classList.add('is-open'));
+  drawerClose.addEventListener('click', closeDrawer);
+  drawer.addEventListener('click', (e) => { if (e.target === drawer) closeDrawer(); });
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
+
+  const animEls = document.querySelectorAll('[data-anim]');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
+    animEls.forEach(el => io.observe(el));
+  } else {
+    animEls.forEach(el => el.classList.add('in'));
+  }
+})();
+</script>
+</body>
+</html>

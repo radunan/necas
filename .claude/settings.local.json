@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//tmp/auto-kola/project/**)",
+      "Bash(curl -L -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36\" --max-time 15 \"https://www.autoskolanecas.cz/\")",
+      "Bash(grep -v '^[[:space:]]*$')",
+      "Bash(curl -L -A \"Mozilla/5.0\" --max-time 15 \"https://www.autoskolanecas.cz/\")",
+      "Bash(python3)",
+      "Read(//tmp/**)",
+      "Bash(grep -oP '\\\\d{1,3}[\\\\s]?\\\\d{3}[\\\\s]?Kč' /tmp/necas_home.html)",
+      "Bash(wget -q -O /tmp/necas_wget.html --user-agent=\"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36\" \"https://www.autoskolanecas.cz/\")",
+      "Bash(curl -v -L -A 'Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36' --max-time 15 -H 'Accept: text/html,application/xhtml+xml' -H 'Accept-Language: cs-CZ,cs;q=0.9' https://www.autoskolanecas.cz/contact-us)"
+    ],
+    "additionalDirectories": [
+      "/tmp/auto-kola/project"
+    ]
+  }
+}

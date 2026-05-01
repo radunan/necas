@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ceník kurzů — Autoškola Nečas Ústí nad Labem</title>
+<meta name="description" content="Kompletní ceník Autoškoly Nečas — skupiny AM, A1, A2, A, sdružený výcvik A+B. Zkoušky, kondiční jízdy, převod žáka. Ústí nad Labem, tel: 606 222 935." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#E63329; --red-2:#FF4A3F; --red-soft:rgba(230,51,41,.12);
+  --ink:#0F1117; --ink-2:#1A1F2E; --ink-3:#262B38;
+  --paper:#F5F4F2; --paper-2:#ECEAE5;
+  --line:rgba(15,17,23,.10); --line-dark:rgba(255,255,255,.10);
+  --muted:rgba(15,17,23,.62); --muted-dark:rgba(255,255,255,.62);
+  --r-sm:8px; --r-md:14px; --r-lg:20px;
+  --max:1240px; --pad:clamp(20px, 4vw, 56px);
+  --f-display:'Barlow Condensed', system-ui, sans-serif;
+  --f-text:'DM Sans', system-ui, sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-behavior:smooth; -webkit-text-size-adjust:100%}
+body{font-family:var(--f-text); color:var(--ink); background:var(--paper); font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility}
+img{max-width:100%; display:block}
+a{color:inherit}
+button{font-family:inherit; cursor:pointer; border:none; background:none; color:inherit}
+.container{max-width:var(--max); margin:0 auto; padding:0 var(--pad)}
+
+h1,h2,h3,h4{font-family:var(--f-display); font-weight:800; letter-spacing:-0.01em; line-height:0.96; margin:0; text-transform:uppercase}
+h1{font-size:clamp(56px, 9vw, 128px); letter-spacing:-0.02em}
+h2{font-size:clamp(40px, 5.5vw, 76px); letter-spacing:-0.015em}
+p{margin:0 0 1em 0}
+.accent{color:var(--red)}
+.eyebrow{display:inline-flex; align-items:center; gap:10px; font-family:var(--f-text); font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--red); padding:8px 14px; border:1px solid var(--red-soft); background:var(--red-soft); border-radius:999px}
+
+.btn{display:inline-flex; align-items:center; gap:10px; padding:14px 22px; border-radius:999px; font-family:var(--f-text); font-weight:600; font-size:15px; text-decoration:none; transition:transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease, border-color .18s ease; white-space:nowrap; border:1.5px solid transparent; cursor:pointer}
+.btn svg{width:16px; height:16px}
+.btn--sm{padding:10px 16px; font-size:13px}
+.btn--primary{background:var(--red); color:#fff; box-shadow:0 8px 22px -8px rgba(230,51,41,.55)}
+.btn--primary:hover{background:#d2271e; transform:translateY(-1px); box-shadow:0 14px 32px -10px rgba(230,51,41,.7)}
+.btn--ghost-dark{background:transparent; color:#fff; border-color:rgba(255,255,255,.30)}
+.btn--ghost-dark:hover{background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.5)}
+.btn--ghost-light{background:transparent; color:var(--ink); border-color:rgba(15,17,23,.20)}
+.btn--ghost-light:hover{background:rgba(15,17,23,.05); border-color:var(--ink)}
+
+/* NAV */
+.nav{position:sticky; top:0; z-index:50; background:rgba(245,244,242,.85); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid transparent; transition:box-shadow .25s ease, border-color .25s ease, background .25s ease}
+.nav.is-scrolled{box-shadow:0 8px 28px -16px rgba(15,17,23,.18); border-bottom-color:var(--line); background:rgba(245,244,242,.95)}
+.nav__inner{display:flex; align-items:center; justify-content:space-between; height:74px; max-width:var(--max); margin:0 auto; padding:0 var(--pad)}
+.logo{display:inline-flex; align-items:baseline; gap:2px; font-family:var(--f-display); font-weight:900; font-size:24px; letter-spacing:-.01em; text-transform:uppercase; color:var(--ink); text-decoration:none}
+.logo .dot{color:var(--red)}
+.logo .small{font-family:var(--f-text); font-weight:500; font-size:11px; letter-spacing:.18em; color:var(--muted); text-transform:uppercase; margin-left:8px}
+.nav__links{display:flex; align-items:center; gap:6px}
+.nav__links a{text-decoration:none; color:var(--ink); padding:10px 14px; font-size:14.5px; font-weight:500; border-radius:999px; transition:background .15s ease, color .15s ease}
+.nav__links a:hover{background:rgba(15,17,23,.06)}
+.nav__links a.active{background:rgba(15,17,23,.06); font-weight:600}
+.nav__cta{display:flex; align-items:center; gap:10px}
+.nav__phone{display:inline-flex; align-items:center; gap:8px; font-size:14px; font-weight:600; text-decoration:none; color:var(--ink); padding:8px 12px; border-radius:999px}
+.nav__phone svg{width:14px; height:14px; color:var(--red)}
+.nav__phone:hover{background:rgba(15,17,23,.06)}
+.nav__burger{display:none; width:42px; height:42px; border-radius:50%; align-items:center; justify-content:center; border:1px solid var(--line)}
+.nav__burger svg{width:20px; height:20px}
+.nav__drawer{position:fixed; inset:0; background:rgba(15,17,23,.5); backdrop-filter:blur(6px); z-index:60; display:none; padding:24px}
+.nav__drawer.is-open{display:flex; flex-direction:column}
+.nav__drawer-card{margin-top:auto; background:#fff; border-radius:24px; padding:24px; display:flex; flex-direction:column; gap:6px}
+.nav__drawer-card a{text-decoration:none; color:var(--ink); padding:14px 16px; border-radius:14px; font-size:18px; font-weight:600; display:flex; justify-content:space-between; align-items:center}
+.nav__drawer-card a:hover{background:var(--paper)}
+.nav__drawer-close{align-self:flex-end; width:42px; height:42px; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center}
+@media (max-width:920px){.nav__links, .nav__phone{display:none} .nav__burger{display:inline-flex}}
+
+/* PAGE HERO */
+.page-hero{background:var(--ink); color:#fff; padding:clamp(80px,11vw,130px) 0 clamp(64px,9vw,104px); position:relative; overflow:hidden}
+.page-hero::before{content:""; position:absolute; inset:0; background:radial-gradient(900px 500px at 80% 0%, rgba(230,51,41,.25), transparent 60%); pointer-events:none}
+.page-hero::after{content:""; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px); background-size:60px 60px; -webkit-mask-image:radial-gradient(ellipse at center, black 40%, transparent 85%); mask-image:radial-gradient(ellipse at center, black 40%, transparent 85%); pointer-events:none}
+.page-hero__inner{position:relative; z-index:1}
+.page-hero .eyebrow{color:#FF8A82; border-color:rgba(255,138,130,.25); background:rgba(255,138,130,.08)}
+.page-hero h1{color:#fff; margin:20px 0 22px; max-width:16ch}
+.page-hero__lead{font-size:clamp(16px, 1.4vw, 19px); color:rgba(255,255,255,.72); max-width:56ch; line-height:1.55; margin:0 0 36px}
+.back-link{display:inline-flex; align-items:center; gap:8px; color:rgba(255,255,255,.45); font-size:13px; font-weight:500; text-decoration:none; margin-bottom:36px; transition:color .15s ease}
+.back-link svg{width:14px; height:14px}
+.back-link:hover{color:rgba(255,255,255,.9)}
+
+/* SECTION */
+.section{padding:clamp(72px, 10vw, 120px) 0}
+
+/* PRICE TABLE */
+.price-list{display:flex; flex-direction:column; gap:10px}
+.price-row{display:grid; grid-template-columns:80px 1fr 160px 120px; gap:24px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:var(--r-md); padding:20px 24px; transition:transform .15s ease, border-color .15s ease}
+.price-row:hover{transform:translateY(-1px); border-color:rgba(230,51,41,.30)}
+.price-row.is-feature{background:var(--ink); color:#fff; border-color:transparent}
+.price-row.is-feature .price-row__group{color:var(--red-2)}
+.price-row.is-feature .price-row__desc{color:rgba(255,255,255,.65)}
+.price-row.is-feature .price-row__price{color:#fff}
+.price-row.is-feature .price-row__price small{color:rgba(255,255,255,.5)}
+.price-row__group{font-family:var(--f-display); font-weight:900; font-size:48px; line-height:1; color:var(--ink)}
+.price-row__name{font-family:var(--f-display); font-size:18px; font-weight:700; text-transform:uppercase; line-height:1.1}
+.price-row__desc{color:var(--muted); font-size:13px; margin:6px 0 0}
+.price-row__price{font-family:var(--f-display); font-weight:800; font-size:24px; color:var(--ink); line-height:1; display:flex; flex-direction:column; gap:4px; text-align:right}
+.price-row__price small{font-family:var(--f-text); font-size:11px; font-weight:500; color:var(--muted); letter-spacing:.08em; text-transform:uppercase}
+.price-row__action{text-align:right}
+@media (max-width:780px){.price-row{grid-template-columns:60px 1fr; gap:14px} .price-row__price, .price-row__action{grid-column:span 2; text-align:left} .price-row__action{padding-top:8px; border-top:1px solid var(--line)} .price-row.is-feature .price-row__action{border-top-color:rgba(255,255,255,.12)} .price-row__group{font-size:38px}}
+
+.price-note{display:inline-flex; align-items:center; gap:10px; font-size:14px; color:var(--muted); background:#fff; border:1px solid var(--line); padding:14px 18px; border-radius:var(--r-md); margin-top:24px}
+.price-note svg{width:18px; height:18px; color:var(--red); flex:0 0 auto}
+
+/* Category dividers */
+.price-cat{display:flex; align-items:center; gap:16px; padding:36px 0 16px; margin-bottom:4px}
+.price-cat:first-child{padding-top:0}
+.price-cat__label{font-family:var(--f-display); font-weight:800; font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); white-space:nowrap}
+.price-cat__line{flex:1; height:1px; background:var(--line)}
+.price-cat__note{font-size:12px; font-weight:500; color:var(--muted); white-space:nowrap; font-style:italic}
+
+/* Anchor tab nav */
+.price-nav{background:#fff; border-bottom:1px solid var(--line); position:sticky; top:74px; z-index:40; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none}
+.price-nav::-webkit-scrollbar{display:none}
+.price-nav__inner{display:flex; gap:4px; padding:10px var(--pad); max-width:var(--max); margin:0 auto; white-space:nowrap}
+.price-nav__link{display:inline-flex; align-items:center; padding:9px 18px; border-radius:999px; font-size:13.5px; font-weight:600; text-decoration:none; color:var(--muted); transition:background .15s ease, color .15s ease; border:1.5px solid transparent}
+.price-nav__link:hover{background:var(--paper); color:var(--ink)}
+.price-nav__link.is-active{background:var(--ink); color:#fff}
+
+/* scroll-margin so sticky nav + price-nav don't cover anchors */
+.price-anchor{scroll-margin-top:135px}
+
+/* FOOTER */
+.footer{background:#080A0F; color:#fff; padding:72px 0 32px; position:relative}
+.footer__inner{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:48px; margin-bottom:56px}
+.footer__brand .logo{color:#fff}
+.footer__brand p{color:rgba(255,255,255,.55); font-size:14px; margin:18px 0 0; max-width:34ch}
+.footer h5{font-family:var(--f-display); font-size:14px; text-transform:uppercase; letter-spacing:.08em; color:rgba(255,255,255,.5); font-weight:600; margin-bottom:18px}
+.footer ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px}
+.footer ul a{color:rgba(255,255,255,.85); text-decoration:none; font-size:15px; transition:color .15s ease}
+.footer ul a:hover{color:var(--red-2)}
+.footer__bottom{border-top:1px solid rgba(255,255,255,.08); padding-top:24px; display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; font-size:13px; color:rgba(255,255,255,.4)}
+@media (max-width:880px){.footer__inner{grid-template-columns:1fr 1fr; gap:32px} .footer__brand{grid-column:span 2}}
+@media (max-width:560px){.footer__inner{grid-template-columns:1fr} .footer__brand{grid-column:span 1}}
+
+/* ANIM */
+[data-anim]{opacity:0; transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1)}
+[data-anim="up"]{transform:translateY(24px)}
+[data-anim="fade"]{transform:none}
+[data-anim].in{opacity:1; transform:none}
+[data-delay="1"]{transition-delay:.08s}
+[data-delay="2"]{transition-delay:.16s}
+[data-delay="3"]{transition-delay:.24s}
+@media (prefers-reduced-motion: reduce){*{transition:none !important; animation:none !important} [data-anim]{opacity:1 !important; transform:none !important}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="siteNav" aria-label="Hlavní navigace">
+  <div class="nav__inner">
+    <a href="index.html" class="logo">NEČAS<span class="dot">.</span><span class="small">Autoškola Ústí nad Labem</span></a>
+    <div class="nav__links">
+      <a href="index.html#kurzy">Kurzy</a>
+      <a href="index.html#proc-my">O nás</a>
+      <a href="vozovy-park.html">Vozový park</a>
+      <a href="cenik.html" class="active">Ceník</a>
+      <a href="index.html#kontakt">Kontakt</a>
+    </div>
+    <div class="nav__cta">
+      <a href="tel:+420606222935" class="nav__phone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+        606 222 935
+      </a>
+      <a href="index.html#kontakt" class="btn btn--primary btn--sm">Přihlásit se</a>
+      <button class="nav__burger" id="burgerBtn" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="nav__drawer" id="navDrawer">
+    <button class="nav__drawer-close" id="drawerClose"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div class="nav__drawer-card">
+      <a href="index.html#kurzy">Kurzy <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="index.html#proc-my">O nás <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="vozovy-park.html">Vozový park <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="cenik.html" style="background:var(--paper)">Ceník <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="index.html#kontakt">Kontakt <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="tel:+420606222935" style="margin-top:8px; background:var(--red); color:#fff;">Zavolat: 606 222 935 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg></a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero__inner">
+      <a href="index.html" class="back-link" data-anim="fade">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Zpět na hlavní stránku
+      </a>
+      <span class="eyebrow" data-anim="fade" data-delay="1">Ceník · Platné od 1. 1. 2025</span>
+      <h1 data-anim="up" data-delay="2">Přehledné<br/><span class="accent">ceny</span></h1>
+      <p class="page-hero__lead" data-anim="up" data-delay="3">Možnost splátek až do tří splátek. Nezávazná konzultace zdarma. Všichni žáci jsou po celou dobu výcviku pojištěni.</p>
+    </div>
+  </div>
+</section>
+
+<nav class="price-nav" aria-label="Sekce ceníku">
+  <div class="price-nav__inner">
+    <a href="#skupiny-a" class="price-nav__link is-active">Skupiny A</a>
+    <a href="#skupina-b" class="price-nav__link">Skupina B</a>
+    <a href="#sdruzeny" class="price-nav__link">Sdružený výcvik</a>
+    <a href="#zkousky" class="price-nav__link">Zkoušky</a>
+    <a href="#kondicni" class="price-nav__link">Kondiční &amp; doplňkový</a>
+  </div>
+</nav>
+
+<!-- PRICE TABLE -->
+<section class="section" style="background:var(--paper)">
+  <div class="container">
+
+    <!-- Výcvik skupin A -->
+    <div id="skupiny-a" class="price-anchor"></div>
+    <div class="price-cat" data-anim="fade">
+      <span class="price-cat__label">Výcvik skupin A</span>
+      <span class="price-cat__line"></span>
+      <span class="price-cat__note">Individuální výcvik = cena + 20&nbsp;%</span>
+    </div>
+    <div class="price-list">
+      <article class="price-row" data-anim="up">
+        <div class="price-row__group">AM</div>
+        <div>
+          <div class="price-row__name">Mopedy, skútry do 45&nbsp;km/h</div>
+          <p class="price-row__desc">Od 15 let · Yamaha YBR, Honda CG, Daytona Hobby, Yamaha N-Max, Aprilia Motard</p>
+        </div>
+        <div class="price-row__price"><small>cena kurzu</small>16 000 Kč</div>
+        <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--ghost-light btn--sm">Zájem</a></div>
+      </article>
+      <article class="price-row" data-anim="up">
+        <div class="price-row__group">A1</div>
+        <div>
+          <div class="price-row__name">Lehké motocykly do 125&nbsp;cm³</div>
+          <p class="price-row__desc">Od 16 let, 11&nbsp;kW · Yamaha YBR, Honda CG, skútr N-Max</p>
+        </div>
+        <div class="price-row__price"><small>cena kurzu</small>18 000 Kč</div>
+        <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--ghost-light btn--sm">Zájem</a></div>
+      </article>
+      <article class="price-row" data-anim="up">
+        <div class="price-row__group">A2</div>
+        <div>
+          <div class="price-row__name">Motocykly do 35&nbsp;kW</div>
+          <p class="price-row__desc">Od 18 let · Yamaha Tracer 7, Honda Rebel, Honda ADV 350 (automat)</p>
+        </div>
+        <div class="price-row__price"><small>cena kurzu</small>20 000 Kč</div>
+        <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--ghost-light btn--sm">Zájem</a></div>
+      </article>
+      <article class="price-row" data-anim="up">
+        <div class="price-row__group">A</div>
+        <div>
+          <div class="price-row__name">Motocykly bez omezení</div>
+          <p class="price-row__desc">Od 24 let (nebo A2 → A po 2 letech) · Yamaha MT 07, Yamaha XJ6</p>
+        </div>
+        <div class="price-row__price"><small>cena kurzu</small>22 000 Kč</div>
+        <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--ghost-light btn--sm">Zájem</a></div>
+      </article>
+    </div>
+
+    <!-- Výcvik skupiny B -->
+    <div id="skupina-b" class="price-anchor"></div>
+    <div class="price-cat" data-anim="fade">
+      <span class="price-cat__label">Výcvik skupiny B</span>
+      <span class="price-cat__line"></span>
+      <span class="price-cat__note">Držitelé skupiny A: sleva na 20 000 Kč</span>
+    </div>
+    <div class="price-list">
+      <article class="price-row is-feature" data-anim="up">
+        <div class="price-row__group">B</div>
+        <div>
+          <div class="price-row__name">Osobní automobily</div>
+          <p class="price-row__desc">Od 18 let · Seat Arona, Citroën C3, Škoda Citigo · automat Toyota Corolla k&nbsp;dispozici · vozidla do 3,5&nbsp;t</p>
+        </div>
+        <div class="price-row__price"><small>cena kurzu</small>25 000 Kč</div>
+        <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--primary btn--sm">Zapsat se</a></div>
+      </article>
+    </div>
+
+    <!-- Sdružený výcvik -->
+    <div id="sdruzeny" class="price-anchor"></div>
+    <div class="price-cat" data-anim="fade">
+      <span class="price-cat__label">Sdružený výcvik moto + auto</span>
+      <span class="price-cat__line"></span>
+      <span class="price-cat__note">Individuální výcvik = cena + 20&nbsp;%</span>
+    </div>
+    <div class="price-list">
+      <article class="price-row is-feature" data-anim="up">
+        <div class="price-row__group" style="font-size:28px">A1+B</div>
+        <div>
+          <div class="price-row__name">A1 (125&nbsp;cm³) + osobní automobil</div>
+          <p class="price-row__desc">Od 18 let · Seat Arona, Citroën C3, Škoda Citigo · automat Toyota Corolla k&nbsp;dispozici</p>
+        </div>
+        <div class="price-row__price"><small>cena kurzu</small>33 000 Kč</div>
+        <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--primary btn--sm">Zapsat se</a></div>
+      </article>
+      <article class="price-row is-feature" data-anim="up">
+        <div class="price-row__group" style="font-size:28px">A2+B</div>
+        <div>
+          <div class="price-row__name">A2 (35&nbsp;kW) + osobní automobil</div>
+          <p class="price-row__desc">Od 18 let · Seat Arona, Citroën C3, Škoda Citigo · automat Toyota Corolla k&nbsp;dispozici</p>
+        </div>
+        <div class="price-row__price"><small>cena kurzu</small>35 000 Kč</div>
+        <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--primary btn--sm">Zapsat se</a></div>
+      </article>
+      <article class="price-row is-feature" data-anim="up">
+        <div class="price-row__group" style="font-size:28px">A+B</div>
+        <div>
+          <div class="price-row__name">Plné A (bez omezení) + osobní automobil</div>
+          <p class="price-row__desc">Od 24 let · Yamaha MT 07, Yamaha XJ6 · Seat Arona, Citroën C3, Škoda Citigo</p>
+        </div>
+        <div class="price-row__price"><small>cena kurzu</small>37 000 Kč</div>
+        <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--primary btn--sm">Zapsat se</a></div>
+      </article>
+    </div>
+
+    <!-- Zkoušky -->
+    <div id="zkousky" class="price-anchor"></div>
+    <div class="price-cat" data-anim="fade">
+      <span class="price-cat__label">Zkoušky z odborné způsobilosti</span>
+      <span class="price-cat__line"></span>
+    </div>
+    <div class="price-list">
+      <article class="price-row" data-anim="up">
+        <div class="price-row__group" style="font-size:28px">AM/A1</div>
+        <div>
+          <div class="price-row__name">Zkouška skupin AM nebo A1</div>
+          <p class="price-row__desc">2 jízdy · správní poplatek 700&nbsp;Kč se platí zvlášť v den zkoušky na Magistrátu</p>
+        </div>
+        <div class="price-row__price"><small>cena zkoušky</small>7 000 Kč</div>
+        <div class="price-row__action"></div>
+      </article>
+      <article class="price-row" data-anim="up">
+        <div class="price-row__group" style="font-size:38px">A2</div>
+        <div>
+          <div class="price-row__name">Zkouška skupiny A2</div>
+          <p class="price-row__desc">2 jízdy · správní poplatek 700&nbsp;Kč se platí zvlášť v den zkoušky na Magistrátu</p>
+        </div>
+        <div class="price-row__price"><small>cena zkoušky</small>7 000 Kč</div>
+        <div class="price-row__action"></div>
+      </article>
+      <article class="price-row" data-anim="up">
+        <div class="price-row__group" style="font-size:48px">A</div>
+        <div>
+          <div class="price-row__name">Zkouška skupiny A</div>
+          <p class="price-row__desc">2 jízdy · správní poplatek 700&nbsp;Kč se platí zvlášť v den zkoušky na Magistrátu</p>
+        </div>
+        <div class="price-row__price"><small>cena zkoušky</small>7 000 Kč</div>
+        <div class="price-row__action"></div>
+      </article>
+      <article class="price-row" data-anim="up">
+        <div class="price-row__group" style="font-size:28px">A1+B</div>
+        <div>
+          <div class="price-row__name">Zkouška sdruženého výcviku A1+B</div>
+          <p class="price-row__desc">Zkouška moto i auto v jednom termínu · správní poplatek 700&nbsp;Kč zvlášť</p>
+        </div>
+        <div class="price-row__price"><small>cena zkoušky</small>10 000 Kč</div>
+        <div class="price-row__action"></div>
+      </article>
+      <article class="price-row" data-anim="up">
+        <div class="price-row__group" style="font-size:28px">A2+B</div>
+        <div>
+          <div class="price-row__name">Zkouška sdruženého výcviku A2+B</div>
+          <p class="price-row__desc">Zkouška moto i auto v jednom termínu · správní poplatek 700&nbsp;Kč zvlášť</p>
+        </div>
+        <div class="price-row__price"><small>cena zkoušky</small>10 000 Kč</div>
+        <div class="price-row__action"></div>
+      </article>
+      <article class="price-row" data-anim="up">
+        <div class="price-row__group" style="font-size:28px">A+B</div>
+        <div>
+          <div class="price-row__name">Zkouška sdruženého výcviku A+B</div>
+          <p class="price-row__desc">Zkouška moto i auto v jednom termínu · správní poplatek 700&nbsp;Kč zvlášť</p>
+        </div>
+        <div class="price-row__price"><small>cena zkoušky</small>10 000 Kč</div>
+        <div class="price-row__action"></div>
+      </article>
+    </div>
+
+    <!-- Kondiční & doplňkový -->
+    <div id="kondicni" class="price-anchor"></div>
+    <div class="price-cat" data-anim="fade">
+      <span class="price-cat__label">Kondiční &amp; doplňkový výcvik</span>
+      <span class="price-cat__line"></span>
+      <span class="price-cat__note">Vždy 2 vyučovací hodiny = 90 min</span>
+    </div>
+    <div class="price-list">
+      <article class="price-row" data-anim="up">
+        <div class="price-row__group" style="font-size:20px;line-height:1.1">Moto<br/>trenažér</div>
+        <div>
+          <div class="price-row__name">Kondiční výcvik na mototrenažéru</div>
+          <p class="price-row__desc">90 minut · dle individuální potřeby · všechny skupiny A</p>
+        </div>
+        <div class="price-row__price"><small>cena / 90 min</small>600 Kč</div>
+        <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--ghost-light btn--sm">Objednat</a></div>
+      </article>
+      <article class="price-row" data-anim="up">
+        <div class="price-row__group" style="font-size:20px;line-height:1.1">Moto<br/>cvičiště</div>
+        <div>
+          <div class="price-row__name">Kondiční výcvik na motocvičišti</div>
+          <p class="price-row__desc">90 minut · vlastní cvičiště Chlumec, ul. U&nbsp;Šmelce · skupiny A, AM, A1, A2</p>
+        </div>
+        <div class="price-row__price"><small>cena / 90 min</small>1 000 Kč</div>
+        <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--ghost-light btn--sm">Objednat</a></div>
+      </article>
+      <article class="price-row" data-anim="up">
+        <div class="price-row__group" style="font-size:20px;line-height:1.1">Jízdy<br/>provoz</div>
+        <div>
+          <div class="price-row__name">Jízdy v provozu — skupiny A</div>
+          <p class="price-row__desc">90 minut reálné jízdy na silnici s&nbsp;instruktorem</p>
+        </div>
+        <div class="price-row__price"><small>cena / 90 min</small>1 500 Kč</div>
+        <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--ghost-light btn--sm">Objednat</a></div>
+      </article>
+      <article class="price-row" data-anim="up">
+        <div class="price-row__group" style="font-size:20px;line-height:1.1">Konzul&shy;tace<br/>teorie</div>
+        <div>
+          <div class="price-row__name">Konzultace teorie</div>
+          <p class="price-row__desc">90 minut · individuální příprava na teorii nebo doučení</p>
+        </div>
+        <div class="price-row__price"><small>cena / 90 min</small>600 Kč</div>
+        <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--ghost-light btn--sm">Objednat</a></div>
+      </article>
+      <article class="price-row" data-anim="up">
+        <div class="price-row__group" style="font-size:20px;line-height:1.1">Převod<br/>žáka</div>
+        <div>
+          <div class="price-row__name">Převod žáka z jiné autoškoly</div>
+          <p class="price-row__desc">Jednorázová platba za administrativní zpracování převodu</p>
+        </div>
+        <div class="price-row__price"><small>jednorázově</small>1 000 Kč</div>
+        <div class="price-row__action"><a href="index.html#kontakt" class="btn btn--ghost-light btn--sm">Kontakt</a></div>
+      </article>
+    </div>
+
+    <p class="price-note" data-anim="up" style="margin-top:32px">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+      Správní poplatek <strong style="color:var(--ink); margin:0 4px">700 Kč</strong> za vydání řidičského průkazu se hradí samostatně v&nbsp;den zkoušky přímo na Magistrátu. Ceny jsou platné od 1.&nbsp;1.&nbsp;2025. Možnost splátek — domluvte se s&nbsp;námi.
+    </p>
+
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <a href="index.html" class="logo">NEČAS<span class="dot">.</span></a>
+        <p>Rodinná autoškola s 33letou tradicí v Ústí nad Labem. Specializace na skupiny A (moto) a B. Vlastní motocvičiště v Chlumci.</p>
+      </div>
+      <div><h5>Stránky</h5><ul><li><a href="index.html#kurzy">Kurzy</a></li><li><a href="index.html#proc-my">O nás</a></li><li><a href="vozovy-park.html">Vozový park</a></li><li><a href="cenik.html">Ceník</a></li><li><a href="index.html#kontakt">Kontakt</a></li></ul></div>
+      <div><h5>Kurzy</h5><ul><li><a href="cenik.html">Skupiny A — motorky</a></li><li><a href="cenik.html">Sdružený A+B</a></li><li><a href="cenik.html">AM / A1 / A2</a></li><li><a href="cenik.html">Kondiční &amp; doplňkový</a></li></ul></div>
+      <div><h5>Kontakt</h5><ul><li>Žukovova 546/15</li><li>400 03 Ústí nad Labem-Střekov</li><li><a href="tel:+420606222935">+420 606 222 935</a></li><li><a href="mailto:autoskola.necas@seznam.cz">autoskola.necas@seznam.cz</a></li></ul></div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 Autoškola Marek Nečas, Ústí nad Labem · IČ 650 910 86</span>
+      <span>Po–Pá 8:00–17:00</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const navEl = document.getElementById('siteNav');
+  const onScroll = () => navEl.classList.toggle('is-scrolled', window.scrollY > 8);
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  const burger = document.getElementById('burgerBtn');
+  const drawer = document.getElementById('navDrawer');
+  const drawerClose = document.getElementById('drawerClose');
+  const closeDrawer = () => drawer.classList.remove('is-open');
+  burger.addEventListener('click', () => drawer.classList.add('is-open'));
+  drawerClose.addEventListener('click', closeDrawer);
+  drawer.addEventListener('click', (e) => { if (e.target === drawer) closeDrawer(); });
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
+
+  const animEls = document.querySelectorAll('[data-anim]');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
+    animEls.forEach(el => io.observe(el));
+  } else {
+    animEls.forEach(el => el.classList.add('in'));
+  }
+
+  // Price section tab nav active state
+  const priceLinks = document.querySelectorAll('.price-nav__link');
+  const anchorIds = ['skupiny-a','skupina-b','sdruzeny','zkousky','kondicni'];
+  const anchors = anchorIds.map(id => document.getElementById(id));
+  function syncPriceNav() {
+    const scrollMid = window.scrollY + 160;
+    let active = 0;
+    anchors.forEach((el, i) => { if (el && el.getBoundingClientRect().top + window.scrollY <= scrollMid) active = i; });
+    priceLinks.forEach((l, i) => l.classList.toggle('is-active', i === active));
+  }
+  window.addEventListener('scroll', syncPriceNav, {passive:true});
+  syncPriceNav();
+})();
+</script>
+</body>
+</html>
