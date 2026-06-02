@@ -9,114 +9,76 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="css/style.css">
 <style>
-:root{
-  --red:#E63329; --red-2:#FF4A3F; --red-soft:rgba(230,51,41,.12);
-  --ink:#0F1117; --ink-2:#1A1F2E; --ink-3:#262B38;
-  --paper:#F5F4F2; --paper-2:#ECEAE5;
-  --line:rgba(15,17,23,.10); --line-dark:rgba(255,255,255,.10);
-  --muted:rgba(15,17,23,.62); --muted-dark:rgba(255,255,255,.62);
-  --r-sm:8px; --r-md:14px; --r-lg:20px;
-  --max:1240px; --pad:clamp(20px, 4vw, 56px);
-  --f-display:'Barlow Condensed', system-ui, sans-serif;
-  --f-text:'DM Sans', system-ui, sans-serif;
-}
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-html{scroll-behavior:smooth; -webkit-text-size-adjust:100%}
-body{font-family:var(--f-text); color:var(--ink); background:var(--paper); font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility}
-img{max-width:100%; display:block}
-a{color:inherit}
-button{font-family:inherit; cursor:pointer; border:none; background:none; color:inherit}
-.container{max-width:var(--max); margin:0 auto; padding:0 var(--pad)}
-
-h1,h2,h3,h4{font-family:var(--f-display); font-weight:800; letter-spacing:-0.01em; line-height:0.96; margin:0; text-transform:uppercase}
-h1{font-size:clamp(56px, 9vw, 128px); letter-spacing:-0.02em}
-h2{font-size:clamp(40px, 5.5vw, 76px); letter-spacing:-0.015em}
-h3{font-size:24px; line-height:1.1; letter-spacing:0; text-transform:none; font-weight:700}
-h4{font-size:20px; line-height:1.15; text-transform:none; font-weight:700}
-p{margin:0 0 1em 0}
-.accent{color:var(--red)}
-.eyebrow{display:inline-flex; align-items:center; gap:10px; font-family:var(--f-text); font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--red); padding:8px 14px; border:1px solid var(--red-soft); background:var(--red-soft); border-radius:999px}
-.dark .eyebrow, .hero .eyebrow, .stats .eyebrow, .cta-strip .eyebrow, .faq .eyebrow{color:#FF8A82; border-color:rgba(255,138,130,.25); background:rgba(255,138,130,.08)}
-
-.btn{display:inline-flex; align-items:center; gap:10px; padding:14px 22px; border-radius:999px; font-family:var(--f-text); font-weight:600; font-size:15px; text-decoration:none; transition:transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease, border-color .18s ease; white-space:nowrap; border:1.5px solid transparent; cursor:pointer}
-.btn svg{width:16px; height:16px}
-.btn--sm{padding:10px 16px; font-size:13px}
-.btn--primary{background:var(--red); color:#fff; box-shadow:0 8px 22px -8px rgba(230,51,41,.55)}
-.btn--primary:hover{background:#d2271e; transform:translateY(-1px); box-shadow:0 14px 32px -10px rgba(230,51,41,.7)}
-.btn--ghost-dark{background:transparent; color:#fff; border-color:rgba(255,255,255,.30)}
-.btn--ghost-dark:hover{background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.5)}
-.btn--ghost-light{background:transparent; color:var(--ink); border-color:rgba(15,17,23,.20)}
-.btn--ghost-light:hover{background:rgba(15,17,23,.05); border-color:var(--ink)}
-
-/* NAV */
-.nav{position:sticky; top:0; z-index:50; background:rgba(245,244,242,.85); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid transparent; transition:box-shadow .25s ease, border-color .25s ease, background .25s ease}
-.nav.is-scrolled{box-shadow:0 8px 28px -16px rgba(15,17,23,.18); border-bottom-color:var(--line); background:rgba(245,244,242,.95)}
-.nav__inner{display:flex; align-items:center; justify-content:space-between; height:74px; max-width:var(--max); margin:0 auto; padding:0 var(--pad)}
-.logo{display:inline-flex; align-items:baseline; gap:2px; font-family:var(--f-display); font-weight:900; font-size:24px; letter-spacing:-.01em; text-transform:uppercase; color:var(--ink); text-decoration:none}
-.logo .dot{color:var(--red)}
-.logo .small{font-family:var(--f-text); font-weight:500; font-size:11px; letter-spacing:.18em; color:var(--muted); text-transform:uppercase; margin-left:8px}
-.nav__links{display:flex; align-items:center; gap:6px}
-.nav__links a{text-decoration:none; color:var(--ink); padding:10px 14px; font-size:14.5px; font-weight:500; border-radius:999px; transition:background .15s ease, color .15s ease}
-.nav__links a:hover{background:rgba(15,17,23,.06)}
-.nav__cta{display:flex; align-items:center; gap:10px}
-.nav__phone{display:inline-flex; align-items:center; gap:8px; font-size:14px; font-weight:600; text-decoration:none; color:var(--ink); padding:8px 12px; border-radius:999px}
-.nav__phone svg{width:14px; height:14px; color:var(--red)}
-.nav__phone:hover{background:rgba(15,17,23,.06)}
-.nav__burger{display:none; width:42px; height:42px; border-radius:50%; align-items:center; justify-content:center; border:1px solid var(--line)}
-.nav__burger svg{width:20px; height:20px}
-.nav__drawer{position:fixed; inset:0; background:rgba(15,17,23,.5); backdrop-filter:blur(6px); z-index:60; display:none; padding:24px}
-.nav__drawer.is-open{display:flex; flex-direction:column}
-.nav__drawer-card{margin-top:auto; background:#fff; border-radius:24px; padding:24px; display:flex; flex-direction:column; gap:6px}
-.nav__drawer-card a{text-decoration:none; color:var(--ink); padding:14px 16px; border-radius:14px; font-size:18px; font-weight:600; display:flex; justify-content:space-between; align-items:center}
-.nav__drawer-card a:hover{background:var(--paper)}
-.nav__drawer-close{align-self:flex-end; width:42px; height:42px; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center}
-@media (max-width:920px){.nav__links, .nav__phone{display:none} .nav__burger{display:inline-flex}}
-
-/* HERO */
-.hero{position:relative; background:var(--ink); color:#fff; overflow:hidden; padding:clamp(80px, 11vw, 140px) 0 clamp(80px, 11vw, 130px)}
-.hero::before{content:""; position:absolute; inset:0; background:radial-gradient(900px 500px at 80% 10%, rgba(230,51,41,.30), transparent 60%), radial-gradient(600px 400px at 10% 90%, rgba(230,51,41,.12), transparent 60%), linear-gradient(180deg, transparent 0%, rgba(0,0,0,.45) 100%); pointer-events:none}
-.hero::after{content:""; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px); background-size:60px 60px; -webkit-mask-image:radial-gradient(ellipse at center, black 50%, transparent 90%); mask-image:radial-gradient(ellipse at center, black 50%, transparent 90%); pointer-events:none}
-.hero__grid{position:relative; z-index:1; display:grid; grid-template-columns:1.4fr 1fr; gap:clamp(40px, 6vw, 80px); align-items:center}
-.hero__copy .eyebrow{margin-bottom:24px}
-.hero__copy h1{color:#fff; max-width:14ch}
-.hero__lead{margin:28px 0 36px; font-size:clamp(17px, 1.5vw, 20px); color:rgba(255,255,255,.78); max-width:50ch; line-height:1.5}
-.hero__ctas{display:flex; flex-wrap:wrap; gap:12px}
-.hero__meta{margin-top:48px; display:flex; flex-wrap:wrap; gap:14px; font-size:13px; color:rgba(255,255,255,.55)}
+/* HERO — organic blob split */
+.hero{position:relative; background:var(--ink); color:#fff; overflow:hidden; min-height:clamp(580px,88vh,920px); display:flex; align-items:center; padding:clamp(100px,12vw,150px) 0 clamp(80px,10vw,120px)}
+/* Subtle diagonal wave lines (background texture like in reference) */
+.hero::before{content:""; position:absolute; inset:0; background-image:repeating-linear-gradient(-18deg, transparent 0px, transparent 40px, rgba(255,255,255,.022) 40px, rgba(255,255,255,.022) 41px); pointer-events:none; z-index:0}
+/* Organic yellow blob - right side, large border-radius = curved edge */
+.hero__blob{position:absolute; right:-4%; top:-8%; width:58%; height:116%; background:linear-gradient(155deg, var(--red-2) 0%, var(--red) 55%, #D9A000 100%); border-radius:50% 0 0 50% / 50% 0 0 50%; z-index:1; overflow:hidden}
+/* Ring accent top-right of blob */
+.hero__blob-ring{position:absolute; right:-6%; top:-8%; width:55%; padding-bottom:55%; border-radius:50%; border:3px solid rgba(0,0,0,.13)}
+.hero__blob-ring::after{content:""; position:absolute; inset:14%; border-radius:50%; border:1.5px solid rgba(0,0,0,.08)}
+/* Checkered racing strip at bottom of blob */
+.hero__blob-check{position:absolute; bottom:0; left:0; right:0; height:30px; background-image:repeating-conic-gradient(rgba(0,0,0,.22) 0% 25%, transparent 0% 50%); background-size:30px 30px; z-index:2}
+/* Motorka v blobě */
+.hero__blob-moto{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; pointer-events:none}
+.hero-moto{width:90%; max-height:78%; object-fit:contain; filter:drop-shadow(0 22px 18px rgba(0,0,0,.30)) drop-shadow(0 4px 6px rgba(0,0,0,.18))}
+@media(max-width:920px){.hero-moto{width:80%}}
+@media(max-width:720px){.hero-moto{width:70%}}
+/* Chevrons at left edge of blob */
+.hero__blob-chevrons{position:absolute; left:2%; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:2px; pointer-events:none}
+.hero__blob-chevrons span{font-family:var(--f-display); font-size:clamp(28px,3.5vw,50px); font-weight:900; color:rgba(0,0,0,.2); line-height:1; letter-spacing:-4px; display:block}
+/* Dot pattern top-left corner of blob */
+.hero__blob-dots{position:absolute; top:10%; left:10%; width:72px; height:72px; background-image:radial-gradient(circle, rgba(0,0,0,.28) 1.5px, transparent 1.5px); background-size:10px 10px}
+/* Circular accent bottom-right of blob */
+.hero__blob-dot{position:absolute; bottom:12%; right:6%; width:clamp(36px,4vw,56px); height:clamp(36px,4vw,56px); border-radius:50%; border:3px solid rgba(0,0,0,.2)}
+.hero__blob-dot::after{content:""; position:absolute; inset:6px; border-radius:50%; background:rgba(0,0,0,.15)}
+/* Hero content — left side */
+.hero__content{position:relative; z-index:2; max-width:var(--max); margin:0 auto; padding:0 var(--pad); width:100%}
+.hero__inner{max-width:clamp(320px,48%,600px)}
+.hero__badge{display:inline-flex; align-items:center; gap:10px; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.14); backdrop-filter:blur(8px); border-radius:999px; padding:8px 16px; font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--red); margin-bottom:clamp(20px,2.5vw,32px)}
+.hero__badge .dot{width:6px; height:6px; border-radius:50%; background:var(--red); flex-shrink:0}
+.hero__loc{display:flex; align-items:center; gap:8px; font-size:13px; font-weight:600; color:rgba(255,255,255,.6); margin-bottom:20px}
+.hero__loc svg{width:14px; height:14px; color:var(--red); flex-shrink:0}
+.hero__inner h1{color:#fff; font-size:clamp(52px,7.5vw,110px); max-width:14ch; margin:0 0 20px}
+.hero__inner h1 .accent{color:var(--red); display:block}
+.hero__lead{font-size:clamp(16px,1.4vw,19px); color:rgba(255,255,255,.72); max-width:44ch; line-height:1.55; margin:0 0 32px}
+.hero__ctas{display:flex; flex-wrap:wrap; gap:12px; margin-bottom:36px}
+.hero__meta{font-size:13px; color:rgba(255,255,255,.50); display:flex; flex-wrap:wrap; gap:10px}
+.hero__meta strong{color:rgba(255,255,255,.85); font-weight:600}
 .hero__meta .sep{opacity:.4}
-.hero__meta strong{color:#fff; font-weight:600; margin-right:4px}
-.hero__visual{position:relative; height:clamp(360px, 45vw, 520px); border-radius:var(--r-lg); overflow:hidden; background:linear-gradient(135deg, var(--ink-2), var(--ink-3)); border:1px solid var(--line-dark)}
-.hero__visual::before{content:""; position:absolute; inset:0; background:radial-gradient(closest-side, rgba(230,51,41,.45), transparent 70%); top:-30%; right:-30%; width:90%; height:90%; filter:blur(40px)}
-.hero__visual::after{content:""; position:absolute; left:50%; bottom:0; width:160%; height:75%; background:repeating-linear-gradient(180deg, rgba(255,255,255,.0) 0 28px, rgba(255,255,255,.18) 28px 36px, rgba(255,255,255,.0) 36px 70px), linear-gradient(180deg, transparent, rgba(230,51,41,.10) 80%); transform:translateX(-50%) perspective(800px) rotateX(72deg); transform-origin:bottom center; -webkit-mask-image:linear-gradient(180deg, transparent 0%, black 25%, black 100%); mask-image:linear-gradient(180deg, transparent 0%, black 25%, black 100%)}
-.hero__badge{position:absolute; top:24px; left:24px; z-index:2; display:inline-flex; align-items:center; gap:10px; background:rgba(15,17,23,.65); border:1px solid rgba(255,255,255,.16); backdrop-filter:blur(8px); border-radius:999px; padding:8px 14px; font-size:12px; font-weight:600; letter-spacing:.04em; color:#fff}
-.pulse{position:relative; width:8px; height:8px; border-radius:50%; background:#3FE07F}
-.pulse::after{content:""; position:absolute; inset:-4px; border-radius:50%; background:#3FE07F; opacity:.45; animation:pulse 1.6s ease-out infinite}
-@keyframes pulse{0%{transform:scale(.6); opacity:.5}100%{transform:scale(1.8); opacity:0}}
-.hero__card{position:absolute; bottom:24px; left:24px; right:24px; z-index:2; display:grid; grid-template-columns:auto 1fr auto; gap:18px; align-items:center; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.14); backdrop-filter:blur(10px); border-radius:var(--r-md); padding:18px 20px}
-.hero__card .num{font-family:var(--f-display); font-weight:900; font-size:54px; line-height:1; color:#fff; width:64px; height:64px; border-radius:14px; background:var(--red); display:flex; align-items:center; justify-content:center}
-.hero__card .lbl{display:flex; flex-direction:column; gap:4px; line-height:1.2; font-size:13px; color:rgba(255,255,255,.7)}
-.hero__card .lbl strong{color:#fff; font-size:18px; font-weight:700; font-family:var(--f-display); letter-spacing:.01em; text-transform:uppercase}
-.hero__card .arrow{width:46px; height:46px; border-radius:50%; background:#fff; color:var(--ink); display:flex; align-items:center; justify-content:center; text-decoration:none; transition:transform .18s ease, background .18s ease}
-.hero__card .arrow svg{width:18px; height:18px}
-.hero__card .arrow:hover{background:var(--red); color:#fff; transform:translate(2px,-2px)}
-@media (max-width:840px){.hero__grid{grid-template-columns:1fr} .hero__visual{height:360px}}
-
-/* HERO SCENE — driving car animation */
-.hero__scene{position:absolute; inset:0; z-index:1; overflow:hidden; pointer-events:none}
-.scene__mountains{position:absolute; left:-5%; right:-5%; bottom:114px; height:96px; background:#0c1020; clip-path:polygon(0% 100%, 0% 68%, 7% 32%, 16% 62%, 26% 18%, 38% 52%, 50% 24%, 62% 46%, 74% 6%, 86% 40%, 94% 12%, 100% 44%, 100% 100%)}
-.scene__trees{position:absolute; left:0; right:0; bottom:112px; height:66px; background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 66'><polygon points='18,2 34,40 2,40' fill='%23132016'/><polygon points='18,18 30,50 6,50' fill='%231a2a1a'/><rect x='15' y='50' width='6' height='16' fill='%23291508'/><polygon points='60,8 74,40 46,40' fill='%23132016'/><polygon points='60,22 72,50 48,50' fill='%231a2a1a'/><rect x='57' y='50' width='6' height='16' fill='%23291508'/></svg>") repeat-x bottom; background-size:80px 66px; animation:trees-scroll 3.2s linear infinite}
-.scene__road{position:absolute; left:0; right:0; bottom:0; height:114px; background:linear-gradient(180deg,#1c2438 0%,#131825 100%); border-top:1.5px solid rgba(255,255,255,.07)}
-.scene__road::before{content:""; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg, transparent, rgba(255,255,255,.12) 30%, rgba(255,255,255,.12) 70%, transparent)}
-.scene__dashes{position:absolute; top:50%; left:0; right:0; height:3px; margin-top:-1.5px; background:repeating-linear-gradient(90deg, rgba(255,255,255,.55) 0, rgba(255,255,255,.55) 26px, transparent 26px, transparent 52px); animation:dash-move 0.55s linear infinite}
-.car-wrap{position:absolute; bottom:68px; left:50%; transform:translateX(-50%); animation:car-bounce 1.6s ease-in-out infinite; filter:drop-shadow(0 12px 24px rgba(0,0,0,.6)); z-index:2}
-.car-svg{width:170px; height:auto; display:block}
-.wheel-spokes{transform-box:fill-box; transform-origin:center; animation:wheel-spin 0.42s linear infinite}
-@keyframes trees-scroll{to{background-position-x:-80px}}
-@keyframes dash-move{to{transform:translateX(-52px)}}
-@keyframes car-bounce{0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(-3px)}}
-@keyframes wheel-spin{to{transform:rotate(360deg)}}
-@media (prefers-reduced-motion:reduce){.scene__trees,.scene__dashes,.car-wrap,.wheel-spokes{animation:none}}
+@media (max-width:920px){
+  .hero__blob{width:50%}
+  .hero__inner{max-width:56%}
+}
+@media (max-width:720px){
+  /* Celá výška viewportu */
+  .hero{min-height:100svh; padding:clamp(78px,14vw,106px) 0 0; align-items:flex-start; flex-direction:column}
+  .hero__content{flex:0 0 auto; padding-bottom:20px}
+  .hero__inner{max-width:100%}
+  /* Amber blob — ostrá diagonála místo obloučku */
+  .hero__blob{
+    position:absolute; bottom:0; left:0; right:0; top:auto;
+    width:100%; height:50%;
+    border-radius:0;
+    clip-path:polygon(0 34%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  /* Motorka vpravo — čelo míří doleva k textu */
+  .hero__blob-moto{display:flex; align-items:flex-end; justify-content:flex-end; padding:6% 5% 5% 0}
+  .hero-moto{width:74%; max-height:82%}
+  /* Skrýt dekorace které by narušily čistou diagonálu */
+  .hero__blob-ring,.hero__blob-dots,.hero__blob-chevrons,.hero__blob-dot{display:none}
+  .hero__blob-check{height:20px; background-size:20px 20px}
+  /* Lead text zkrátit — jen 2 řádky */
+  .hero__lead{display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; line-clamp:2; overflow:hidden; margin-bottom:24px}
+}
+@media (max-width:480px){
+  .hero__blob{height:46%; clip-path:polygon(0 28%, 100% 0%, 100% 100%, 0% 100%)}
+  .hero-moto{width:80%}
+  .hero__meta{display:none}
+}
 
 /* STATS */
 .stats{background:var(--ink-2); color:#fff; padding:48px 0; position:relative; overflow:hidden}
@@ -141,7 +103,7 @@ p{margin:0 0 1em 0}
 .courses{background:var(--paper)}
 .courses__grid{display:grid; grid-template-columns:repeat(4, 1fr); gap:18px}
 .course{background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); padding:28px 26px; display:flex; flex-direction:column; justify-content:space-between; min-height:340px; transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease; position:relative}
-.course:hover{transform:translateY(-4px); box-shadow:0 24px 50px -24px rgba(15,17,23,.18); border-color:rgba(230,51,41,.35)}
+.course:hover{transform:translateY(-4px); box-shadow:0 24px 50px -24px rgba(15,17,23,.18); border-color:rgba(245,184,0,.50)}
 .course__icon{width:48px; height:48px; border-radius:12px; background:var(--paper); display:flex; align-items:center; justify-content:center; color:var(--ink); margin-bottom:24px}
 .course__icon svg{width:24px; height:24px}
 .course__icon .ti{font-size:24px; line-height:1; display:flex}
@@ -156,7 +118,7 @@ p{margin:0 0 1em 0}
 .course__cta:hover{background:var(--red); transform:translate(2px,-2px)}
 .course__cta svg{width:18px; height:18px}
 .course--feature{grid-column:span 2; background:var(--ink); color:#fff; display:grid; grid-template-columns:1fr auto; gap:24px; position:relative; overflow:hidden; border-color:transparent}
-.course--feature::before{content:""; position:absolute; inset:0; background:radial-gradient(closest-side, rgba(230,51,41,.30), transparent 70%); top:-40%; right:-40%; width:80%; height:80%; filter:blur(40px)}
+.course--feature::before{content:""; position:absolute; inset:0; background:radial-gradient(closest-side, rgba(245,184,0,.20), transparent 70%); top:-40%; right:-40%; width:80%; height:80%; filter:blur(40px)}
 .course--feature > *{position:relative; z-index:1}
 .course--feature .course__icon{background:rgba(255,255,255,.10); color:#fff}
 .course--feature .course__group{color:#fff}
@@ -176,8 +138,8 @@ p{margin:0 0 1em 0}
 .course--dark .course__foot{border-top-color:rgba(255,255,255,.14)}
 .course--dark .course__cta{background:var(--red)}
 .course--dark .course__cta:hover{background:#fff; color:var(--ink)}
-.course--dark:hover{border-color:rgba(230,51,41,.45)}
-.course__badge{display:table; margin-left:auto; background:var(--red); color:#fff; font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:7px 12px; border-radius:999px; margin-bottom:20px}
+.course--dark:hover{border-color:rgba(245,184,0,.55)}
+.course__badge{display:table; margin-left:auto; background:var(--red); color:var(--ink); font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:7px 12px; border-radius:999px; margin-bottom:20px}
 .course__visual{display:flex; align-items:flex-end; justify-content:flex-end; margin:-28px -26px -28px 0}
 .big-letter{font-family:var(--f-display); font-weight:900; font-size:280px; line-height:.78; color:rgba(255,255,255,.06); letter-spacing:-.04em; user-select:none}
 @media (max-width:1080px){.courses__grid{grid-template-columns:1fr 1fr} .course--feature{grid-column:span 2}}
@@ -201,7 +163,7 @@ p{margin:0 0 1em 0}
 .why__intro h2{margin-top:14px; font-size:clamp(40px, 5vw, 68px)}
 .why__intro p{color:var(--muted); margin:24px 0 32px; max-width:36ch}
 .why__sig{display:flex; align-items:center; gap:14px; margin-top:48px; padding-top:24px; border-top:1px solid var(--line)}
-.avatar{width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg, var(--red), #b71c14); color:#fff; font-family:var(--f-display); font-weight:800; font-size:18px; display:flex; align-items:center; justify-content:center}
+.avatar{width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg, var(--red), #C98E00); color:var(--ink); font-family:var(--f-display); font-weight:800; font-size:18px; display:flex; align-items:center; justify-content:center}
 .why__sig strong{display:block; font-size:15px}
 .why__sig span{display:block; color:var(--muted); font-size:13px}
 .why__features{display:grid; grid-template-columns:1fr 1fr; gap:18px}
@@ -221,7 +183,7 @@ p{margin:0 0 1em 0}
 .step{padding:0 18px; position:relative; border-left:1px solid rgba(255,255,255,.08)}
 .step:first-child{border-left:none; padding-left:0}
 .step__num{width:96px; height:96px; border-radius:50%; background:var(--ink-2); border:1px solid rgba(255,255,255,.12); font-family:var(--f-display); font-weight:900; font-size:34px; display:flex; align-items:center; justify-content:center; margin-bottom:24px; position:relative; z-index:1; color:rgba(255,255,255,.85)}
-.step.is-active .step__num{background:var(--red); border-color:var(--red); color:#fff; box-shadow:0 0 0 6px rgba(230,51,41,.18)}
+.step.is-active .step__num{background:var(--red); border-color:var(--red); color:var(--ink); box-shadow:0 0 0 6px rgba(245,184,0,.25)}
 .step h3{font-size:22px; text-transform:uppercase; font-family:var(--f-display); font-weight:800; letter-spacing:.01em; margin-bottom:10px}
 .step p{color:rgba(255,255,255,.65); font-size:14.5px; line-height:1.55}
 @media (max-width:880px){.process__steps{grid-template-columns:1fr 1fr} .process__steps::before{display:none} .step{border-left:none; padding:0; margin-bottom:32px}}
@@ -229,7 +191,7 @@ p{margin:0 0 1em 0}
 /* PRICE TABLE */
 .price-list{display:flex; flex-direction:column; gap:10px}
 .price-row{display:grid; grid-template-columns:80px 1fr 140px 120px; gap:24px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:var(--r-md); padding:20px 24px; transition:transform .15s ease, border-color .15s ease}
-.price-row:hover{transform:translateY(-1px); border-color:rgba(230,51,41,.30)}
+.price-row:hover{transform:translateY(-1px); border-color:rgba(245,184,0,.50)}
 .price-row.is-feature{background:var(--ink); color:#fff; border-color:transparent}
 .price-row.is-feature .price-row__group{color:var(--red-2)}
 .price-row.is-feature .price-row__desc{color:rgba(255,255,255,.65)}
@@ -266,7 +228,7 @@ p{margin:0 0 1em 0}
 .contact{background:var(--paper)}
 .contact__grid{display:grid; grid-template-columns:1fr 1.1fr; gap:0; background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); overflow:hidden}
 .contact__info{background:var(--ink); color:#fff; padding:48px; position:relative; overflow:hidden}
-.contact__info::before{content:""; position:absolute; inset:0; background:radial-gradient(500px 300px at 100% 0%, rgba(230,51,41,.30), transparent 60%)}
+.contact__info::before{content:""; position:absolute; inset:0; background:radial-gradient(500px 300px at 100% 0%, rgba(245,184,0,.18), transparent 60%)}
 .contact__info > *{position:relative; z-index:1}
 .contact__info h3{font-family:var(--f-display); font-size:36px; text-transform:uppercase; color:#fff; margin-bottom:8px}
 .contact__info > p{color:rgba(255,255,255,.6); font-size:14px; margin:0 0 32px}
@@ -280,7 +242,7 @@ p{margin:0 0 1em 0}
 .contact__list .val a:hover{border-color:var(--red-2)}
 .contact__map{margin-top:32px; position:relative; height:160px; border-radius:var(--r-md); overflow:hidden; border:1px solid rgba(255,255,255,.10); background:linear-gradient(135deg, var(--ink-2), var(--ink-3))}
 .contact__map .roads{position:absolute; inset:0; background-image:linear-gradient(90deg, transparent 49%, rgba(255,255,255,.18) 49% 51%, transparent 51%), linear-gradient(0deg, transparent 49%, rgba(255,255,255,.10) 49% 51%, transparent 51%), linear-gradient(45deg, transparent 49.5%, rgba(255,255,255,.06) 49.5% 50.5%, transparent 50.5%)}
-.contact__map .pin{position:absolute; left:50%; top:50%; width:18px; height:18px; background:var(--red); border-radius:50% 50% 50% 0; transform:translate(-50%, -100%) rotate(-45deg); box-shadow:0 0 0 4px rgba(230,51,41,.25), 0 8px 16px rgba(0,0,0,.4)}
+.contact__map .pin{position:absolute; left:50%; top:50%; width:18px; height:18px; background:var(--red); border-radius:50% 50% 50% 0; transform:translate(-50%, -100%) rotate(-45deg); box-shadow:0 0 0 4px rgba(245,184,0,.35), 0 8px 16px rgba(0,0,0,.4)}
 .contact__map .pin::after{content:""; position:absolute; inset:5px; background:#fff; border-radius:50%}
 .contact__form{padding:48px}
 .contact__form h3{font-family:var(--f-display); font-size:32px; text-transform:uppercase; margin-bottom:6px}
@@ -292,7 +254,7 @@ p{margin:0 0 1em 0}
 .field input, .field select, .field textarea{font-family:inherit; font-size:15px; padding:13px 16px; background:var(--paper); border:1.5px solid transparent; border-radius:10px; color:var(--ink); outline:none; transition:border-color .15s ease, background .15s ease; width:100%}
 .field textarea{min-height:100px; resize:vertical; font-family:inherit}
 .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--red); background:#fff}
-.field.is-error input, .field.is-error select, .field.is-error textarea{border-color:#E63329; background:rgba(230,51,41,.05)}
+.field.is-error input, .field.is-error select, .field.is-error textarea{border-color:#E6A000; background:rgba(245,184,0,.07)}
 .form-note{color:var(--muted); font-size:12px; margin-top:14px}
 .contact__form button{margin-top:8px}
 .form-success{background:#0F1117; color:#fff; padding:28px; border-radius:var(--r-md); text-align:center}
@@ -301,29 +263,6 @@ p{margin:0 0 1em 0}
 .form-success p{color:rgba(255,255,255,.65); font-size:14px; margin:0}
 @media (max-width:880px){.contact__grid{grid-template-columns:1fr} .contact__info, .contact__form{padding:32px} .field-row{grid-template-columns:1fr}}
 
-/* FOOTER */
-.footer{background:#080A0F; color:#fff; padding:72px 0 32px; position:relative}
-.footer__inner{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:48px; margin-bottom:56px}
-.footer__brand .logo{color:#fff}
-.footer__brand p{color:rgba(255,255,255,.55); font-size:14px; margin:18px 0 0; max-width:34ch}
-.footer h5{font-family:var(--f-display); font-size:14px; text-transform:uppercase; letter-spacing:.08em; color:rgba(255,255,255,.5); font-weight:600; margin-bottom:18px}
-.footer ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px}
-.footer ul a{color:rgba(255,255,255,.85); text-decoration:none; font-size:15px; transition:color .15s ease}
-.footer ul a:hover{color:var(--red-2)}
-.footer__bottom{border-top:1px solid rgba(255,255,255,.08); padding-top:24px; display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; font-size:13px; color:rgba(255,255,255,.4)}
-@media (max-width:880px){.footer__inner{grid-template-columns:1fr 1fr; gap:32px} .footer__brand{grid-column:span 2}}
-@media (max-width:560px){.footer__inner{grid-template-columns:1fr} .footer__brand{grid-column:span 1}}
-
-/* ANIM */
-[data-anim]{opacity:0; transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1)}
-[data-anim="up"]{transform:translateY(24px)}
-[data-anim="fade"]{transform:none}
-[data-anim].in{opacity:1; transform:none}
-[data-delay="1"]{transition-delay:.08s}
-[data-delay="2"]{transition-delay:.16s}
-[data-delay="3"]{transition-delay:.24s}
-[data-delay="4"]{transition-delay:.32s}
-@media (prefers-reduced-motion: reduce){*{transition:none !important; animation:none !important} [data-anim]{opacity:1 !important; transform:none !important}}
 </style>
 </head>
 <body>
@@ -358,7 +297,7 @@ p{margin:0 0 1em 0}
       <a href="vozovy-park.html">Vozový park <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a href="cenik.html">Ceník <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a href="#kontakt">Kontakt <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a href="tel:+420606222935" style="margin-top:8px; background:var(--red); color:#fff;">Zavolat: 606 222 935 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg></a>
+      <a href="tel:+420606222935" style="margin-top:8px; background:var(--red); color:var(--ink);">Zavolat: 606 222 935 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg></a>
     </div>
   </div>
 </nav>
@@ -367,10 +306,34 @@ p{margin:0 0 1em 0}
 
 <!-- HERO -->
 <section class="hero" id="hero" data-screen-label="01 Hero">
-  <div class="container hero__grid">
-    <div class="hero__copy">
-      <h1 data-anim="up" data-delay="1">Získej řidičák s&nbsp;<span class="accent">jistotou</span>.</h1>
-      <p class="hero__lead" data-anim="up" data-delay="2">Autoškola s 33letou tradicí v&nbsp;Ústí nad Labem. Specializace na skupiny A a&nbsp;B, vlastní motocvičiště v&nbsp;Chlumci a&nbsp;5 zkušených instruktorů, kteří tě dovedou ke zkoušce v&nbsp;klidu.</p>
+
+  <!-- Organický amber blob — pravá strana -->
+  <div class="hero__blob" aria-hidden="true">
+    <div class="hero__blob-ring"></div>
+    <div class="hero__blob-dots"></div>
+    <!-- Three.js 3D motorka -->
+    <div class="hero__blob-moto">
+      <img src="images/motorcycle.png?v=2" alt="" class="hero-moto" aria-hidden="true">
+    </div>
+    <div class="hero__blob-chevrons">
+      <span>›</span>
+      <span>›</span>
+      <span>›</span>
+    </div>
+    <div class="hero__blob-dot"></div>
+    <div class="hero__blob-check"></div>
+  </div>
+
+  <!-- Textový obsah — levá strana -->
+  <div class="hero__content">
+    <div class="hero__inner">
+      <div class="hero__badge"><span class="dot"></span>33+ let zkušeností</div>
+      <p class="hero__loc">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Ústí nad Labem
+      </p>
+      <h1 data-anim="up" data-delay="1">Získej řidičák<br/><span class="accent">s jistotou.</span></h1>
+      <p class="hero__lead" data-anim="up" data-delay="2">Autoškola s 33letou tradicí v&nbsp;Ústí nad Labem. Specializace na skupiny A a&nbsp;B, vlastní motocvičiště v&nbsp;Chlumci a&nbsp;6 zkušených instruktorů.</p>
       <div class="hero__ctas" data-anim="up" data-delay="3">
         <a href="#kurzy" class="btn btn--primary">Prohlédnout kurzy <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a href="tel:+420606222935" class="btn btn--ghost-dark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg> Zavolat nám</a>
@@ -383,65 +346,8 @@ p{margin:0 0 1em 0}
         <span><strong>IČ 650 910 86</strong></span>
       </div>
     </div>
-    <div class="hero__visual" data-anim="fade" data-delay="2" aria-hidden="true">
-      <!-- Driving car animation scene -->
-      <div class="hero__scene">
-        <div class="scene__mountains"></div>
-        <div class="scene__trees"></div>
-        <div class="scene__road">
-          <div class="scene__dashes"></div>
-        </div>
-        <div class="car-wrap">
-          <svg class="car-svg" viewBox="0 0 160 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Car body -->
-            <path d="M10 44 L10 38 L24 38 L40 22 L56 14 L104 12 L120 16 L132 26 L144 32 L148 38 L148 44 Z" fill="#E63329"/>
-            <!-- Lower body darker strip -->
-            <path d="M10 44 L10 40 L148 40 L148 44 Z" fill="#C02820"/>
-            <!-- Windows -->
-            <path d="M44 36 L58 16 L104 13 L118 17 L128 28 L44 36 Z" fill="rgba(8,12,24,.58)"/>
-            <!-- B-pillar divider -->
-            <line x1="84" y1="13.5" x2="84" y2="36" stroke="#b02218" stroke-width="2.5"/>
-            <!-- Roof highlight -->
-            <path d="M58 14 L104 12 L120 16" stroke="rgba(255,255,255,.18)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-            <!-- Headlight -->
-            <rect x="138" y="30" width="12" height="9" rx="2.5" fill="#FEF3C7" opacity="0.92"/>
-            <!-- Headlight glow -->
-            <path d="M150 31 L158 26 L158 41 L150 38 Z" fill="rgba(254,243,199,.1)"/>
-            <!-- Tail light -->
-            <rect x="10" y="36" width="7" height="9" rx="1.5" fill="#FF2222" opacity="0.88"/>
-            <!-- Rear wheel -->
-            <circle cx="36" cy="48" r="12" fill="#0a0e18"/>
-            <circle cx="36" cy="48" r="8" fill="#1a2035"/>
-            <g class="wheel-spokes">
-              <line x1="36" y1="41" x2="36" y2="55" stroke="#3d4a60" stroke-width="2" stroke-linecap="round"/>
-              <line x1="29" y1="48" x2="43" y2="48" stroke="#3d4a60" stroke-width="2" stroke-linecap="round"/>
-              <line x1="31" y1="43" x2="41" y2="53" stroke="#3d4a60" stroke-width="1.5" stroke-linecap="round"/>
-              <line x1="41" y1="43" x2="31" y2="53" stroke="#3d4a60" stroke-width="1.5" stroke-linecap="round"/>
-            </g>
-            <circle cx="36" cy="48" r="3" fill="#4b5a72"/>
-            <!-- Front wheel -->
-            <circle cx="120" cy="48" r="12" fill="#0a0e18"/>
-            <circle cx="120" cy="48" r="8" fill="#1a2035"/>
-            <g class="wheel-spokes">
-              <line x1="120" y1="41" x2="120" y2="55" stroke="#3d4a60" stroke-width="2" stroke-linecap="round"/>
-              <line x1="113" y1="48" x2="127" y2="48" stroke="#3d4a60" stroke-width="2" stroke-linecap="round"/>
-              <line x1="115" y1="43" x2="125" y2="53" stroke="#3d4a60" stroke-width="1.5" stroke-linecap="round"/>
-              <line x1="125" y1="43" x2="115" y2="53" stroke="#3d4a60" stroke-width="1.5" stroke-linecap="round"/>
-            </g>
-            <circle cx="120" cy="48" r="3" fill="#4b5a72"/>
-            <!-- Ground shadow -->
-            <ellipse cx="80" cy="62" rx="72" ry="4" fill="rgba(0,0,0,.35)"/>
-          </svg>
-        </div>
-      </div>
-
-      <div class="hero__card">
-        <div class="num">A</div>
-        <div class="lbl"><strong>Motocykly + Auto</strong>Sdružený A+B od 35 000 Kč</div>
-        <a href="#cenik" class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
-      </div>
-    </div>
   </div>
+
 </section>
 
 <!-- STATS -->
@@ -652,7 +558,7 @@ p{margin:0 0 1em 0}
     <div>
       <span class="eyebrow" data-anim="up">Časté dotazy</span>
       <h2 data-anim="up" data-delay="1" style="margin-top:14px;font-size:clamp(40px,5vw,64px)">Na co se nejčastěji ptáte</h2>
-      <p data-anim="up" data-delay="2" style="color:rgba(255,255,255,.65); margin-top:24px; max-width:36ch">Nenašel jsi odpověď? Zavolej nám na <a href="tel:+420606222935" style="color:#FF6A60; font-weight:600">606&nbsp;222&nbsp;935</a>.</p>
+      <p data-anim="up" data-delay="2" style="color:rgba(255,255,255,.65); margin-top:24px; max-width:36ch">Nenašel jsi odpověď? Zavolej nám na <a href="tel:+420606222935" style="color:#FFD700; font-weight:600">606&nbsp;222&nbsp;935</a>.</p>
     </div>
     <div class="faq__list">
       <div class="faq__item open"><button class="faq__q">Jak se přihlásím do kurzu?<span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="faq__a"><div>Zavolej na 606&nbsp;222&nbsp;935 nebo napiš na autoskola.necas@seznam.cz. Domluvíme schůzku, projdeme podmínky a&nbsp;termíny výuky teorie (odpoledne ve&nbsp;všední dny).</div></div></div>
@@ -747,46 +653,13 @@ p{margin:0 0 1em 0}
   </div>
 </footer>
 
+
+<!-- Scripts -->
+<script src="js/app.js" defer></script>
 <script>
-(function(){
-  // nav scroll
-  const navEl = document.getElementById('siteNav');
-  const onScroll = () => navEl.classList.toggle('is-scrolled', window.scrollY > 8);
-  onScroll();
-  window.addEventListener('scroll', onScroll, {passive:true});
-
-  // drawer
-  const burger = document.getElementById('burgerBtn');
-  const drawer = document.getElementById('navDrawer');
-  const drawerClose = document.getElementById('drawerClose');
-  const closeDrawer = () => drawer.classList.remove('is-open');
-  burger.addEventListener('click', () => drawer.classList.add('is-open'));
-  drawerClose.addEventListener('click', closeDrawer);
-  drawer.addEventListener('click', (e) => { if (e.target === drawer) closeDrawer(); });
-  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
-
-  // intersection animations
-  const animEls = document.querySelectorAll('[data-anim]');
-  if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
-    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
-    animEls.forEach(el => io.observe(el));
-  } else {
-    animEls.forEach(el => el.classList.add('in'));
-  }
-
-  // FAQ accordion
-  document.querySelectorAll('.faq__item').forEach(item => {
-    const q = item.querySelector('.faq__q');
-    q.addEventListener('click', () => {
-      const wasOpen = item.classList.contains('open');
-      item.parentElement.querySelectorAll('.faq__item.open').forEach(o => { if (o !== item) o.classList.remove('open'); });
-      item.classList.toggle('open', !wasOpen);
-    });
-  });
-
-  // contact form
+/* Page-specific JS — contact form, course card links, URL param */
+(function () {
+  // Contact form
   const form = document.getElementById('contactForm');
   if (form) {
     form.addEventListener('submit', (e) => {
@@ -812,7 +685,7 @@ p{margin:0 0 1em 0}
     });
   }
 
-  // Course cards → cenik.html (příslušná sekce)
+  // Course cards → cenik.html anchor
   const cCardMap = {
     'A+B':'#sdruzeny','A2+B':'#sdruzeny','A1+B':'#sdruzeny',
     'B':'#skupina-b','A':'#skupiny-a','A2':'#skupiny-a',
