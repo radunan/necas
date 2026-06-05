@@ -232,7 +232,11 @@ p { margin: 0 0 1em }
 .nav__burger svg { width: 20px; height: 20px }
 .nav__drawer {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  height: 100dvh;
   background: rgba(15, 17, 23, .55);
   backdrop-filter: blur(6px);
   z-index: 60;
@@ -241,6 +245,7 @@ p { margin: 0 0 1em }
   flex-direction: column;
   justify-content: flex-end;
 }
+body.drawer-open { overflow: hidden; position: fixed; width: 100% }
 .nav__drawer.is-open { display: flex; flex-direction: column }
 .nav__drawer-card {
   background: #fff;
