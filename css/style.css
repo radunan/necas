@@ -274,9 +274,8 @@ body.drawer-open { overflow: hidden; position: fixed; width: 100% }
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: rgba(255,255,255,.15);
-  border: 1px solid rgba(255,255,255,.25);
-  backdrop-filter: blur(8px);
+  background: #1a2540;
+  border: 1px solid rgba(255,255,255,.15);
   display: flex;
   align-items: center;
   justify-content: center;
