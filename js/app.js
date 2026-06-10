@@ -5,12 +5,17 @@
 (function () {
   'use strict';
 
-  /* ── Nav: scroll shadow ── */
+  /* ── Nav: scroll shadow + průhlednost nad hero ── */
   const navEl = document.getElementById('siteNav');
+  const heroEl = document.getElementById('hero');
   if (navEl) {
-    const onScroll = () => navEl.classList.toggle('is-scrolled', window.scrollY > 8);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
+    const updateNav = () => {
+      const overHero = heroEl && heroEl.getBoundingClientRect().bottom > navEl.offsetHeight;
+      navEl.classList.toggle('is-transparent', !!overHero);
+      navEl.classList.toggle('is-scrolled', !overHero && window.scrollY > 8);
+    };
+    requestAnimationFrame(updateNav);
+    window.addEventListener('scroll', updateNav, { passive: true });
   }
 
   /* ── Nav: mobilní drawer ── */
@@ -19,14 +24,13 @@
   const drawerClose = document.getElementById('drawerClose');
 
   if (burger && drawer) {
-    burger.addEventListener('click', () => drawer.classList.add('is-open'));
-    if (drawerClose) drawerClose.addEventListener('click', () => drawer.classList.remove('is-open'));
-    drawer.addEventListener('click', e => {
-      if (e.target === drawer) drawer.classList.remove('is-open');
-    });
-    drawer.querySelectorAll('a').forEach(a =>
-      a.addEventListener('click', () => drawer.classList.remove('is-open'))
-    );
+    const openDrawer  = () => { drawer.classList.add('is-open');    document.body.classList.add('drawer-open'); };
+    const closeDrawer = () => { drawer.classList.remove('is-open'); document.body.classList.remove('drawer-open'); };
+
+    burger.addEventListener('click', openDrawer);
+    if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
+    drawer.addEventListener('click', e => { if (e.target === drawer) closeDrawer(); });
+    drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
   }
 
   /* ── Scroll animations (data-anim) ── */

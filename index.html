@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="css/style.css">
 <style>
 /* HERO — dark split with photo */
-.hero{position:relative; background:#080B12; color:#fff; height:100svh; min-height:500px; display:flex; flex-direction:column; padding:clamp(100px,12vw,150px) 0 0}
+.hero{position:relative; background:#080B12; color:#fff; height:100svh; min-height:500px; display:flex; flex-direction:column; padding:clamp(100px,12vw,150px) 0 0; margin-top:calc(-1 * var(--nav-h))}
 /* Right photo */
 .hero__photo{position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:1}
 .hero__photo img{width:100%; height:100%; object-fit:cover; object-position:center center}
@@ -348,7 +348,7 @@
   </div>
 
   <!-- Feature strip — ticker -->
-  <div class="hero__strip" data-anim="up" data-delay="4">
+  <div class="hero__strip">
     <div class="hero__strip-inner" aria-hidden="true">
       <!-- Set 1 -->
       <div class="hero__strip-item">
@@ -441,7 +441,6 @@
         <span class="eyebrow">Naše kurzy</span>
         <h2 style="margin-top:14px">Nabízíme výcvik pro motocykly i&nbsp;osobní automobily.</h2>
         <p>Vyber si kurz, který je pro tebe ten pravý.</p>
-        <p class="promo"><strong>Absolventi jakéhokoli A u nás: −2&nbsp;000 Kč na další A · −3&nbsp;000 Kč na sdružený A+B · −3&nbsp;000 Kč na B.</strong></p>
       </div>
     </div>
     <div class="courses__grid">
