@@ -155,6 +155,12 @@
 .course--group .course__foot{border-top-color:rgba(255,255,255,.14); justify-content:flex-end}
 .course--group .course__cta{background:var(--red)}
 .course--group .course__cta:hover{background:#fff; color:var(--ink)}
+/* Zjisti více pill button */
+.course__name-row{display:flex; align-items:center; justify-content:space-between; gap:12px; margin:8px 0 12px}
+.course__more{font-family:var(--f-text); font-size:12px; font-weight:600; color:var(--ink); background:var(--paper-2); border:1px solid var(--line); border-radius:999px; padding:7px 16px; text-decoration:none; white-space:nowrap; flex-shrink:0; transition:background .15s, color .15s, border-color .15s}
+.course__more:hover{background:var(--ink); color:#fff; border-color:var(--ink)}
+.course--feature .course__more,.course--dark .course__more,.course--group .course__more{color:#fff; background:rgba(255,255,255,.10); border-color:rgba(255,255,255,.20)}
+.course--feature .course__more:hover,.course--dark .course__more:hover,.course--group .course__more:hover{background:var(--red); color:var(--ink); border-color:var(--red)}
 
 /* GALLERY */
 .fleet-groups{display:grid; grid-template-columns:repeat(auto-fill, minmax(210px, 1fr)); gap:16px; margin-bottom:48px}
@@ -438,8 +444,7 @@
   <div class="container">
     <div class="courses__intro">
       <div class="courses__intro-text" data-anim="up">
-        <span class="eyebrow">Naše kurzy</span>
-        <h2 style="margin-top:14px">Nabízíme výcvik pro motocykly i&nbsp;osobní automobily.</h2>
+        <h2>Nabízíme výcvik pro motocykly i&nbsp;osobní automobily.</h2>
         <p>Vyber si kurz, který je pro tebe ten pravý.</p>
       </div>
     </div>
@@ -448,101 +453,51 @@
       <!-- Skupina A — přehled -->
       <article class="course course--group" data-anim="up">
         <div class="course__group-img">
-          <img src="images/group_a.jpg" alt="Skupina A — motocykly">
+          <img src="images/group-A.jpg" alt="Skupina A — motocykly">
         </div>
         <div class="course__group-body">
           <div class="course__group">AM · A1 · A2 · A</div>
-          <div class="course__name">Skupiny A — motocykly</div>
+          <div class="course__name-row"><div class="course__name">Skupiny A — motocykly</div><a href="cenik.html#skupiny-a" class="course__more">Zjisti více</a></div>
           <p class="course__desc">
             <strong style="color:rgba(255,255,255,.85)">AM</strong> Yamaha N-Max, Aprilia Motard, Daytona Hobby<br>
             <strong style="color:rgba(255,255,255,.85)">A1</strong> Yamaha YBR, Benelli BN 125, Yamaha N-Max<br>
             <strong style="color:rgba(255,255,255,.85)">A2</strong> CF Moto 300, Honda Rebel, Yamaha Tracer 7, Honda ADV 350<br>
             <strong style="color:rgba(255,255,255,.85)">A&nbsp;</strong> Yamaha MT 07, XJ6, Honda CB 650 e-clutch
           </p>
-          <div class="course__foot">
-            <a href="cenik.html#skupiny-a" class="course__cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </div>
         </div>
       </article>
 
       <!-- Skupina B — přehled -->
       <article class="course course--group" data-anim="up" data-delay="1">
         <div class="course__group-img">
-          <img src="images/group_B.jpg" alt="Skupina B — automobily">
+          <img src="images/group-B2.jpg" alt="Skupina B — automobily">
         </div>
         <div class="course__group-body">
           <div class="course__group">B <span class="age">od 18 let</span></div>
-          <div class="course__name">Skupina B — automobily</div>
+          <div class="course__name-row"><div class="course__name">Skupina B — automobily</div><a href="cenik.html#skupina-b" class="course__more">Zjisti více</a></div>
           <p class="course__desc">Toyota Aygo · Citroën C3 · Toyota Corolla (automat)</p>
-          <div class="course__foot">
-            <a href="cenik.html#skupina-b" class="course__cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Featured: Sdružený A+B -->
-      <article class="course course--feature" data-anim="up">
-        <div>
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
-            <div class="course__icons" style="margin-bottom:0"><div class="course__icon"><i class="ti ti-motorbike"></i></div><span class="course__icons-sep">+</span><div class="course__icon"><i class="ti ti-car"></i></div></div>
-            <div class="course__badge" style="margin-bottom:0">Nejoblíbenější</div>
-          </div>
-          <div class="course__group">A+B <span class="age">od 24 let</span></div>
-          <div class="course__name">Motorka i auto v&nbsp;jednom</div>
-          <p class="course__desc">Plné A + osobní automobil za výhodnou cenu. Yamaha MT 07 nebo XJ6 · Toyota Aygo, Citroën C3. Nejlepší poměr cena / rozsah oprávnění.</p>
-          <div class="course__foot">
-            <div class="course__price"><small>cena od</small>35 000 Kč</div>
-            <a href="#kontakt" class="course__cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </div>
-        </div>
-        <div class="course__visual"><span class="big-letter">A</span></div>
-      </article>
-
-      <!-- Sdružený A2+B -->
-      <article class="course course--dark" data-anim="up" data-delay="1">
-        <div class="course__icons"><div class="course__icon"><i class="ti ti-motorbike"></i></div><span class="course__icons-sep">+</span><div class="course__icon"><i class="ti ti-car"></i></div></div>
-        <div class="course__group">A2+B <span class="age">od 18 let</span></div>
-        <div class="course__name">Sdružený výcvik</div>
-        <p class="course__desc">A2 (35&nbsp;kW) + osobní automobil. CF Moto 300, Honda Rebel, Yamaha Tracer 7 + Toyota Aygo, Citroën C3.</p>
-        <div class="course__foot">
-          <div class="course__price"><small>cena od</small>34 000 Kč</div>
-          <a href="#kontakt" class="course__cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </div>
-      </article>
-
-      <!-- Sdružený A1+B -->
-      <article class="course course--dark" data-anim="up" data-delay="2">
-        <div class="course__icons"><div class="course__icon"><i class="ti ti-moped"></i></div><span class="course__icons-sep">+</span><div class="course__icon"><i class="ti ti-car"></i></div></div>
-        <div class="course__group">A1+B <span class="age">od 18 let</span></div>
-        <div class="course__name">Sdružený výcvik</div>
-        <p class="course__desc">A1 (125&nbsp;cm³) + osobní automobil. Yamaha YBR, Benelli BN 125, skútr N-Max + Toyota Aygo, Citroën C3.</p>
-        <div class="course__foot">
-          <div class="course__price"><small>cena od</small>33 000 Kč</div>
-          <a href="#kontakt" class="course__cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </div>
-      </article>
-
-      <!-- B (auto) -->
-      <article class="course" data-anim="up" data-delay="3">
-        <div class="course__icon"><i class="ti ti-car"></i></div>
-        <div class="course__group">B <span class="age">od 18 let</span></div>
-        <div class="course__name">Osobní automobily</div>
-        <p class="course__desc">Toyota Aygo, Citroën C3. Automat Toyota Corolla k&nbsp;dispozici. Vozidla do 3,5&nbsp;t · absolventi sk. A za 18 000 Kč.</p>
-        <div class="course__foot">
-          <div class="course__price"><small>od</small>21 000 Kč</div>
-          <a href="#kontakt" class="course__cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </article>
 
       <!-- A (plný) -->
-      <article class="course" data-anim="up" data-delay="1">
+      <article class="course" data-anim="up">
         <div class="course__icon"><i class="ti ti-motorbike"></i></div>
         <div class="course__group">A <span class="age">24+</span></div>
-        <div class="course__name">Motocykly bez omezení</div>
-        <p class="course__desc">Plné oprávnění bez výkonových limitů. Yamaha MT 07, XJ6, Honda CB 650 e-clutch. Cena platí pro držitele ŘP — bez ŘP +1&nbsp;000&nbsp;Kč.</p>
+        <div class="course__name-row"><div class="course__name">Motocykly bez omezení</div><a href="cenik.html#skupiny-a" class="course__more">Zjisti více</a></div>
+        <p class="course__desc">Plné oprávnění bez výkonových limitů. Yamaha MT 07, XJ6, Honda CB 650 e-clutch. Držitelé ŘP: −1&nbsp;000&nbsp;Kč.</p>
         <div class="course__foot">
-          <div class="course__price"><small>od</small>19 000 Kč</div>
-          <a href="#kontakt" class="course__cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <div class="course__price"><small>od</small>20 000 Kč</div>
+        </div>
+      </article>
+
+      <!-- A1 -->
+      <article class="course" data-anim="up" data-delay="1">
+        <div class="course__icon"><i class="ti ti-moped"></i></div>
+        <div class="course__group">A1 <span class="age">od 16 let</span></div>
+        <div class="course__name-row"><div class="course__name">Lehká mota 125&nbsp;cm³</div><a href="cenik.html#skupiny-a" class="course__more">Zjisti více</a></div>
+        <p class="course__desc">Yamaha YBR, Benelli BN 125, skútr Yamaha N-Max. Výkon do 11&nbsp;kW. Držitelé ŘP: −1&nbsp;000&nbsp;Kč.</p>
+        <div class="course__foot">
+          <div class="course__price"><small>s AM od</small>17 000 Kč</div>
         </div>
       </article>
 
@@ -550,91 +505,85 @@
       <article class="course" data-anim="up" data-delay="2">
         <div class="course__icon"><i class="ti ti-motorbike"></i></div>
         <div class="course__group">A2 <span class="age">od 18 let</span></div>
-        <div class="course__name">Motocykly do 35&nbsp;kW</div>
-        <p class="course__desc">CF Moto 300, Honda Rebel, Yamaha Tracer 7, Honda ADV 350 (automat). Cena platí pro držitele ŘP — bez ŘP +1&nbsp;000&nbsp;Kč.</p>
+        <div class="course__name-row"><div class="course__name">Motocykly do 35&nbsp;kW</div><a href="cenik.html#skupiny-a" class="course__more">Zjisti více</a></div>
+        <p class="course__desc">CF Moto 300, Honda Rebel, Yamaha Tracer 7, Honda ADV 350 (automat). Držitelé ŘP: −1&nbsp;000&nbsp;Kč.</p>
         <div class="course__foot">
-          <div class="course__price"><small>od</small>18 000 Kč</div>
-          <a href="#kontakt" class="course__cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </div>
-      </article>
-
-      <!-- A1 -->
-      <article class="course" data-anim="up" data-delay="3">
-        <div class="course__icon"><i class="ti ti-moped"></i></div>
-        <div class="course__group">A1 <span class="age">od 16 let</span></div>
-        <div class="course__name">Lehká mota 125&nbsp;cm³</div>
-        <p class="course__desc">Yamaha YBR, Benelli BN 125, skútr Yamaha N-Max. Výkon do 11&nbsp;kW. Od 16 let. Bez ŘP: 17 000 Kč.</p>
-        <div class="course__foot">
-          <div class="course__price"><small>s AM od</small>16 000 Kč</div>
-          <a href="#kontakt" class="course__cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <div class="course__price"><small>od</small>19 000 Kč</div>
         </div>
       </article>
 
       <!-- AM -->
-      <article class="course" data-anim="up" data-delay="1">
+      <article class="course" data-anim="up" data-delay="3">
         <div class="course__icon"><i class="ti ti-scooter"></i></div>
         <div class="course__group">AM <span class="age">od 15 let</span></div>
-        <div class="course__name">Mopedy &amp;&nbsp;skútry</div>
+        <div class="course__name-row"><div class="course__name">Mopedy &amp;&nbsp;skútry</div><a href="cenik.html#skupiny-a" class="course__more">Zjisti více</a></div>
         <p class="course__desc">Yamaha YBR, Benelli BN 125, Daytona Hobby, Yamaha N-Max, Aprilia Motard. Do 45&nbsp;km/h.</p>
         <div class="course__foot">
           <div class="course__price"><small>od</small>16 000 Kč</div>
-          <a href="#kontakt" class="course__cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+
+      <!-- B (auto) -->
+      <article class="course" data-anim="up">
+        <div class="course__icon"><i class="ti ti-car"></i></div>
+        <div class="course__group">B <span class="age">od 18 let</span></div>
+        <div class="course__name-row"><div class="course__name">Osobní automobily</div><a href="cenik.html#skupina-b" class="course__more">Zjisti více</a></div>
+        <p class="course__desc">Toyota Aygo, Citroën C3. Automat Toyota Corolla k&nbsp;dispozici. Vozidla do 3,5&nbsp;t · absolventi sk. A za 18 000 Kč.</p>
+        <div class="course__foot">
+          <div class="course__price"><small>od</small>21 000 Kč</div>
+        </div>
+      </article>
+
+      <!-- Featured: Sdružený A+B -->
+      <article class="course course--feature" data-anim="up" data-delay="1">
+        <div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
+            <div class="course__icons" style="margin-bottom:0"><div class="course__icon"><i class="ti ti-motorbike"></i></div><span class="course__icons-sep">+</span><div class="course__icon"><i class="ti ti-car"></i></div></div>
+            <div class="course__badge" style="margin-bottom:0">Nejoblíbenější</div>
+          </div>
+          <div class="course__group">A+B <span class="age">od 24 let</span></div>
+          <div class="course__name-row"><div class="course__name">Motorka i auto v&nbsp;jednom</div><a href="cenik.html#sdruzeny" class="course__more">Zjisti více</a></div>
+          <p class="course__desc">Plné A + osobní automobil za výhodnou cenu. Yamaha MT 07 nebo XJ6 · Toyota Aygo, Citroën C3. Nejlepší poměr cena / rozsah oprávnění.</p>
+          <div class="course__foot">
+            <div class="course__price"><small>cena od</small>35 000 Kč</div>
+          </div>
+        </div>
+        <div class="course__visual"><span class="big-letter">A</span></div>
+      </article>
+
+      <!-- Sdružený A2+B -->
+      <article class="course course--dark" data-anim="up" data-delay="2">
+        <div class="course__icons"><div class="course__icon"><i class="ti ti-motorbike"></i></div><span class="course__icons-sep">+</span><div class="course__icon"><i class="ti ti-car"></i></div></div>
+        <div class="course__group">A2+B <span class="age">od 18 let</span></div>
+        <div class="course__name-row"><div class="course__name">Sdružený výcvik</div><a href="cenik.html#sdruzeny" class="course__more">Zjisti více</a></div>
+        <p class="course__desc">A2 (35&nbsp;kW) + osobní automobil. CF Moto 300, Honda Rebel, Yamaha Tracer 7 + Toyota Aygo, Citroën C3.</p>
+        <div class="course__foot">
+          <div class="course__price"><small>cena od</small>34 000 Kč</div>
+        </div>
+      </article>
+
+      <!-- Sdružený A1+B -->
+      <article class="course course--dark" data-anim="up" data-delay="3">
+        <div class="course__icons"><div class="course__icon"><i class="ti ti-moped"></i></div><span class="course__icons-sep">+</span><div class="course__icon"><i class="ti ti-car"></i></div></div>
+        <div class="course__group">A1+B <span class="age">od 18 let</span></div>
+        <div class="course__name-row"><div class="course__name">Sdružený výcvik</div><a href="cenik.html#sdruzeny" class="course__more">Zjisti více</a></div>
+        <p class="course__desc">A1 (125&nbsp;cm³) + osobní automobil. Yamaha YBR, Benelli BN 125, skútr N-Max + Toyota Aygo, Citroën C3.</p>
+        <div class="course__foot">
+          <div class="course__price"><small>cena od</small>33 000 Kč</div>
         </div>
       </article>
 
       <!-- Kondiční -->
-      <article class="course" data-anim="up" data-delay="2">
+      <article class="course" data-anim="up">
         <div class="course__icon"><i class="ti ti-stopwatch"></i></div>
         <div class="course__group">+ <span class="age">90 min</span></div>
-        <div class="course__name">Kondiční &amp;&nbsp;doplňkový výcvik</div>
+        <div class="course__name-row"><div class="course__name">Kondiční &amp;&nbsp;doplňkový výcvik</div><a href="cenik.html#kondicni" class="course__more">Zjisti více</a></div>
         <p class="course__desc">Mototrenažér, motocvičiště nebo jízdy v&nbsp;provozu. Opakování nebo zpřesnění techniky jízdy.</p>
         <div class="course__foot">
           <div class="course__price"><small>od</small>600 Kč</div>
-          <a href="#kontakt" class="course__cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </article>
 
-    </div>
-  </div>
-</section>
-
-<!-- WHY -->
-<section class="why section" id="proc-my" data-screen-label="04 Proč my">
-  <div class="container why__grid">
-    <div class="why__intro">
-      <span class="eyebrow" data-anim="up">Proč Autoškola Nečas</span>
-      <h2 data-anim="up" data-delay="1" style="margin-top:14px">34 let zkušeností.<br/>Motorka je naše vášeň.</h2>
-      <p data-anim="up" data-delay="2">Nejsme řetězec. Jsme rodinná autoškola v&nbsp;Ústí nad Labem, která se od roku 1992 specializuje na skupiny A a&nbsp;B. Naše tým 5 instruktorů tě provede výcvikem klidně a&nbsp;individuálně.</p>
-      <div class="why__sig" data-anim="up" data-delay="3">
-        <div class="avatar">MN</div>
-        <div><strong>Marek Nečas</strong><span>Zakladatel &amp; hlavní instruktor · 34 let praxe</span></div>
-      </div>
-    </div>
-    <div class="why__features" id="vybaveni">
-      <div class="feature" data-anim="up">
-        <div class="feature__num">01</div>
-        <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="1.5"/><path d="M3 9h18M7 13h6M7 16h4"/><circle cx="17" cy="14.5" r="1.5"/></svg></div>
-        <h3>Výuka teorie</h3>
-        <p>Výuka teorie probíhá odpoledně ve&nbsp;všední dny — termíny domluvíme na úvodní schůzce.</p>
-      </div>
-      <div class="feature" data-anim="up" data-delay="1">
-        <div class="feature__num">02</div>
-        <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="11" rx="2"/><path d="M8 19h8M12 16v3"/><circle cx="9" cy="10" r="1.6"/><circle cx="15" cy="10" r="1.6"/></svg></div>
-        <h3>Vlastní motocvičiště</h3>
-        <p>Cvičiště v&nbsp;Chlumci (U&nbsp;Šmelce) slouží i jako zkušební plocha pro závěrečné zkoušky — znáš ji dopředu.</p>
-      </div>
-      <div class="feature" data-anim="up" data-delay="2">
-        <div class="feature__num">03</div>
-        <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4M8 14h2M14 14h2M8 17h2"/></svg></div>
-        <h3>Termíny dle tebe</h3>
-        <p>Jízdy a&nbsp;teorii domluvíme tak, aby seděly tvému rozvrhu.</p>
-      </div>
-      <div class="feature" data-anim="up" data-delay="3">
-        <div class="feature__num">04</div>
-        <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5a6 6 0 0 0 12 0v-5M22 9v6"/></svg></div>
-        <h3>7 zkušených instruktorů</h3>
-        <p>Marek, Leona, Jirka Fenzl, Jirka Hrdlička, Jirka Borowczak, Pavel Holík a&nbsp;Lukáš Boroviška — průměrně přes 14 let praxe. Pojištění všech žáků je samozřejmostí.</p>
-      </div>
     </div>
   </div>
 </section>
@@ -659,7 +608,7 @@
 </section>
 
 <!-- FAQ -->
-<section class="faq section" data-screen-label="07 FAQ">
+<section class="faq section" data-screen-label="07 FAQ" style="padding-top:clamp(36px,5vw,64px)">
   <div class="container faq__grid">
     <div>
       <span class="eyebrow" data-anim="up">Časté dotazy</span>
