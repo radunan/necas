@@ -7,79 +7,64 @@
 <meta name="description" content="Autoškola Marek Nečas v Ústí nad Labem. 34+ let tradice, specializace na skupiny A (moto) a B. Vlastní motocvičiště v Chlumci. Tel: 606 222 935." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=DM+Sans:wght@400;500;600;700&display=block" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
 <link rel="stylesheet" href="css/style.css">
 <style>
-/* HERO — organic blob split */
-.hero{position:relative; background:linear-gradient(130deg, #060D1F 0%, #0C1A3A 40%, #13234E 100%); color:#fff; overflow:hidden; min-height:clamp(580px,88vh,920px); display:flex; align-items:center; padding:clamp(100px,12vw,150px) 0 clamp(80px,10vw,120px)}
-.hero::before{content:""; position:absolute; inset:0; pointer-events:none; z-index:0}
-.hero__waves{position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:0}
-@media(max-width:720px){.hero__waves{opacity:.7}}
-/* Amber glow bleeding in from blob + blue depth bottom-left */
-.hero::after{content:""; position:absolute; inset:0; background:radial-gradient(ellipse at 75% 50%, rgba(230,120,0,.13) 0%, transparent 50%), radial-gradient(ellipse at 18% 82%, rgba(30,60,120,.55) 0%, transparent 38%); pointer-events:none; z-index:0}
-/* Organic yellow-orange blob - right side */
-.hero__blob{position:absolute; right:-4%; top:-8%; width:58%; height:116%; background:linear-gradient(165deg, #FFCC00 0%, #F5B800 40%, #E8820A 80%, #D4600A 100%); border-radius:50% 0 0 50% / 50% 0 0 50%; z-index:1; overflow:hidden}
-/* Ring accent top-right of blob */
-.hero__blob-ring{position:absolute; right:-6%; top:-8%; width:55%; padding-bottom:55%; border-radius:50%; border:3px solid rgba(0,0,0,.13)}
-.hero__blob-ring::after{content:""; position:absolute; inset:14%; border-radius:50%; border:1.5px solid rgba(0,0,0,.08)}
-/* Checkered racing strip at bottom of blob */
-.hero__blob-check{position:absolute; bottom:0; left:0; right:0; height:30px; background-image:repeating-conic-gradient(rgba(0,0,0,.22) 0% 25%, transparent 0% 50%); background-size:30px 30px; z-index:2}
-/* Motorka v blobě */
-.hero__blob-moto{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; pointer-events:none}
-.hero-moto{width:90%; max-height:78%; object-fit:contain; filter:drop-shadow(0 22px 18px rgba(0,0,0,.30)) drop-shadow(0 4px 6px rgba(0,0,0,.18))}
-@media(max-width:920px){.hero-moto{width:80%}}
-@media(max-width:720px){.hero-moto{width:70%}}
-/* Chevrons at left edge of blob */
-.hero__blob-chevrons{position:absolute; left:2%; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:2px; pointer-events:none}
-.hero__blob-chevrons span{font-family:var(--f-display); font-size:clamp(28px,3.5vw,50px); font-weight:700; color:rgba(0,0,0,.2); line-height:1; letter-spacing:-4px; display:block}
-/* Dot pattern top-left corner of blob */
-.hero__blob-dots{position:absolute; top:10%; left:10%; width:72px; height:72px; background-image:radial-gradient(circle, rgba(0,0,0,.28) 1.5px, transparent 1.5px); background-size:10px 10px}
-/* Circular accent bottom-right of blob */
-.hero__blob-dot{position:absolute; bottom:12%; right:6%; width:clamp(36px,4vw,56px); height:clamp(36px,4vw,56px); border-radius:50%; border:3px solid rgba(0,0,0,.2)}
-.hero__blob-dot::after{content:""; position:absolute; inset:6px; border-radius:50%; background:rgba(0,0,0,.15)}
+/* HERO — dark split with photo */
+.hero{position:relative; background:#080B12; color:#fff; height:100svh; min-height:500px; display:flex; flex-direction:column; padding:clamp(100px,12vw,150px) 0 0}
+/* Right photo */
+.hero__photo{position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:1}
+.hero__photo img{width:100%; height:100%; object-fit:cover; object-position:center center}
+.hero__photo::before{content:""; position:absolute; inset:0; background:linear-gradient(to right, rgba(8,11,18,.92) 0%, rgba(8,11,18,.70) 45%, rgba(8,11,18,.25) 75%, transparent 100%); z-index:2; pointer-events:none}
 /* Hero content — left side */
-.hero__content{position:relative; z-index:2; max-width:var(--max); margin:0 auto; padding:0 var(--pad); width:100%}
-.hero__inner{max-width:clamp(300px,40%,500px)}
-.hero__badge{display:inline-flex; align-items:center; gap:10px; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.14); backdrop-filter:blur(8px); border-radius:999px; padding:8px 16px; font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--red); margin-bottom:clamp(20px,2.5vw,32px)}
-.hero__badge .dot{width:6px; height:6px; border-radius:50%; background:var(--red); flex-shrink:0}
-.hero__loc{display:flex; align-items:center; gap:8px; font-size:13px; font-weight:600; color:rgba(255,255,255,.6); margin-bottom:20px}
-.hero__loc svg{width:14px; height:14px; color:var(--red); flex-shrink:0}
-.hero__inner h1{color:#fff; font-size:clamp(52px,7.5vw,110px); max-width:14ch; margin:0 0 20px}
-.hero__inner h1 .accent{color:var(--red); display:block}
-.hero__lead{font-size:clamp(16px,1.4vw,19px); color:rgba(255,255,255,.72); max-width:44ch; line-height:1.55; margin:0 0 32px}
-.hero__ctas{display:flex; flex-wrap:wrap; gap:12px; margin-bottom:36px}
-.hero__meta{font-size:13px; color:rgba(255,255,255,.50); display:flex; flex-wrap:wrap; gap:10px}
-.hero__meta strong{color:rgba(255,255,255,.85); font-weight:600}
-.hero__meta .sep{opacity:.4}
-@media (max-width:920px){
-  .hero__blob{width:46%}
-  .hero__inner{max-width:50%}
+.hero__content{position:relative; z-index:2; max-width:var(--max); margin:0 auto; padding:0 var(--pad) clamp(130px,16vh,160px); width:100%; flex:1 1 auto; display:flex; align-items:center}
+.hero__inner{max-width:clamp(300px,46%,560px)}
+.hero__inner h1{color:#fff; font-size:clamp(52px,8vw,116px); max-width:14ch; margin:0 0 20px; line-height:1; letter-spacing:-.02em; padding-top:0.06em}
+.hero__inner h1 .accent{color:var(--red); display:block; font-style:italic; padding-right:0.18em; overflow:visible}
+.hero__lead{font-size:clamp(16px,1.4vw,18px); color:rgba(255,255,255,.70); max-width:44ch; line-height:1.55; margin:0 0 32px}
+.hero__ctas{display:flex; flex-wrap:wrap; gap:12px}
+/* Feature strip */
+.hero__strip{position:absolute; bottom:0; left:0; right:0; z-index:3; background:rgba(4,6,10,.88); backdrop-filter:blur(12px); border-top:1px solid rgba(255,255,255,.08); overflow:hidden}
+.hero__strip-inner{display:flex; width:max-content; animation:hero-ticker 55s linear infinite}
+.hero__strip-inner:hover{animation-play-state:paused}
+@keyframes hero-ticker{from{transform:translateX(0)} to{transform:translateX(-50%)}}
+.hero__strip-item{flex-shrink:0; min-width:260px; display:flex; align-items:flex-start; gap:16px; padding:32px 26px; border-right:1px solid rgba(255,255,255,.07)}
+.hero__strip-icon{flex-shrink:0; width:46px; height:46px; border-radius:11px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.10); display:flex; align-items:center; justify-content:center; color:var(--red)}
+.hero__strip-icon .ti{font-size:23px; line-height:1; display:flex}
+.hero__strip-item strong{display:block; font-family:var(--f-display); font-size:15px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:#fff; margin-bottom:5px}
+.hero__strip-item p{font-size:13.5px; color:rgba(255,255,255,.55); line-height:1.5; margin:0}
+/* Tablet */
+@media(max-width:920px){
+  .hero__inner{max-width:65%}
+  .hero__photo img{object-fit:cover; object-position:70% center}
+  .hero__photo::before{background:linear-gradient(to right, rgba(8,11,18,.97) 0%, rgba(8,11,18,.80) 42%, rgba(8,11,18,.35) 68%, transparent 100%)}
+}
+/* Mobil */
+@media(max-width:720px){
+  .hero{padding:clamp(78px,14vw,106px) 0 0}
+  .hero__content{align-items:flex-start; padding-top:clamp(16px,4vw,28px)}
+  /* Foto jen pravá polovina — motorka vyčnívá jako accent */
+  .hero__photo{position:absolute; inset:0; width:100%; height:100%}
+  .hero__photo img{object-fit:cover; object-position:75% center; width:100%; height:100%}
+  /* Silný gradient zleva — levá polovina tmavá pro text, pravá průhledná */
+  .hero__photo::before{background:linear-gradient(to right, rgba(8,11,18,.98) 0%, rgba(8,11,18,.90) 45%, rgba(8,11,18,.50) 68%, transparent 100%)}
+  .hero__inner{max-width:100%}
+  .hero__strip-item{padding:22px 18px; min-width:220px}
+}
+@media(max-width:480px){
+  .hero__inner h1{font-size:clamp(44px,12vw,68px)}
+  .hero__strip-item p{display:none}
+  .hero__strip-item{padding:16px 12px; gap:10px}
 }
 @media (max-width:720px){
-  /* Celá výška viewportu */
-  .hero{min-height:100svh; padding:clamp(78px,14vw,106px) 0 0; align-items:flex-start; flex-direction:column}
-  .hero__content{flex:0 0 auto; padding-bottom:20px}
-  .hero__inner{max-width:100%}
-  /* Amber blob — ostrá diagonála místo obloučku */
-  .hero__blob{
-    position:absolute; bottom:0; left:0; right:0; top:auto;
-    width:100%; height:50%;
-    border-radius:0;
-    clip-path:polygon(0 34%, 100% 0%, 100% 100%, 0% 100%);
-  }
-  /* Motorka vpravo — čelo míří doleva k textu */
-  .hero__blob-moto{display:flex; align-items:flex-end; justify-content:flex-end; padding:6% 5% 5% 0}
-  .hero-moto{width:74%; max-height:82%}
-  /* Skrýt dekorace které by narušily čistou diagonálu */
-  .hero__blob-ring,.hero__blob-dots,.hero__blob-chevrons,.hero__blob-dot{display:none}
-  .hero__blob-check{height:20px; background-size:20px 20px}
-  .hero__lead{margin-bottom:24px}
+  .hero__ctas .btn--primary{background:var(--ink); color:#fff; box-shadow:none}
+  .hero__ctas .btn--primary:hover{background:#111827; color:#fff}
+  .hero__ctas .btn--ghost-dark{background:rgba(15,17,23,.45); backdrop-filter:blur(6px); border-color:rgba(255,255,255,.4)}
 }
-@media (max-width:480px){
-  .hero__blob{height:46%; clip-path:polygon(0 28%, 100% 0%, 100% 100%, 0% 100%)}
-  .hero-moto{width:80%}
-  .hero__meta{display:none}
+@media (max-width:640px){
+  .course--feature{grid-template-columns:1fr}
+  .course__visual{display:none}
 }
 
 /* STATS */
@@ -149,6 +134,27 @@
 .big-letter{font-family:var(--f-display); font-weight:700; font-size:280px; line-height:.78; color:rgba(255,255,255,.06); letter-spacing:-.04em; user-select:none}
 @media (max-width:1080px){.courses__grid{grid-template-columns:1fr 1fr} .course--feature{grid-column:span 2}}
 @media (max-width:640px){.courses__grid{grid-template-columns:1fr} .course--feature{grid-column:span 1} .big-letter{font-size:200px}}
+
+/* COURSES INTRO */
+.courses__intro{margin-bottom:56px}
+.courses__intro-text h2{font-size:clamp(36px,4.5vw,60px); margin:0 0 0; line-height:1.05}
+.courses__intro-text h2::after{content:""; display:block; width:52px; height:3px; background:var(--red); margin-top:16px; margin-bottom:18px}
+.courses__intro-text p{color:var(--muted); font-size:16px; max-width:40ch; margin:0 0 14px; line-height:1.6}
+.courses__intro-text .promo{font-size:13.5px}
+.courses__intro-text .promo strong{color:var(--red)}
+/* GROUP OVERVIEW CARDS */
+.course--group{grid-column:span 2; background:var(--ink); color:#fff; padding:0; border-color:transparent; min-height:auto; overflow:hidden; display:flex; flex-direction:column; justify-content:flex-start}
+.course--group:hover{transform:translateY(-4px); border-color:rgba(245,184,0,.50)}
+.course--group .course__group-img{height:200px; overflow:hidden; flex-shrink:0}
+.course--group .course__group-img img{width:100%; height:100%; object-fit:cover; object-position:center center; transition:transform .4s ease}
+.course--group:hover .course__group-img img{transform:scale(1.04)}
+.course--group .course__group-body{padding:28px 26px; display:flex; flex-direction:column; flex:1}
+.course--group .course__group{color:#fff}
+.course--group .course__group .age{color:rgba(255,255,255,.6)}
+.course--group .course__desc{color:rgba(255,255,255,.7); flex:1}
+.course--group .course__foot{border-top-color:rgba(255,255,255,.14); justify-content:flex-end}
+.course--group .course__cta{background:var(--red)}
+.course--group .course__cta:hover{background:#fff; color:var(--ink)}
 
 /* GALLERY */
 .fleet-groups{display:grid; grid-template-columns:repeat(auto-fill, minmax(210px, 1fr)); gap:16px; margin-bottom:48px}
@@ -324,74 +330,91 @@
 <!-- HERO -->
 <section class="hero" id="hero" data-screen-label="01 Hero">
 
-  <!-- Vlnité linky v pozadí -->
-  <svg aria-hidden="true" class="hero__waves" viewBox="0 0 1200 700" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <style>
-      /* Desktop: horizontální vlnky přes tmavou stranu */
-      .waves-desktop { display: block }
-      .waves-mobile  { display: none  }
-      @media (max-width: 720px) {
-        .waves-desktop { display: none  }
-        .waves-mobile  { display: block }
-      }
-    </style>
-    <!-- Desktop paths — teče zleva doprava -->
-    <g class="waves-desktop">
-      <path d="M-20 480 Q160 340 340 420 Q520 500 680 380 Q840 260 1020 340 Q1120 390 1240 310" fill="none" stroke="rgba(100,140,255,0.20)" stroke-width="1.4"/>
-      <path d="M-20 520 Q160 380 340 460 Q520 540 680 420 Q840 300 1020 380 Q1120 430 1240 350" fill="none" stroke="rgba(100,140,255,0.13)" stroke-width="1.1"/>
-      <path d="M-20 560 Q160 420 340 500 Q520 580 680 460 Q840 340 1020 420 Q1120 470 1240 390" fill="none" stroke="rgba(100,140,255,0.08)" stroke-width="0.9"/>
-      <path d="M-20 440 Q170 300 360 375 Q550 450 710 330 Q870 210 1060 295 Q1160 340 1240 275" fill="none" stroke="rgba(120,160,255,0.13)" stroke-width="1.2"/>
-      <path d="M-20 400 Q170 260 360 335 Q550 410 710 290 Q870 170 1060 255 Q1160 300 1240 235" fill="none" stroke="rgba(80,120,220,0.09)" stroke-width="1.0"/>
-      <path d="M-20 360 Q180 220 380 295 Q580 370 740 250 Q900 130 1080 215 Q1170 255 1240 200" fill="none" stroke="rgba(100,140,255,0.07)" stroke-width="0.8"/>
-      <path d="M-20 320 Q180 180 380 255 Q580 330 740 210 Q900 90 1080 175 Q1170 215 1240 165" fill="none" stroke="rgba(80,100,200,0.06)" stroke-width="0.7"/>
-    </g>
-    <!-- Mobile paths — teče shora dolů, vycentrováno kolem x=600 -->
-    <g class="waves-mobile">
-      <path d="M460 -20 Q580 120 510 280 Q440 440 560 580 Q680 720 600 900" fill="none" stroke="rgba(100,140,255,0.22)" stroke-width="1.4"/>
-      <path d="M510 -20 Q630 120 560 280 Q490 440 610 580 Q730 720 650 900" fill="none" stroke="rgba(100,140,255,0.15)" stroke-width="1.1"/>
-      <path d="M560 -20 Q680 120 610 280 Q540 440 660 580 Q780 720 700 900" fill="none" stroke="rgba(100,140,255,0.09)" stroke-width="0.9"/>
-      <path d="M420 -20 Q540 140 460 310 Q380 480 510 630 Q640 780 550 900" fill="none" stroke="rgba(120,160,255,0.14)" stroke-width="1.2"/>
-      <path d="M600 -20 Q720 140 650 310 Q580 480 700 630 Q820 780 740 900" fill="none" stroke="rgba(80,120,220,0.09)" stroke-width="1.0"/>
-    </g>
-  </svg>
-
-  <!-- Organický amber blob — pravá strana -->
-  <div class="hero__blob" aria-hidden="true">
-    <div class="hero__blob-ring"></div>
-    <div class="hero__blob-dots"></div>
-    <!-- Three.js 3D motorka -->
-    <div class="hero__blob-moto">
-      <img src="images/motorcycle.png?v=2" alt="" class="hero-moto" aria-hidden="true">
-    </div>
-    <div class="hero__blob-chevrons">
-      <span>›</span>
-      <span>›</span>
-      <span>›</span>
-    </div>
-    <div class="hero__blob-dot"></div>
-    <div class="hero__blob-check"></div>
+  <!-- Foto motorky — pravá strana -->
+  <div class="hero__photo" aria-hidden="true">
+    <img src="images/hero_section.jpg" alt="">
   </div>
 
   <!-- Textový obsah — levá strana -->
   <div class="hero__content">
     <div class="hero__inner">
-      <div class="hero__badge"><span class="dot"></span>34+ let zkušeností</div>
-      <p class="hero__loc">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Ústí nad Labem
-      </p>
-      <h1 data-anim="up" data-delay="1">Získej řidičák<br/><span class="accent">s&nbsp;jistotou.</span></h1>
-      <p class="hero__lead" data-anim="up" data-delay="2">Autoškola s 34letou tradicí v&nbsp;Ústí nad Labem. Specializace na skupiny A a&nbsp;B, vlastní motocvičiště v&nbsp;Chlumci a&nbsp;7 zkušených instruktorů.</p>
+      <h1 data-anim="up" data-delay="1">Řiď svou<span class="accent">BUDOUCNOST</span></h1>
+      <p class="hero__lead" data-anim="up" data-delay="2">Moderní výuka, zkušení instruktoři a&nbsp;individuální přístup. Získej řidičák a&nbsp;otevři si cestu k&nbsp;novým možnostem.</p>
       <div class="hero__ctas" data-anim="up" data-delay="3">
-        <a href="#kurzy" class="btn btn--primary">Prohlédnout kurzy <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a href="tel:+420606222935" class="btn btn--ghost-dark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg> Zavolat nám</a>
+        <a href="#kurzy" class="btn btn--primary">VYBRAT KURZ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="#kontakt" class="btn btn--ghost-dark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg> KONTAKTUJTE NÁS</a>
       </div>
-      <div class="hero__meta" data-anim="up" data-delay="4">
-        <span><strong>Žukovova 15</strong> · Ústí nad Labem-Střekov</span>
-        <span class="sep">·</span>
-        <span><strong>Teorie</strong> odpoledně dle dohody</span>
-        <span class="sep">·</span>
-        <span><strong>IČ 650 910 86</strong></span>
+    </div>
+  </div>
+
+  <!-- Feature strip — ticker -->
+  <div class="hero__strip" data-anim="up" data-delay="4">
+    <div class="hero__strip-inner" aria-hidden="true">
+      <!-- Set 1 -->
+      <div class="hero__strip-item">
+        <span class="hero__strip-icon"><i class="ti ti-motorbike"></i></span>
+        <div><strong>Skupina A</strong><p>Výcvik pro motocykly všech objemových tříd.</p></div>
+      </div>
+      <div class="hero__strip-item">
+        <span class="hero__strip-icon"><i class="ti ti-car"></i></span>
+        <div><strong>Skupina B</strong><p>Výcvik pro osobní automobily s&nbsp;moderními vozy.</p></div>
+      </div>
+      <div class="hero__strip-item">
+        <span class="hero__strip-icon"><i class="ti ti-presentation"></i></span>
+        <div><strong>Výuka teorie</strong><p>Odpoledne ve&nbsp;všední dny — termíny dle dohody.</p></div>
+      </div>
+      <div class="hero__strip-item">
+        <span class="hero__strip-icon"><i class="ti ti-route"></i></span>
+        <div><strong>Vlastní motocvičiště</strong><p>Cvičiště v&nbsp;Chlumci (U&nbsp;Šmelce) i pro závěrečné zkoušky.</p></div>
+      </div>
+      <div class="hero__strip-item">
+        <span class="hero__strip-icon"><i class="ti ti-calendar"></i></span>
+        <div><strong>Flexibilní termíny</strong><p>Přizpůsobíme se tvému času. Jezdi, kdy ti to vyhovuje.</p></div>
+      </div>
+      <div class="hero__strip-item">
+        <span class="hero__strip-icon"><i class="ti ti-users"></i></span>
+        <div><strong>7 instruktorů</strong><p>Průměrně přes 14 let praxe každý.</p></div>
+      </div>
+      <div class="hero__strip-item">
+        <span class="hero__strip-icon"><i class="ti ti-user-check"></i></span>
+        <div><strong>Individuální přístup</strong><p>Trpělivý a&nbsp;přátelský přístup je u&nbsp;nás samozřejmostí.</p></div>
+      </div>
+      <div class="hero__strip-item">
+        <span class="hero__strip-icon"><i class="ti ti-award"></i></span>
+        <div><strong>34 let tradice</strong><p>Rodinná autoškola v&nbsp;Ústí nad Labem od roku 1992.</p></div>
+      </div>
+      <!-- Set 2 — duplikát pro plynulou smyčku -->
+      <div class="hero__strip-item">
+        <span class="hero__strip-icon"><i class="ti ti-motorbike"></i></span>
+        <div><strong>Skupina A</strong><p>Výcvik pro motocykly všech objemových tříd.</p></div>
+      </div>
+      <div class="hero__strip-item">
+        <span class="hero__strip-icon"><i class="ti ti-car"></i></span>
+        <div><strong>Skupina B</strong><p>Výcvik pro osobní automobily s&nbsp;moderními vozy.</p></div>
+      </div>
+      <div class="hero__strip-item">
+        <span class="hero__strip-icon"><i class="ti ti-presentation"></i></span>
+        <div><strong>Výuka teorie</strong><p>Odpoledne ve&nbsp;všední dny — termíny dle dohody.</p></div>
+      </div>
+      <div class="hero__strip-item">
+        <span class="hero__strip-icon"><i class="ti ti-route"></i></span>
+        <div><strong>Vlastní motocvičiště</strong><p>Cvičiště v&nbsp;Chlumci (U&nbsp;Šmelce) i pro závěrečné zkoušky.</p></div>
+      </div>
+      <div class="hero__strip-item">
+        <span class="hero__strip-icon"><i class="ti ti-calendar"></i></span>
+        <div><strong>Flexibilní termíny</strong><p>Přizpůsobíme se tvému času. Jezdi, kdy ti to vyhovuje.</p></div>
+      </div>
+      <div class="hero__strip-item">
+        <span class="hero__strip-icon"><i class="ti ti-users"></i></span>
+        <div><strong>7 instruktorů</strong><p>Průměrně přes 14 let praxe každý.</p></div>
+      </div>
+      <div class="hero__strip-item">
+        <span class="hero__strip-icon"><i class="ti ti-user-check"></i></span>
+        <div><strong>Individuální přístup</strong><p>Trpělivý a&nbsp;přátelský přístup je u&nbsp;nás samozřejmostí.</p></div>
+      </div>
+      <div class="hero__strip-item">
+        <span class="hero__strip-icon"><i class="ti ti-award"></i></span>
+        <div><strong>34 let tradice</strong><p>Rodinná autoškola v&nbsp;Ústí nad Labem od roku 1992.</p></div>
       </div>
     </div>
   </div>
@@ -413,14 +436,50 @@
 <!-- COURSES -->
 <section class="courses section" id="kurzy" data-screen-label="03 Kurzy">
   <div class="container">
-    <div class="section__head">
-      <div data-anim="up">
+    <div class="courses__intro">
+      <div class="courses__intro-text" data-anim="up">
         <span class="eyebrow">Naše kurzy</span>
-        <h2 style="margin-top:14px">Vyber si kurz,<br/>se kterým ti pomůžeme</h2>
+        <h2 style="margin-top:14px">Nabízíme výcvik pro motocykly i&nbsp;osobní automobily.</h2>
+        <p>Vyber si kurz, který je pro tebe ten pravý.</p>
+        <p class="promo"><strong>Absolventi jakéhokoli A u nás: −2&nbsp;000 Kč na další A · −3&nbsp;000 Kč na sdružený A+B · −3&nbsp;000 Kč na B.</strong></p>
       </div>
-      <p data-anim="up" data-delay="1">Specializujeme se na skupiny A (moto) a&nbsp;B (auto). Výcvik probíhá na vlastním motocvičišti v&nbsp;Chlumci. <strong style="color:var(--red)">Absolventi jakéhokoli A u nás: −2&nbsp;000 Kč na další A · −3&nbsp;000 Kč na sdružený A+B · −3&nbsp;000 Kč na B.</strong></p>
     </div>
     <div class="courses__grid">
+
+      <!-- Skupina A — přehled -->
+      <article class="course course--group" data-anim="up">
+        <div class="course__group-img">
+          <img src="images/group_a.jpg" alt="Skupina A — motocykly">
+        </div>
+        <div class="course__group-body">
+          <div class="course__group">AM · A1 · A2 · A</div>
+          <div class="course__name">Skupiny A — motocykly</div>
+          <p class="course__desc">
+            <strong style="color:rgba(255,255,255,.85)">AM</strong> Yamaha N-Max, Aprilia Motard, Daytona Hobby<br>
+            <strong style="color:rgba(255,255,255,.85)">A1</strong> Yamaha YBR, Benelli BN 125, Yamaha N-Max<br>
+            <strong style="color:rgba(255,255,255,.85)">A2</strong> CF Moto 300, Honda Rebel, Yamaha Tracer 7, Honda ADV 350<br>
+            <strong style="color:rgba(255,255,255,.85)">A&nbsp;</strong> Yamaha MT 07, XJ6, Honda CB 650 e-clutch
+          </p>
+          <div class="course__foot">
+            <a href="cenik.html#skupiny-a" class="course__cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Skupina B — přehled -->
+      <article class="course course--group" data-anim="up" data-delay="1">
+        <div class="course__group-img">
+          <img src="images/group_B.jpg" alt="Skupina B — automobily">
+        </div>
+        <div class="course__group-body">
+          <div class="course__group">B <span class="age">od 18 let</span></div>
+          <div class="course__name">Skupina B — automobily</div>
+          <p class="course__desc">Toyota Aygo · Citroën C3 · Toyota Corolla (automat)</p>
+          <div class="course__foot">
+            <a href="cenik.html#skupina-b" class="course__cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </article>
 
       <!-- Featured: Sdružený A+B -->
       <article class="course course--feature" data-anim="up">
