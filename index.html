@@ -699,6 +699,16 @@
     if (anchor) cta.href = 'cenik.html' + anchor;
   });
 
+  // Make course group cards fully clickable (except when clicking a link inside)
+  document.querySelectorAll('.course--group').forEach(card => {
+    const more = card.querySelector('a.course__more');
+    if (!more) return;
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', function(e) {
+      if (!e.target.closest('a')) window.location.href = more.href;
+    });
+  });
+
   // Auto-select kurz z URL parametru ?kurz=X
   const kurzParam = new URLSearchParams(window.location.search).get('kurz');
   if (kurzParam) {
