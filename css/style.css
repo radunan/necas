@@ -72,10 +72,6 @@ p { margin: 0 0 1em }
   letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--red);
-  padding: 8px 14px;
-  border: 1px solid var(--red-soft);
-  background: var(--red-soft);
-  border-radius: 999px;
 }
 .dark .eyebrow,
 .hero .eyebrow,
@@ -84,8 +80,6 @@ p { margin: 0 0 1em }
 .faq .eyebrow,
 .page-hero .eyebrow {
   color: #FFD94A;
-  border-color: rgba(255, 204, 0, .30);
-  background: rgba(255, 204, 0, .10);
 }
 
 /* ── Buttons ── */
