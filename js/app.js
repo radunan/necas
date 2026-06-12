@@ -10,7 +10,7 @@
   const heroEl = document.getElementById('hero');
   if (navEl) {
     const updateNav = () => {
-      const overHero = heroEl && heroEl.getBoundingClientRect().bottom > navEl.offsetHeight;
+      const overHero = heroEl && window.scrollY < heroEl.offsetHeight * 0.2;
       navEl.classList.toggle('is-transparent', !!overHero);
       navEl.classList.toggle('is-scrolled', !overHero && window.scrollY > 8);
     };

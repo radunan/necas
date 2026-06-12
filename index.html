@@ -78,7 +78,7 @@
 @media (max-width:780px){.stats__grid{grid-template-columns:repeat(2,1fr); gap:28px}}
 
 /* SECTION */
-.section{padding:clamp(72px, 10vw, 130px) 0}
+.section{padding:clamp(40px, 5.5vw, 68px) 0}
 .section.dark{background:var(--ink); color:#fff}
 .section.dark h1, .section.dark h2, .section.dark h3, .section.dark h4{color:#fff}
 .section.dark p{color:rgba(255,255,255,.7)}
@@ -90,8 +90,8 @@
 /* COURSES grid */
 .courses{background:var(--paper)}
 .courses__grid{display:grid; grid-template-columns:repeat(4, 1fr); gap:18px}
-.course{background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); padding:28px 26px; display:flex; flex-direction:column; justify-content:space-between; min-height:340px; transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease; position:relative}
-.course:hover{transform:translateY(-4px); box-shadow:0 24px 50px -24px rgba(15,17,23,.18); border-color:rgba(245,184,0,.50)}
+.course{background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); padding:28px 26px; display:flex; flex-direction:column; justify-content:space-between; min-height:340px; transition:box-shadow .2s ease, border-color .2s ease; position:relative}
+.course:hover{box-shadow:0 24px 50px -24px rgba(15,17,23,.18); border-color:rgba(245,184,0,.50)}
 .course__icon{width:48px; height:48px; border-radius:12px; background:var(--paper); display:flex; align-items:center; justify-content:center; color:var(--ink); margin-bottom:24px}
 .course__icon svg{width:24px; height:24px}
 .course__icon .ti{font-size:24px; line-height:1; display:flex}
@@ -146,10 +146,9 @@
 /* GROUP OVERVIEW CARDS */
 .course--group{grid-column:span 2; background:var(--ink); color:#fff; padding:0; border-color:transparent; min-height:auto; overflow:hidden; display:flex; flex-direction:column; justify-content:flex-start}
 .course--group.course--single{grid-column:span 1}
-.course--group:hover{transform:translateY(-4px); border-color:rgba(245,184,0,.50)}
+.course--group:hover{border-color:rgba(245,184,0,.50)}
 .course--group .course__group-img{height:200px; overflow:hidden; flex-shrink:0}
-.course--group .course__group-img img{width:100%; height:100%; object-fit:cover; object-position:center center; transition:transform .4s ease}
-.course--group:hover .course__group-img img{transform:scale(1.04)}
+.course--group .course__group-img img{width:100%; height:100%; object-fit:cover; object-position:center center}
 .course--group .course__group-body{padding:28px 26px; display:flex; flex-direction:column; flex:1}
 .course--group .course__group{color:#fff}
 .course--group .course__group .age{color:rgba(255,255,255,.6)}
@@ -171,8 +170,7 @@
 .fleet-group__list{font-size:13.5px; color:var(--muted); line-height:1.7}
 .gallery{display:grid; grid-template-columns:repeat(4, 1fr); gap:10px}
 .gallery__item{aspect-ratio:3/2; overflow:hidden; border-radius:var(--r-sm); display:block; background:var(--paper-2); cursor:pointer}
-.gallery__item img{width:100%; height:100%; object-fit:cover; transition:transform .4s ease}
-.gallery__item:hover img{transform:scale(1.08)}
+.gallery__item img{width:100%; height:100%; object-fit:cover}
 @media(max-width:1080px){.gallery{grid-template-columns:repeat(3, 1fr)}}
 @media(max-width:640px){.gallery{grid-template-columns:repeat(2, 1fr)}}
 
@@ -186,8 +184,8 @@
 .why__sig strong{display:block; font-size:15px}
 .why__sig span{display:block; color:var(--muted); font-size:13px}
 .why__features{display:grid; grid-template-columns:1fr 1fr; gap:18px}
-.feature{background:var(--paper); border:1px solid var(--line); border-radius:var(--r-lg); padding:32px 28px; position:relative; transition:transform .18s ease, background .18s ease}
-.feature:hover{transform:translateY(-3px); background:#fff; box-shadow:0 24px 50px -24px rgba(15,17,23,.14)}
+.feature{background:var(--paper); border:1px solid var(--line); border-radius:var(--r-lg); padding:32px 28px; position:relative; transition:background .18s ease}
+.feature:hover{background:#fff; box-shadow:0 24px 50px -24px rgba(15,17,23,.14)}
 .feature__num{position:absolute; top:24px; right:28px; font-family:var(--f-text); font-size:11px; font-weight:600; letter-spacing:.14em; color:var(--muted)}
 .feature__icon{width:52px; height:52px; border-radius:14px; background:#fff; border:1px solid var(--line); display:flex; align-items:center; justify-content:center; color:var(--ink); margin-bottom:24px}
 .feature__icon svg{width:26px; height:26px}
@@ -209,8 +207,8 @@
 
 /* PRICE TABLE */
 .price-list{display:flex; flex-direction:column; gap:10px}
-.price-row{display:grid; grid-template-columns:80px 1fr 140px 120px; gap:24px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:var(--r-md); padding:20px 24px; transition:transform .15s ease, border-color .15s ease}
-.price-row:hover{transform:translateY(-1px); border-color:rgba(245,184,0,.50)}
+.price-row{display:grid; grid-template-columns:80px 1fr 140px 120px; gap:24px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:var(--r-md); padding:20px 24px; transition:border-color .15s ease}
+.price-row:hover{border-color:rgba(245,184,0,.50)}
 .price-row.is-feature{background:var(--ink); color:#fff; border-color:transparent}
 .price-row.is-feature .price-row__group{color:var(--red-2)}
 .price-row.is-feature .price-row__desc{color:rgba(255,255,255,.65)}
@@ -282,6 +280,19 @@
 .form-success p{color:rgba(255,255,255,.65); font-size:14px; margin:0}
 @media (max-width:880px){.contact__grid{grid-template-columns:1fr} .contact__info, .contact__form{padding:32px} .field-row{grid-template-columns:1fr}}
 
+/* Mobile doplnění */
+@media (max-width:640px){
+  .course{min-height:0}
+  .course--group{grid-column:span 1}
+  .course--group .course__group-img{height:160px}
+  .process__steps{grid-template-columns:1fr}
+  .step__num{width:72px; height:72px; font-size:26px}
+  .step{padding:0; margin-bottom:24px}
+}
+@media (max-width:480px){
+  .stats__grid{grid-template-columns:1fr}
+}
+
 </style>
 </head>
 <body>
@@ -315,7 +326,6 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
     </div>
-  </div>
   </div>
 </nav>
 <div class="nav__drawer" id="navDrawer">
