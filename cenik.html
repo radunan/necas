@@ -106,7 +106,7 @@
 .price-cat__note{font-size:12px; font-weight:500; color:var(--muted); font-style:italic; word-break:break-word}
 
 /* Anchor tab nav */
-.price-nav{background:#fff; border-bottom:1px solid var(--line); position:sticky; top:74px; z-index:40; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none}
+.price-nav{background:#fff; border-bottom:1px solid var(--line); position:sticky; top:62px; z-index:40; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none}
 .price-nav::-webkit-scrollbar{display:none}
 .price-nav__inner{display:flex; gap:4px; padding:10px var(--pad); max-width:var(--max); margin:0 auto; white-space:nowrap}
 .price-nav__link{display:inline-flex; align-items:center; padding:9px 18px; border-radius:999px; font-size:13.5px; font-weight:600; text-decoration:none; color:var(--muted); transition:background .15s ease, color .15s ease; border:1.5px solid transparent}
@@ -114,7 +114,7 @@
 .price-nav__link.is-active{background:var(--ink); color:#fff}
 
 /* scroll-margin so sticky nav + price-nav don't cover anchors */
-.price-anchor{scroll-margin-top:135px}
+.price-anchor{scroll-margin-top:123px}
 
 /* Tabbed panels */
 .price-panel{display:none}
@@ -166,7 +166,7 @@
 <!-- NAV -->
 <nav class="nav" id="siteNav" aria-label="Hlavní navigace">
   <div class="nav__inner">
-    <a href="index.html" class="logo">NEČAS<span class="dot">.</span><span class="small">Autoškola Ústí nad Labem</span></a>
+    <a href="index.html" class="logo"><img src="images/necas.svg" alt="Autoškola Nečas" height="34"></a>
     <div class="nav__links">
       <a href="index.html#kurzy">Kurzy</a>
       <a href="instruktori.html">Instruktoři</a>
@@ -236,30 +236,8 @@
 </nav>
 
 <!-- PRICE TABLE -->
-<section class="section" style="background:var(--paper)">
+<section class="section" style="background:var(--paper); padding-top:32px">
   <div class="container">
-
-    <!-- Věrnostní slevy — vždy viditelné -->
-    <div class="sleva-panel" data-anim="up">
-      <div class="sleva-panel__head">
-        <div class="sleva-panel__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div>
-        <div class="sleva-panel__title">Věrnostní slevy — pro naše absolventy skupin A</div>
-      </div>
-      <div class="sleva-panel__grid">
-        <div class="sleva-panel__item">
-          <div class="sleva-panel__amount">−2 000 Kč</div>
-          <div class="sleva-panel__desc"><strong>Na každý další kurz skupin A</strong><br/>Pokud jste u nás v minulosti absolvovali jakékoli A (AM, A1, A2 nebo A)</div>
-        </div>
-        <div class="sleva-panel__item">
-          <div class="sleva-panel__amount">−3 000 Kč</div>
-          <div class="sleva-panel__desc"><strong>Na sdružený výcvik A+B</strong><br/>Absolventi jakéhokoli A u nás — platí pro A1+B, A2+B i A+B</div>
-        </div>
-        <div class="sleva-panel__item">
-          <div class="sleva-panel__amount">−3 000 Kč</div>
-          <div class="sleva-panel__desc"><strong>Na kurz skupiny B</strong><br/>Pokud máte skupinu A z naší autoškoly — B za 18 000 Kč místo 21 000 Kč</div>
-        </div>
-      </div>
-    </div>
 
     <!-- ABSOLVENT TOGGLE -->
     <label class="absolvent-bar" data-anim="up">
@@ -279,9 +257,9 @@
       <div class="courses__grid">
         <article class="course" data-anim="up">
           <div class="course__icon"><i class="ti ti-scooter"></i></div>
-          <div class="course__group">AM</div>
+          <div class="course__group">AM <span style="font-size:18px;font-weight:700;font-family:var(--f-display);color:#E53935">— od 15 let</span></div>
           <div class="course__name">Mopedy, skútry do 45&nbsp;km/h</div>
-          <p class="course__desc">Od 15 let · Yamaha YBR, Benelli BN 125, Daytona Hobby, Yamaha N-Max, Aprilia Motard</p>
+          <p class="course__desc">Yamaha N-Max<br>Aprilia Motard<br>Daytona Hobby<br>Benelli BN 125<br>Yamaha YBR</p>
           <div class="course__foot">
             <div class="course__price"><small>cena kurzu</small>16 000 Kč<span class="price-spacer"></span></div>
             <a href="index.html#kontakt" class="course__more">Zapsat se</a>
@@ -289,9 +267,9 @@
         </article>
         <article class="course" data-anim="up" data-delay="1">
           <div class="course__icon"><i class="ti ti-moped"></i></div>
-          <div class="course__group">A1</div>
+          <div class="course__group">A1 <span style="font-size:18px;font-weight:700;font-family:var(--f-display);color:#E53935">— od 16 let</span></div>
           <div class="course__name">Lehké motocykly do 125&nbsp;cm³</div>
-          <p class="course__desc">Od 16 let, 11&nbsp;kW · Yamaha YBR, Benelli BN 125, skútr N-Max · držitelé ŘP: −1&nbsp;000&nbsp;Kč</p>
+          <p class="course__desc">Yamaha YBR<br>Benelli BN 125<br>Skútr N-Max<br><small style="color:var(--muted)">držitelé ŘP: −1&nbsp;000&nbsp;Kč</small></p>
           <div class="course__foot">
             <div class="course__price"><small>cena kurzu</small><span class="price-swap"><span class="price-std">17 000 Kč</span><span class="price-was">17 000 Kč</span></span><span class="price-dis">15 000 Kč</span><small class="price-for">pro naše žáky sk. A</small></div>
             <a href="index.html#kontakt" class="course__more">Zapsat se</a>
@@ -299,9 +277,9 @@
         </article>
         <article class="course" data-anim="up" data-delay="2">
           <div class="course__icon"><i class="ti ti-motorbike"></i></div>
-          <div class="course__group">A2</div>
+          <div class="course__group">A2 <span style="font-size:18px;font-weight:700;font-family:var(--f-display);color:#E53935">— od 18 let</span></div>
           <div class="course__name">Motocykly do 35&nbsp;kW</div>
-          <p class="course__desc">Od 18 let · CF Moto 300, Honda Rebel, Yamaha Tracer 7, Honda ADV 350 (automat) · držitelé ŘP: −1&nbsp;000&nbsp;Kč</p>
+          <p class="course__desc">CF Moto 300<br>Honda Rebel<br>Yamaha Tracer 7<br>Honda ADV 350 (automat)<br><small style="color:var(--muted)">držitelé ŘP: −1&nbsp;000&nbsp;Kč</small></p>
           <div class="course__foot">
             <div class="course__price"><small>cena kurzu</small><span class="price-swap"><span class="price-std">19 000 Kč</span><span class="price-was">19 000 Kč</span></span><span class="price-dis">17 000 Kč</span><small class="price-for">pro naše žáky sk. A</small></div>
             <a href="index.html#kontakt" class="course__more">Zapsat se</a>
@@ -309,9 +287,9 @@
         </article>
         <article class="course" data-anim="up" data-delay="3">
           <div class="course__icon"><i class="ti ti-motorbike"></i></div>
-          <div class="course__group">A</div>
+          <div class="course__group">A <span style="font-size:18px;font-weight:700;font-family:var(--f-display);color:#E53935">— od 24 let</span></div>
           <div class="course__name">Motocykly bez omezení</div>
-          <p class="course__desc">Od 24 let · Yamaha MT 07, Yamaha XJ6, Honda CB 650 e-clutch · držitelé ŘP: −1&nbsp;000&nbsp;Kč</p>
+          <p class="course__desc">Yamaha MT 07<br>Yamaha XJ6<br>Honda CB 650 e-clutch<br><small style="color:var(--muted)">držitelé ŘP: −1&nbsp;000&nbsp;Kč</small></p>
           <div class="course__foot">
             <div class="course__price"><small>cena kurzu</small><span class="price-swap"><span class="price-std">20 000 Kč</span><span class="price-was">20 000 Kč</span></span><span class="price-dis">18 000 Kč</span><small class="price-for">pro naše žáky sk. A</small></div>
             <a href="index.html#kontakt" class="course__more">Zapsat se</a>
@@ -664,7 +642,7 @@
   <div class="container">
     <div class="footer__inner">
       <div class="footer__brand">
-        <a href="index.html" class="logo">NEČAS<span class="dot">.</span></a>
+        <a href="index.html" class="logo"><img src="images/necas.svg" alt="Autoškola Nečas" height="28"></a>
         <p>Rodinná autoškola s 33letou tradicí v Ústí nad Labem. Specializace na skupiny A (moto) a B. Vlastní motocvičiště v Chlumci.</p>
       </div>
       <div><h5>Stránky</h5><ul><li><a href="index.html#kurzy">Kurzy</a></li><li><a href="instruktori.html">Instruktoři</a></li><li><a href="vozovy-park.html">Vozový park</a></li><li><a href="cenik.html">Ceník</a></li><li><a href="index.html#kontakt">Kontakt</a></li></ul></div>

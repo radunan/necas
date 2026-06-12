@@ -23,7 +23,7 @@
   --pad: clamp(20px, 4vw, 56px);
   --f-display: 'Barlow Condensed', system-ui, sans-serif;
   --f-text: 'DM Sans', system-ui, sans-serif;
-  --nav-h: 75px;
+  --nav-h: 63px;
 }
 
 /* ── Reset ── */
@@ -149,6 +149,7 @@ p { margin: 0 0 1em }
 .nav.is-transparent .logo { color: #fff }
 .nav.is-transparent .logo .small { color: rgba(255,255,255,.55) }
 .nav.is-transparent .logo .dot { color: var(--red) }
+.nav.is-transparent .logo img { filter: brightness(0) invert(1) }
 .nav.is-transparent .nav__links a { color: rgba(255,255,255,.85) }
 .nav.is-transparent .nav__links a:hover,
 .nav.is-transparent .nav__links a.active { background: rgba(255,255,255,.12); color: #fff }
@@ -163,7 +164,7 @@ p { margin: 0 0 1em }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 74px;
+  height: 62px;
   max-width: var(--max);
   margin: 0 auto;
   padding: 0 var(--pad);
@@ -340,6 +341,7 @@ body.drawer-open { overflow: hidden; position: fixed; width: 100% }
   margin-bottom: 56px;
 }
 .footer__brand .logo { color: #fff }
+.footer__brand .logo img { filter: brightness(0) invert(1) }
 .footer__brand p { color: rgba(255, 255, 255, .55); font-size: 14px; margin: 18px 0 0; max-width: 34ch }
 .footer h5 {
   font-family: var(--f-display);

@@ -10,10 +10,9 @@
   const heroEl = document.getElementById('hero');
   if (navEl) {
     const updateNav = () => {
-      const threshold = window.innerWidth <= 720 ? 0.08 : 0.2;
-      const overHero = heroEl && window.scrollY < heroEl.offsetHeight * threshold;
-      navEl.classList.toggle('is-transparent', !!overHero);
-      navEl.classList.toggle('is-scrolled', !overHero && window.scrollY > 8);
+      const atTop = !!heroEl && window.scrollY < 10;
+      navEl.classList.toggle('is-transparent', atTop);
+      navEl.classList.toggle('is-scrolled', !atTop && window.scrollY > 8);
     };
     requestAnimationFrame(updateNav);
     window.addEventListener('scroll', updateNav, { passive: true });
