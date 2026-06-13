@@ -7,7 +7,7 @@
 
   /* ── Nav: scroll shadow + průhlednost nad hero ── */
   const navEl = document.getElementById('siteNav');
-  const heroEl = document.getElementById('hero');
+  const heroEl = document.getElementById('hero') || document.querySelector('.page-hero__photo');
   const pageHeroEl = document.querySelector('.page-hero');
   if (navEl) {
     if (!heroEl && pageHeroEl) navEl.classList.add('is-solid');
@@ -16,7 +16,7 @@
       navEl.classList.toggle('is-transparent', atTop);
       navEl.classList.toggle('is-scrolled', !!heroEl && !atTop && window.scrollY > 8);
     };
-    requestAnimationFrame(updateNav);
+    updateNav();
     window.addEventListener('scroll', updateNav, { passive: true });
   }
 
