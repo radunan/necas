@@ -35,6 +35,11 @@
 .hero__strip-icon .ti{font-size:23px; line-height:1; display:flex}
 .hero__strip-item strong{display:block; font-family:var(--f-display); font-size:15px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:#fff; margin-bottom:5px}
 .hero__strip-item p{font-size:13.5px; color:rgba(255,255,255,.55); line-height:1.5; margin:0}
+/* Ultrawide */
+@media(min-aspect-ratio: 21/9){
+  .hero{height:min(100svh, 820px)}
+  .hero__photo img{object-position:center 40%}
+}
 /* Tablet */
 @media(max-width:920px){
   .hero__inner{max-width:65%}
