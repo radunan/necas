@@ -52,9 +52,10 @@
 .page-hero{background:var(--ink); color:#fff; padding:clamp(80px,11vw,130px) 0 clamp(64px,9vw,104px); position:relative; overflow:hidden; margin-top:calc(-1 * var(--nav-h)); padding-top:calc(clamp(80px,11vw,130px) + var(--nav-h))}
 .page-hero::before{display:none}
 .page-hero__photo{position:absolute; inset:0; width:100%; height:100%; z-index:0}
+.page-hero__photo picture{display:block; width:100%; height:100%}
 .page-hero__photo img{width:100%; height:100%; object-fit:cover; object-position:right center}
 .page-hero__inner{position:relative; z-index:2}
-@media(max-width:600px){.page-hero__photo img{object-fit:contain; object-position:right bottom} .page-hero{padding-bottom:calc(100vw / 2.33 + 24px)}}
+@media(max-width:600px){.page-hero__photo{display:none} .page-hero{padding-bottom:clamp(64px,9vw,104px)}}
 .page-hero .eyebrow{color:#FFD94A; border-color:rgba(255,204,0,.30); background:rgba(255,204,0,.10)}
 .page-hero h1{color:#fff; margin:20px 0 22px; max-width:16ch}
 .page-hero__lead{font-size:clamp(16px, 1.4vw, 19px); color:rgba(255,255,255,.72); max-width:56ch; line-height:1.55; margin:0 0 36px}
@@ -253,7 +254,10 @@
 <!-- PAGE HERO -->
 <section class="page-hero">
   <div class="page-hero__photo" aria-hidden="true">
-    <img src="images/cenik_hero2.jpg" alt="Ceník výcviku Autoškoly Nečas — platný od 1. 6. 2026">
+    <picture>
+      <source media="(max-width:600px)" srcset="images/cenik_hero_mobile.jpg">
+      <img src="images/cenik_hero2.jpg" alt="Ceník výcviku Autoškoly Nečas — platný od 1. 6. 2026">
+    </picture>
   </div>
   <div class="container">
     <div class="page-hero__inner">
@@ -314,7 +318,7 @@
           <div class="course__group">A1</div>
           <div style="font-size:16px;font-weight:700;font-family:var(--f-display);color:#E53935;margin:-6px 0 6px">od 16 let</div>
           <div class="course__name">Lehké motocykly do 125&nbsp;cm³</div>
-          <p class="course__desc">Yamaha YBR<br>Benelli BN 125<br>Skútr N-Max</p>
+          <p class="course__desc">Yamaha N-Max<br>Daytona Hobby<br>Benelli BN 125<br>Yamaha YBR</p>
           <div class="course__foot">
             <div class="course__price"><small>cena kurzu</small><span class="price-swap"><span class="price-std">17 000 Kč</span><span class="price-was">17 000 Kč</span></span><span class="price-dis">15 000 Kč</span><small class="price-for">pro naše žáky sk. A</small></div>
             <a href="index.html#kontakt" class="course__more">Zapsat se</a>
@@ -327,7 +331,7 @@
           <div class="course__name">Motocykly do 35&nbsp;kW</div>
           <p class="course__desc">CF Moto 300<br>Honda Rebel<br>Yamaha Tracer 7<br>Honda ADV 350 (automat)</p>
           <div class="course__foot">
-            <div class="course__price"><small>cena kurzu</small><span class="price-swap"><span class="price-std">19 000 Kč</span><span class="price-was">19 000 Kč</span></span><span class="price-dis">17 000 Kč</span><small class="price-for">pro naše žáky sk. A</small></div>
+            <div class="course__price"><small>cena kurzu</small><span class="price-swap"><span class="price-std">18 000 Kč</span><span class="price-was">18 000 Kč</span></span><span class="price-dis">16 000 Kč</span><small class="price-for">pro naše žáky sk. A</small></div>
             <a href="index.html#kontakt" class="course__more">Zapsat se</a>
           </div>
         </article>

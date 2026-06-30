@@ -415,6 +415,9 @@
 .course--group .course__group{color:#fff}
 .course--group .course__group .age{color:rgba(255,255,255,.6)}
 .course--group .course__desc{color:rgba(255,255,255,.7); flex:1}
+.course__bikes{display:flex; flex-direction:column; gap:5px}
+.course__bikes .bike-row{display:flex; gap:12px; align-items:baseline}
+.course__bikes .bike-cat{flex:0 0 32px; color:rgba(255,255,255,.88); font-weight:700}
 .course--group .course__foot{border-top-color:rgba(255,255,255,.14); justify-content:flex-end}
 .course--group .course__cta{background:var(--red)}
 .course--group .course__cta:hover{background:#fff; color:var(--ink)}
@@ -733,12 +736,12 @@
         <div class="course__group-body">
           <div class="course__group">A · A2 · A1 · AM</div>
           <div class="course__name-row"><div class="course__name">Skupiny A — motocykly</div><a href="cenik.html#skupiny-a" class="course__more">Zjisti více</a></div>
-          <p class="course__desc">
-            <strong style="color:rgba(255,255,255,.85)">AM</strong> Yamaha N-Max, Aprilia Motard, Daytona Hobby<br>
-            <strong style="color:rgba(255,255,255,.85)">A1</strong> Yamaha YBR, Benelli BN 125, Yamaha N-Max<br>
-            <strong style="color:rgba(255,255,255,.85)">A2</strong> CF Moto 300, Honda Rebel, Yamaha Tracer 7, Honda ADV 350<br>
-            <strong style="color:rgba(255,255,255,.85)">A&nbsp;</strong> Yamaha MT 07, XJ6, Honda CB 650 e-clutch
-          </p>
+          <div class="course__desc course__bikes">
+            <div class="bike-row"><span class="bike-cat">AM</span><span>Yamaha N-Max, Aprilia Motard, Daytona Hobby, Benelli BN 125, Yamaha YBR</span></div>
+            <div class="bike-row"><span class="bike-cat">A1</span><span>Yamaha N-Max, Daytona Hobby, Benelli BN 125, Yamaha YBR</span></div>
+            <div class="bike-row"><span class="bike-cat">A2</span><span>CF Moto 300, Honda Rebel, Yamaha Tracer 7, Honda ADV 350</span></div>
+            <div class="bike-row"><span class="bike-cat">A</span><span>Yamaha MT 07, Yamaha XJ6, Honda CB 650 e-clutch</span></div>
+          </div>
         </div>
       </article>
 
