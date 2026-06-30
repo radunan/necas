@@ -523,11 +523,13 @@
 .contact__list .val{font-size:15px; line-height:1.4; color:#fff}
 .contact__list .val a{color:#fff; text-decoration:none; border-bottom:1px solid rgba(255,255,255,.2)}
 .contact__list .val a:hover{border-color:var(--red-2)}
-.contact__map{margin-top:32px; position:relative; height:160px; border-radius:var(--r-md); overflow:hidden; border:1px solid rgba(255,255,255,.10); background:linear-gradient(135deg, var(--ink-2), var(--ink-3))}
-.contact__map .roads{position:absolute; inset:0; background-image:linear-gradient(90deg, transparent 49%, rgba(255,255,255,.18) 49% 51%, transparent 51%), linear-gradient(0deg, transparent 49%, rgba(255,255,255,.10) 49% 51%, transparent 51%), linear-gradient(45deg, transparent 49.5%, rgba(255,255,255,.06) 49.5% 50.5%, transparent 50.5%)}
-.contact__map .pin{position:absolute; left:50%; top:50%; width:18px; height:18px; background:var(--red); border-radius:50% 50% 50% 0; transform:translate(-50%, -100%) rotate(-45deg); box-shadow:0 0 0 4px rgba(245,184,0,.35), 0 8px 16px rgba(0,0,0,.4)}
-.contact__map .pin::after{content:""; position:absolute; inset:5px; background:#fff; border-radius:50%}
-.contact__form{padding:48px}
+.contact__map-tabs{display:flex; gap:8px; margin-top:32px}
+.map-tab{flex:1; cursor:pointer; font-family:var(--f-display); font-weight:700; font-size:12.5px; letter-spacing:.04em; color:rgba(255,255,255,.7); background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.14); border-radius:var(--r-sm); padding:9px 12px; transition:background .18s ease, color .18s ease, border-color .18s ease}
+.map-tab:hover{color:#fff; background:rgba(255,255,255,.12)}
+.map-tab.is-active{color:var(--ink); background:var(--red); border-color:var(--red)}
+.contact__map{margin-top:12px; position:relative; height:220px; border-radius:var(--r-md); overflow:hidden; border:1px solid rgba(255,255,255,.10); background:var(--ink-2)}
+.contact__map iframe{width:100%; height:100%; border:0; display:block; filter:grayscale(.2)}
+.contact__form{padding:48px; scroll-margin-top:calc(var(--nav-h) + 16px)}
 .contact__form h3{font-family:var(--f-display); font-size:32px; text-transform:uppercase; margin-bottom:6px}
 .contact__form > p{color:var(--muted); font-size:14px; margin:0 0 28px}
 .field{display:flex; flex-direction:column; gap:6px; margin-bottom:18px}
@@ -866,9 +868,12 @@
           <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><div><div class="lbl">Email</div><div class="val"><a href="mailto:autoskola.necas@seznam.cz">autoskola.necas@seznam.cz</a></div></div></li>
           <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><div class="lbl">Výuka teorie</div><div class="val">Odpoledne, všední dny<br/>Termíny dle dohody na úvodní schůzce</div></div></li>
         </ul>
-        <div class="contact__map" aria-label="Mapa Žukovova, Ústí nad Labem-Střekov">
-          <div class="roads"></div>
-          <div class="pin"></div>
+        <div class="contact__map-tabs" role="tablist" aria-label="Vyber místo na mapě">
+          <button type="button" class="map-tab is-active" aria-pressed="true" data-src="https://maps.google.com/maps?q=%C5%BDukovova%20546%2F15%2C%20%C3%9Ast%C3%AD%20nad%20Labem-St%C5%99ekov&hl=cs&z=16&output=embed">Učebna · teorie</button>
+          <button type="button" class="map-tab" aria-pressed="false" data-src="https://maps.google.com/maps?q=U%20%C5%A0melce%2C%20403%2039%20Chlumec&hl=cs&z=15&output=embed">Cvičiště · Chlumec</button>
+        </div>
+        <div class="contact__map">
+          <iframe id="contactMap" title="Mapa — Autoškola Nečas" src="https://maps.google.com/maps?q=%C5%BDukovova%20546%2F15%2C%20%C3%9Ast%C3%AD%20nad%20Labem-St%C5%99ekov&hl=cs&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
       <form class="contact__form" id="contactForm" novalidate>
@@ -998,10 +1003,32 @@
     const sel = document.getElementById('f-course');
     if (optTxt && sel) {
       Array.from(sel.options).forEach(o => { o.selected = o.text === optTxt; });
-      const kontaktSec = document.getElementById('kontakt');
-      if (kontaktSec) setTimeout(() => kontaktSec.scrollIntoView({behavior:'smooth', block:'start'}), 150);
+      const target = document.getElementById('contactForm') || document.getElementById('kontakt');
+      if (target) {
+        const doScroll = () => {
+          const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 63;
+          const y = target.getBoundingClientRect().top + window.pageYOffset - (navH + 16);
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        };
+        // Wait for full load so images above the form have their final height
+        if (document.readyState === 'complete') setTimeout(doScroll, 120);
+        else window.addEventListener('load', () => setTimeout(doScroll, 150));
+      }
     }
   }
+
+  // Map location toggle (Učebna / Cvičiště)
+  const mapFrame = document.getElementById('contactMap');
+  const mapTabs = document.querySelectorAll('.map-tab');
+  mapTabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+      if (tab.classList.contains('is-active')) return;
+      mapTabs.forEach(t => { t.classList.remove('is-active'); t.setAttribute('aria-pressed', 'false'); });
+      tab.classList.add('is-active');
+      tab.setAttribute('aria-pressed', 'true');
+      if (mapFrame) mapFrame.src = tab.dataset.src;
+    });
+  });
 })();
 </script>
 </body>
