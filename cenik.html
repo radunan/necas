@@ -49,16 +49,21 @@
 </script>
 <style>
 /* PAGE HERO */
-.page-hero{background:var(--ink); color:#fff; padding:clamp(80px,11vw,130px) 0 clamp(64px,9vw,104px); position:relative; overflow:hidden; margin-top:calc(-1 * var(--nav-h)); padding-top:calc(clamp(80px,11vw,130px) + var(--nav-h))}
-.page-hero::before{display:none}
+.page-hero{background:var(--ink); color:#fff; padding:clamp(80px,11vw,130px) 0 clamp(64px,9vw,104px); position:relative; overflow:hidden}
+.page-hero::before{content:""; position:absolute; inset:0; background:radial-gradient(900px 500px at 80% 0%, rgba(245,184,0,.18), transparent 60%); pointer-events:none}
+.page-hero::after{content:""; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px); background-size:60px 60px; -webkit-mask-image:radial-gradient(ellipse at center, black 40%, transparent 85%); mask-image:radial-gradient(ellipse at center, black 40%, transparent 85%); pointer-events:none}
+.page-hero__inner{position:relative; z-index:1}
+/* Obrázek ceníku dočasně vypnutý — pro obnovení odkomentuj tento blok i <picture> v HTML níže
 .page-hero__photo{position:absolute; inset:0; width:100%; height:100%; z-index:0}
 .page-hero__photo picture{display:block; width:100%; height:100%}
 .page-hero__photo img{width:100%; height:100%; object-fit:cover; object-position:right center}
-.page-hero__inner{position:relative; z-index:2}
-@media(max-width:600px){.page-hero__photo{display:none} .page-hero{padding-bottom:clamp(64px,9vw,104px)}}
+@media(max-width:600px){.page-hero__photo{display:none}}
+*/
 .page-hero .eyebrow{color:#FFD94A; border-color:rgba(255,204,0,.30); background:rgba(255,204,0,.10)}
-.page-hero h1{color:#fff; margin:20px 0 22px; max-width:16ch}
-.page-hero__lead{font-size:clamp(16px, 1.4vw, 19px); color:rgba(255,255,255,.72); max-width:38ch; line-height:1.55; margin:0 0 36px}
+.page-hero h1{color:#fff; margin:20px 0 22px}
+.page-hero__lead{font-size:clamp(16px, 1.4vw, 19px); color:rgba(255,255,255,.72); max-width:56ch; line-height:1.55; margin:0; min-height:calc(1.55em * 3)}
+@media(max-width:460px){.page-hero__lead{min-height:calc(1.55em * 4)}}
+@media(max-width:360px){.page-hero__lead{min-height:calc(1.55em * 5)}}
 .back-link{display:inline-flex; align-items:center; gap:8px; color:rgba(255,255,255,.45); font-size:13px; font-weight:500; text-decoration:none; margin-bottom:36px; transition:color .15s ease}
 .back-link svg{width:14px; height:14px}
 .back-link:hover{color:rgba(255,255,255,.9)}
@@ -252,12 +257,14 @@
 
 <!-- PAGE HERO -->
 <section class="page-hero">
+  <!-- Obrázek ceníku dočasně vypnutý — pro obnovení odkomentuj a zapni i CSS blok .page-hero__photo
   <div class="page-hero__photo" aria-hidden="true">
     <picture>
       <source media="(max-width:600px)" srcset="images/cenik_hero_mobile.jpg">
       <img src="images/cenik_final.jpg" alt="Ceník výcviku Autoškoly Nečas — platný od 1. 6. 2026">
     </picture>
   </div>
+  -->
   <div class="container">
     <div class="page-hero__inner">
       <a href="index.html" class="back-link" data-anim="fade">
