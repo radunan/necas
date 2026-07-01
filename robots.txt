@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /rezervace/
+
+Sitemap: https://www.autoskolanecas.cz/sitemap.xml
